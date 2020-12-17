@@ -1,0 +1,2737 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+<style type='text/css'>
+@import "/2021Jan/css/bootstrap.css";
+@import "/2021Jan/css/codemirror.css";
+@import "/2021Jan/css/hl7.css";
+@import "/2021Jan/css/fhir.css";
+<!-- @import "css/bootstrap-fhir.css"; -->
+@import "/2021Jan/css/bootstrap-v2.css";
+@import "/2021Jan/css/project.css";
+@import "/2021Jan/css/pygments-manni.css";
+@import "/2021Jan/css/jquery-ui.css";
+@import "/2021Jan/css/modules.css";
+@import "/2021Jan/css/v2.css";
+</style>
+<script src='/2021Jan/js/jquery.js'></script>
+<script src='/2021Jan/js/jquery-ui.min.js'></script>
+<script src='/2021Jan/js/bootstrap.min.js'></script>
+<script src='/2021Jan/js/respond.min.js'></script>
+<script src='/2021Jan/js/codemirror/codemirror.js'></script>
+<script src='/2021Jan/js/codemirror/mode/xml.js'></script>
+<script src='/2021Jan/js/v2.js'></script>
+<script src='/2021Jan/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/2021Jan/js/format_xml.js' type='text/javascript'></script>
+<link href='/2021Jan/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/2021Jan/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/2021Jan/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/2021Jan/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/2021Jan/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/2021Jan/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/2021Jan/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/2021Jan/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/2021Jan/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/2021Jan/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='https://www.hl7.org/fhir/terminologies-valuesets.html#tabs-v2'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/2021Jan/composition/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/2021Jan/composition/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/2021Jan/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/2021Jan/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+PSL - Product/Service Line Item Segment
+</h3>
+<div>
+      <p class="v2 v2-normalindented">The Product/Service Line Item segment is used to identify individual product/service items that typically are aggregated into an Invoice.  Each instance of a Product/Service Line Item corresponds to a unique product delivered or service rendered.</p>
+      <!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - PSL - Product/Service Line Item Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+DataElement
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Description
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Must Implement
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Flags
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+DataType
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/2021Jan/images/folder_icon.gif'>
+<b>
+PSL
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+<a href='#PSL-1'>
+01955
+</a>
+</td>
+<td>
+Provider Product/Service Line Item Number
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/EI.html'>
+EI
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+<a href='#PSL-2'>
+01956
+</a>
+</td>
+<td>
+Payer Product/Service Line Item Number
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/EI.html'>
+EI
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+<a href='#PSL-3'>
+01957
+</a>
+</td>
+<td>
+Product/Service Line Item Sequence Number
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+[1..4]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/SI.html'>
+SI
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+<a href='#PSL-4'>
+01958
+</a>
+</td>
+<td>
+Provider Tracking ID
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/EI.html'>
+EI
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+<a href='#PSL-5'>
+01959
+</a>
+</td>
+<td>
+Payer Tracking ID
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/EI.html'>
+EI
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+<a href='#PSL-6'>
+01960
+</a>
+</td>
+<td>
+Product/Service Line Item Status
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0559/index.html'>
+0559
+<span class='vocab-link-text'>Product/Service Status</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+<a href='#PSL-7'>
+01961
+</a>
+</td>
+<td>
+Product/Service Code
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0879/index.html'>
+0879
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+<a href='#PSL-8'>
+01962
+</a>
+</td>
+<td>
+Product/Service Code Modifier
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..0]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0880/index.html'>
+0880
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+<a href='#PSL-9'>
+01963
+</a>
+</td>
+<td>
+Product/Service Code Description
+</td>
+<td>
+
+</td>
+<td class='centered'>
+#
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+80
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ST.html'>
+ST
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+10
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+</td>
+<td>
+<a href='#PSL-10'>
+01964
+</a>
+</td>
+<td>
+Product/Service Effective Date
+</td>
+<td>
+MAY
+<br>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+True:
+<br>
+<img src='/2021Jan/images/tbl_vjoin_end.png'>
+False:
+
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<br/>[1..1]<br/>[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/DTM.html'>
+DTM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+<a href='#PSL-11'>
+01965
+</a>
+</td>
+<td>
+Product/Service Expiration Date
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/DTM.html'>
+DTM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+12
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+</td>
+<td>
+<a href='#PSL-12'>
+01966
+</a>
+</td>
+<td>
+Product/Service Quantity
+</td>
+<td>
+MAY
+<br>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+True:
+<br>
+<img src='/2021Jan/images/tbl_vjoin_end.png'>
+False:
+
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<br/>[1..1]<br/>[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0560/index.html'>
+0560
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CQ.html'>
+CQ
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+13
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+</td>
+<td>
+<a href='#PSL-13'>
+01967
+</a>
+</td>
+<td>
+Product/Service Unit Cost
+</td>
+<td>
+MAY
+<br>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+True:
+<br>
+<img src='/2021Jan/images/tbl_vjoin_end.png'>
+False:
+
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<br/>[1..1]<br/>[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CP.html'>
+CP
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+14
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+</td>
+<td>
+<a href='#PSL-14'>
+01968
+</a>
+</td>
+<td>
+Number of Items per Unit
+</td>
+<td>
+MAY
+<br>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+True:
+<br>
+<img src='/2021Jan/images/tbl_vjoin_end.png'>
+False:
+
+</td>
+<td class='centered'>
+C#
+</td>
+<td class='centered'>
+<br/>[1..1]<br/>[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+10
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/NM.html'>
+NM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+15
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+</td>
+<td>
+<a href='#PSL-15'>
+01969
+</a>
+</td>
+<td>
+Product/Service Gross Amount
+</td>
+<td>
+MAY
+<br>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+True:
+<br>
+<img src='/2021Jan/images/tbl_vjoin_end.png'>
+False:
+
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<br/>[1..1]<br/>[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CP.html'>
+CP
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+16
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+</td>
+<td>
+<a href='#PSL-16'>
+01970
+</a>
+</td>
+<td>
+Product/Service Billed Amount
+</td>
+<td>
+MAY
+<br>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+True:
+<br>
+<img src='/2021Jan/images/tbl_vjoin_end.png'>
+False:
+
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<br/>[1..1]<br/>[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CP.html'>
+CP
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+<a href='#PSL-17'>
+01971
+</a>
+</td>
+<td>
+Product/Service Clarification Code Type
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..0]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0561/index.html'>
+0561
+<span class='vocab-link-text'>Product/Services Clarification Codes</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+<a href='#PSL-18'>
+01972
+</a>
+</td>
+<td>
+Product/Service Clarification Code Value
+</td>
+<td>
+
+</td>
+<td class='centered'>
+=
+</td>
+<td class='centered'>
+[0..0]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+40
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ST.html'>
+ST
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+<a href='#PSL-19'>
+01973
+</a>
+</td>
+<td>
+Health Document Reference Identifier
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..0]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/EI.html'>
+EI
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+<a href='#PSL-20'>
+01974
+</a>
+</td>
+<td>
+Processing Consideration Code
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..0]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0562/index.html'>
+0562
+<span class='vocab-link-text'>Processing Consideration Codes</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+21
+</td>
+<td>
+<a href='#PSL-21'>
+01975
+</a>
+</td>
+<td>
+Restricted Disclosure Indicator
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+[1..4]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0532/index.html'>
+0532
+<span class='vocab-link-text'>Expanded Yes/no Indicator</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ID.html'>
+ID
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+22
+</td>
+<td>
+<a href='#PSL-22'>
+01976
+</a>
+</td>
+<td>
+Related Product/Service Code Indicator
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0879/index.html'>
+0879
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+23
+</td>
+<td>
+<a href='#PSL-23'>
+01977
+</a>
+</td>
+<td>
+Product/Service Amount for Physician
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CP.html'>
+CP
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+24
+</td>
+<td>
+<a href='#PSL-24'>
+01978
+</a>
+</td>
+<td>
+Product/Service Cost Factor
+</td>
+<td>
+
+</td>
+<td class='centered'>
+#
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+5
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/NM.html'>
+NM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+25
+</td>
+<td>
+<a href='#PSL-25'>
+01933
+</a>
+</td>
+<td>
+Cost Center
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CX.html'>
+CX
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+26
+</td>
+<td>
+<a href='#PSL-26'>
+01980
+</a>
+</td>
+<td>
+Billing Period
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/DR.html'>
+DR
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+27
+</td>
+<td>
+<a href='#PSL-27'>
+01981
+</a>
+</td>
+<td>
+Days without Billing
+</td>
+<td>
+
+</td>
+<td class='centered'>
+=
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+5
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/NM.html'>
+NM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+28
+</td>
+<td>
+<a href='#PSL-28'>
+01982
+</a>
+</td>
+<td>
+Session-No
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+[1..4]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/NM.html'>
+NM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+29
+</td>
+<td>
+<a href='#PSL-29'>
+01983
+</a>
+</td>
+<td>
+Executing Physician ID
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XCN.html'>
+XCN
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+30
+</td>
+<td>
+<a href='#PSL-30'>
+01984
+</a>
+</td>
+<td>
+Responsible Physician ID
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XCN.html'>
+XCN
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+31
+</td>
+<td>
+<a href='#PSL-31'>
+01985
+</a>
+</td>
+<td>
+Role Executing Physician
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0881/index.html'>
+0881
+<span class='vocab-link-text'>Role Executing Physician</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+32
+</td>
+<td>
+<a href='#PSL-32'>
+01986
+</a>
+</td>
+<td>
+Medical Role Executing Physician
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0882/index.html'>
+0882
+<span class='vocab-link-text'>Medical Role Executing Physician</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+33
+</td>
+<td>
+<a href='#PSL-33'>
+01987
+</a>
+</td>
+<td>
+Side of body
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0894/index.html'>
+0894
+<span class='vocab-link-text'>Side of body</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+34
+</td>
+<td>
+<a href='#PSL-34'>
+01988
+</a>
+</td>
+<td>
+Number of TP's PP
+</td>
+<td>
+
+</td>
+<td class='centered'>
+#
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+6
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/NM.html'>
+NM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+35
+</td>
+<td>
+<a href='#PSL-35'>
+01989
+</a>
+</td>
+<td>
+TP-Value PP
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CP.html'>
+CP
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+36
+</td>
+<td>
+<a href='#PSL-36'>
+01990
+</a>
+</td>
+<td>
+Internal Scaling Factor PP
+</td>
+<td>
+
+</td>
+<td class='centered'>
+#
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+4
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/NM.html'>
+NM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+37
+</td>
+<td>
+<a href='#PSL-37'>
+01991
+</a>
+</td>
+<td>
+External Scaling Factor PP
+</td>
+<td>
+
+</td>
+<td class='centered'>
+#
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+4
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/NM.html'>
+NM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+38
+</td>
+<td>
+<a href='#PSL-38'>
+01992
+</a>
+</td>
+<td>
+Amount PP
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CP.html'>
+CP
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+39
+</td>
+<td>
+<a href='#PSL-39'>
+01993
+</a>
+</td>
+<td>
+Number of TP's Technical Part
+</td>
+<td>
+
+</td>
+<td class='centered'>
+#
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+6
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/NM.html'>
+NM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+40
+</td>
+<td>
+<a href='#PSL-40'>
+01994
+</a>
+</td>
+<td>
+TP-Value Technical Part
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CP.html'>
+CP
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+41
+</td>
+<td>
+<a href='#PSL-41'>
+01995
+</a>
+</td>
+<td>
+Internal Scaling Factor Technical Part
+</td>
+<td>
+
+</td>
+<td class='centered'>
+#
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+4
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/NM.html'>
+NM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+42
+</td>
+<td>
+<a href='#PSL-42'>
+01996
+</a>
+</td>
+<td>
+External Scaling Factor Technical Part
+</td>
+<td>
+
+</td>
+<td class='centered'>
+#
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+4
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/NM.html'>
+NM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+43
+</td>
+<td>
+<a href='#PSL-43'>
+01997
+</a>
+</td>
+<td>
+Amount Technical Part
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CP.html'>
+CP
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+44
+</td>
+<td>
+<a href='#PSL-44'>
+01998
+</a>
+</td>
+<td>
+Total Amount Professional Part + Technical Part
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CP.html'>
+CP
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+45
+</td>
+<td>
+<a href='#PSL-45'>
+01999
+</a>
+</td>
+<td>
+VAT-Rate
+</td>
+<td>
+
+</td>
+<td class='centered'>
+=
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+3
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/NM.html'>
+NM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+46
+</td>
+<td>
+<a href='#PSL-46'>
+02000
+</a>
+</td>
+<td>
+Main-Service
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+[1..20]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ID.html'>
+ID
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+47
+</td>
+<td>
+<a href='#PSL-47'>
+02001
+</a>
+</td>
+<td>
+Validation
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0136/index.html'>
+0136
+<span class='vocab-link-text'>Yes/no Indicator</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ID.html'>
+ID
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin_end.png'>
+48
+</td>
+<td>
+<a href='#PSL-48'>
+02002
+</a>
+</td>
+<td>
+Comment
+</td>
+<td>
+
+</td>
+<td class='centered'>
+=
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+255
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ST.html'>
+ST
+</a>
+</td>
+</tr>
+
+</tbody>
+</table>
+
+    </div>
+<h4 class='v2' id='PSL-1'>
+PSL-1: Provider Product/Service Line Item Number (<a href='/2021Jan/data-type/EI.html'>EI</a>) 01955
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: Unique Product/Service Line Item Number assigned by the Provider Application.</p>
+    </div>
+
+<h4 class='v2' id='PSL-2'>
+PSL-2: Payer Product/Service Line Item Number (<a href='/2021Jan/data-type/EI.html'>EI</a>) 01956
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: Unique Product/Service Line Item Number assigned by the Payer Application.</p>
+    </div>
+
+<h4 class='v2' id='PSL-3'>
+PSL-3: Product/Service Line Item Sequence Number (<a href='/2021Jan/data-type/SI.html'>SI</a>) 01957
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: Unique sequence number for the Product/Service Line Item – starts with 1, then 2, etc. for each unique Product/Service Line Item in this Invoice.</p>
+    </div>
+
+<h4 class='v2' id='PSL-4'>
+PSL-4: Provider Tracking ID (<a href='/2021Jan/data-type/EI.html'>EI</a>) 01958
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: Identifier for this Product/Service Line Item assigned by the Provider Application. This will be echoed on all interactions between participants for this Product/Service Line Item.</p>
+    </div>
+
+<h4 class='v2' id='PSL-5'>
+PSL-5: Payer Tracking ID (<a href='/2021Jan/data-type/EI.html'>EI</a>) 01959
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: Identifier for this Product/Service Line Item assigned by the Payer Application. This will be echoed on all interactions between participants for this Product/Service Line Item.</p>
+    </div>
+
+<h4 class='v2' id='PSL-6'>
+PSL-6: Product/Service Line Item Status (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 01960
+</h4>
+<div>
+      <p class="v2 justify v2-normalindented">Definition: Processing status for the Product/Service Code.  Refer to <a href="https://www.hl7.org/fhir/v2/0559/index.html">User-defined Table 0559 – Product/Service Status</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='PSL-7'>
+PSL-7: Product/Service Code (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 01961
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: Code describing the service that was delivered/received.  Refer to <a href="https://www.hl7.org/fhir/v2/0879/index.html">User-defined Table 0879 – Product/Service Code</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='PSL-8'>
+PSL-8: Product/Service Code Modifier (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 01962
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  Additional optional modifier(s) for the Product/Service Code (e.g., after hours – evening, after hours – weekend); repeats up to 5 times.  Refer to <a href="https://www.hl7.org/fhir/v2/0880/index.html">User-defined Table 0880 – Product/Service Code Modifier</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='PSL-9'>
+PSL-9: Product/Service Code Description (<a href='/2021Jan/data-type/ST.html'>ST</a>) 01963
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: Text describing Product/Service Code in PSL.</p>
+    </div>
+
+<h4 class='v2' id='PSL-10'>
+PSL-10: Product/Service Effective Date (<a href='/2021Jan/data-type/DTM.html'>DTM</a>) 01964
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: [ Start ] Date/Time product/service was delivered/received.</p>
+    </div>
+
+<h4 class='v2' id='PSL-11'>
+PSL-11: Product/Service Expiration Date (<a href='/2021Jan/data-type/DTM.html'>DTM</a>) 01965
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: [ End ] Date/Time product/service was delivered/received.  If specified, must be greater than or equal to Product/Service Effective Date.</p>
+    </div>
+
+<h4 class='v2' id='PSL-12'>
+PSL-12: Product/Service Quantity (<a href='/2021Jan/data-type/CQ.html'>CQ</a>) 01966
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: Amount that has been negotiated for this Product/Service Code on PSL between a Provider and Payer for each unit. Refer to <a href="https://www.hl7.org/fhir/v2/0560/index.html">User-defined Table 0560 – Quantity Units</a> in Chapter 2C, Code Tables, for valid values.</p>
+    </div>
+
+<h4 class='v2' id='PSL-13'>
+PSL-13: Product/Service Unit Cost (<a href='/2021Jan/data-type/CP.html'>CP</a>) 01967
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: This field contains the cost per unit either in monetary amount or in points.</p>
+      <p class="v2 v2-normalindented">Examples:</p>
+      <p class="v2 v2-normalindented v2-indent1440">1. Qty * cost/unit = gross amount</p>
+      <p class="v2 v2-normalindented v2-indent1440">2. Qty * cost/unit * factor = gross amount</p>
+      <p class="v2 v2-normalindented v2-indent1440">3. Qty * cost/point * factor * points = gross amount</p>
+    </div>
+
+<h4 class='v2' id='PSL-14'>
+PSL-14: Number of Items per Unit (<a href='/2021Jan/data-type/NM.html'>NM</a>) 01968
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: Number of items in each unit – for Services, this should be set to 1.</p>
+    </div>
+
+<h4 class='v2' id='PSL-15'>
+PSL-15: Product/Service Gross Amount (<a href='/2021Jan/data-type/CP.html'>CP</a>) 01969
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: = Product/Service Quantity * Product/Service Unit Cost</p>
+    </div>
+
+<h4 class='v2' id='PSL-16'>
+PSL-16: Product/Service Billed Amount (<a href='/2021Jan/data-type/CP.html'>CP</a>) 01970
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: Amount that is being billed for this Product/Service Code on PSL, = Product/Service Gross Amount + sum of all Product/Service Adjustments on ADJ for this Product/Service Line Item.</p>
+      <p class="v2 v2-normalindented">= Product/Service Gross Amount + sum of all Product/Service Adjustments on ADJ</p>
+    </div>
+
+<h4 class='v2' id='PSL-17'>
+PSL-17: Product/Service Clarification Code Type (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 01971
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: Additional codes describing the Product/Service Code on PSL  – examples are Northern Allowance, Data Center Numbers, Sequence Numbers; repeats with Product/Service Clarification Code Value.  Refer to <a href="https://www.hl7.org/fhir/v2/0561/index.html">User-defined Table 0561 – Product/Services Clarification Codes</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='PSL-18'>
+PSL-18: Product/Service Clarification Code Value (<a href='/2021Jan/data-type/ST.html'>ST</a>) 01972
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: Actual value for Product/Service Clarification Code Type (40) – examples are "Y", "N" for Northern Allowance, an actual number for a Data Center Number; repeats with Product/Service Clarification Code Type.</p>
+      <p class="v2 v2-normalindented">Repeats with Product/Service Clarification Code Type.</p>
+    </div>
+
+<h4 class='v2' id='PSL-19'>
+PSL-19: Health Document Reference Identifier (<a href='/2021Jan/data-type/EI.html'>EI</a>) 01973
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: Health Documents (electronic or paper) that support this Product/Service Line Item. This includes such health documents as forms used to register a claim with a Payer, reports, medical images, etc.</p>
+    </div>
+
+<h4 class='v2' id='PSL-20'>
+PSL-20: Processing Consideration Code (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 01974
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: Codes indicating special processing requested of Payer for this Product/Service Line Item (e.g., hold until paper supporting documentation is received by Payer).  Refer to <a href="https://www.hl7.org/fhir/v2/0562/index.html">User-defined Table 0562 – Processing Consideration Codes</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='PSL-21'>
+PSL-21: Restricted Disclosure Indicator (<a href='/2021Jan/data-type/ID.html'>ID</a>) 01975
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: Set to "Yes" if information on this invoice should be treated with increased confidentiality/security. Refer to <a href="https://www.hl7.org/fhir/v2/0532/index.html">User-defined Table 0532 – Expanded Yes/No Indicator</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='PSL-22'>
+PSL-22: Related Product/Service Code Indicator (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 01976
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: Two Product /Service Line Items (PSL-7) may be in a relation to each other. One could be an addition to another. In this case this field contains the Code of PSL-7 of the "master" Product/Service Line Item.  Refer to <a href="https://www.hl7.org/fhir/v2/0879/index.html">User-defined Table 0879 – Product/Service Code</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='PSL-23'>
+PSL-23: Product/Service Amount for Physician (<a href='/2021Jan/data-type/CP.html'>CP</a>) 01977
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: Monetary Amount of product/service item which is for the physician.</p>
+    </div>
+
+<h4 class='v2' id='PSL-24'>
+PSL-24: Product/Service Cost Factor (<a href='/2021Jan/data-type/NM.html'>NM</a>) 01978
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: Factor to increase the billed amount.</p>
+    </div>
+
+<h4 class='v2' id='PSL-25'>
+PSL-25: Cost Center (<a href='/2021Jan/data-type/CX.html'>CX</a>) 01933
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/IVC.html#IVC-20">IVC.20</a> in Ch. 16)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition: Cost centers are organizational units or activities that provide goods and services. In this context, it would be the department which delivered the Service/Product Line Item, e.g., Radiology, Emergency Room. </p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PSL.html#PSL-25">PSL.25</a> in Ch. 16)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition: Cost centers are organizational units or activities that provide goods and services. In this context, it would be the department which delivered the Service/Product Line Item, e.g., Radiology, Emergency Room.</p>
+    </div>
+
+<h4 class='v2' id='PSL-26'>
+PSL-26: Billing Period (<a href='/2021Jan/data-type/DR.html'>DR</a>) 01980
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: Begin and end of billing period.</p>
+    </div>
+
+<h4 class='v2' id='PSL-27'>
+PSL-27: Days without Billing (<a href='/2021Jan/data-type/NM.html'>NM</a>) 01981
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: Number of Days for which no invoice is created.</p>
+    </div>
+
+<h4 class='v2' id='PSL-28'>
+PSL-28: Session-No (<a href='/2021Jan/data-type/NM.html'>NM</a>) 01982
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: Several line items may be grouped to a session.</p>
+    </div>
+
+<h4 class='v2' id='PSL-29'>
+PSL-29: Executing Physician ID (<a href='/2021Jan/data-type/XCN.html'>XCN</a>) 01983
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: ID of the physician who is providing the Service, e.g., executing the radiology-exam (EAN ID = European Article Numbering).</p>
+    </div>
+
+<h4 class='v2' id='PSL-30'>
+PSL-30: Responsible Physician ID (<a href='/2021Jan/data-type/XCN.html'>XCN</a>) 01984
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: ID of the physician who is responsible for the Service.</p>
+    </div>
+
+<h4 class='v2' id='PSL-31'>
+PSL-31: Role Executing Physician (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 01985
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: Account role of the physician, for example only billing for the professional part, the technical part or both.  Refer to <a href="https://www.hl7.org/fhir/v2/0881/index.html">User-defined Table 0881 – Role Executing Physician</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='PSL-32'>
+PSL-32: Medical Role Executing Physician (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 01986
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  The role of the Physician ("self-employed" or "employed").  Refer to <a href="https://www.hl7.org/fhir/v2/0882/index.html">User-defined Table 0882 – Medical Role Executing Physician</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='PSL-33'>
+PSL-33: Side of body (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 01987
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: Left / right.  Refer to <a href="https://www.hl7.org/fhir/v2/0894/index.html">User-defined Table 0894 – Side of Body </a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='PSL-34'>
+PSL-34: Number of TP's PP (<a href='/2021Jan/data-type/NM.html'>NM</a>) 01988
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: Cost of the service "professional part" expressed in "points".</p>
+    </div>
+
+<h4 class='v2' id='PSL-35'>
+PSL-35: TP-Value PP (<a href='/2021Jan/data-type/CP.html'>CP</a>) 01989
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: Monetary Value of one "point" for the professional part of the service.</p>
+    </div>
+
+<h4 class='v2' id='PSL-36'>
+PSL-36: Internal Scaling Factor PP (<a href='/2021Jan/data-type/NM.html'>NM</a>) 01990
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  Internal Scaling Factor for the amount of the professional part of the service.</p>
+    </div>
+
+<h4 class='v2' id='PSL-37'>
+PSL-37: External Scaling Factor PP (<a href='/2021Jan/data-type/NM.html'>NM</a>) 01991
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  External Scaling Factor for the amount of the professional part of the service.</p>
+    </div>
+
+<h4 class='v2' id='PSL-38'>
+PSL-38: Amount PP (<a href='/2021Jan/data-type/CP.html'>CP</a>) 01992
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  Total Amount for the professional part of this service.</p>
+    </div>
+
+<h4 class='v2' id='PSL-39'>
+PSL-39: Number of TP's Technical Part (<a href='/2021Jan/data-type/NM.html'>NM</a>) 01993
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: Cost of the service (Technical Part) expressed in "points".</p>
+    </div>
+
+<h4 class='v2' id='PSL-40'>
+PSL-40: TP-Value Technical Part (<a href='/2021Jan/data-type/CP.html'>CP</a>) 01994
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: Monetary Value of one "point" for the technical part of the service.</p>
+    </div>
+
+<h4 class='v2' id='PSL-41'>
+PSL-41: Internal Scaling Factor Technical Part (<a href='/2021Jan/data-type/NM.html'>NM</a>) 01995
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: Internal Scaling Factor for the amount of the technical part of the service.</p>
+    </div>
+
+<h4 class='v2' id='PSL-42'>
+PSL-42: External Scaling Factor Technical Part (<a href='/2021Jan/data-type/NM.html'>NM</a>) 01996
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: External Scaling Factor for the amount of the technical part of the service.</p>
+    </div>
+
+<h4 class='v2' id='PSL-43'>
+PSL-43: Amount Technical Part (<a href='/2021Jan/data-type/CP.html'>CP</a>) 01997
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: Total Amount for the technical part of this service.</p>
+    </div>
+
+<h4 class='v2' id='PSL-44'>
+PSL-44: Total Amount Professional Part + Technical Part (<a href='/2021Jan/data-type/CP.html'>CP</a>) 01998
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: Total Amount of the cost of this service (Professional plus technical part)</p>
+    </div>
+
+<h4 class='v2' id='PSL-45'>
+PSL-45: VAT-Rate (<a href='/2021Jan/data-type/NM.html'>NM</a>) 01999
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: VAT–Rate Applied on the total amount of this service.</p>
+    </div>
+
+<h4 class='v2' id='PSL-46'>
+PSL-46: Main-Service (<a href='/2021Jan/data-type/ID.html'>ID</a>) 02000
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: Main service.</p>
+    </div>
+
+<h4 class='v2' id='PSL-47'>
+PSL-47: Validation (<a href='/2021Jan/data-type/ID.html'>ID</a>) 02001
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: Service line item has passed an approved validator software (yes/no).  For reason see PSL-48.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 – Yes/No Indicator</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='PSL-48'>
+PSL-48: Comment (<a href='/2021Jan/data-type/ST.html'>ST</a>) 02002
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: Reason why the service line item has not passed the validator software.</p>
+    </div>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+December 11, 2020
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/2021Jan/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/2021Jan/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/2021Jan/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "/images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

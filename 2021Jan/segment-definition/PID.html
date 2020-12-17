@@ -1,0 +1,2496 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+<style type='text/css'>
+@import "/2021Jan/css/bootstrap.css";
+@import "/2021Jan/css/codemirror.css";
+@import "/2021Jan/css/hl7.css";
+@import "/2021Jan/css/fhir.css";
+<!-- @import "css/bootstrap-fhir.css"; -->
+@import "/2021Jan/css/bootstrap-v2.css";
+@import "/2021Jan/css/project.css";
+@import "/2021Jan/css/pygments-manni.css";
+@import "/2021Jan/css/jquery-ui.css";
+@import "/2021Jan/css/modules.css";
+@import "/2021Jan/css/v2.css";
+</style>
+<script src='/2021Jan/js/jquery.js'></script>
+<script src='/2021Jan/js/jquery-ui.min.js'></script>
+<script src='/2021Jan/js/bootstrap.min.js'></script>
+<script src='/2021Jan/js/respond.min.js'></script>
+<script src='/2021Jan/js/codemirror/codemirror.js'></script>
+<script src='/2021Jan/js/codemirror/mode/xml.js'></script>
+<script src='/2021Jan/js/v2.js'></script>
+<script src='/2021Jan/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/2021Jan/js/format_xml.js' type='text/javascript'></script>
+<link href='/2021Jan/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/2021Jan/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/2021Jan/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/2021Jan/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/2021Jan/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/2021Jan/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/2021Jan/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/2021Jan/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/2021Jan/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/2021Jan/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='https://www.hl7.org/fhir/terminologies-valuesets.html#tabs-v2'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/2021Jan/composition/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/2021Jan/composition/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/2021Jan/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/2021Jan/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+PID - Patient Identification Segment
+</h3>
+<div>
+      <p class="v2 v2-normalindented">The PID segment is used by all applications as the primary means of communicating patient identification information.  This segment contains permanent patient identifying and demographic information that, for the most part, is not likely to change frequently.</p>
+      <p class="v2 v2-normalindented">It should be noted that from V2.4 onwards the demographics of animals can also be sent in the PID segment (see PID-35 to PID-38).</p>
+      <p class="v2 v2-normalindented">The assigning authority, the fourth component of the patient identifiers, is a HD data type that is uniquely associated with the assigning authority that originally assigned the number.  A given institution, or group of intercommunicating institutions, should establish a list of assigning authorities that may be potential assignors of patient identification (and other important identification) numbers.  The list will be one of the institution's master dictionary lists.  Since third parties (other than the assignors of patient identification numbers) may send or receive HL7 messages containing patient identification numbers, the assigning authority in the patient identification numbers may not be the same as the sending and receiving systems identified in the MSH.  The assigning authority must be unique across applications at a given site.  This field is required in HL7 implementations that have more than a single Patient Administration application assigning such numbers. The assigning authority and identifier type codes are strongly recommended for all CX data types.</p>
+      <p class="v2 v2-normalindented">With HL7 V2.3, the nomenclature for the fourth component of the patient identifiers was changed from "assigning facility ID" to "assigning authority".  While the identifier may be unique to a given healthcare facility (for example, a medical record assigned by facility A in Hospital XYZ), the identifier might also be assigned at a system level (for example a corporate person index or enterprise number spanning multiple facilities) or by a government entity, for example a nationally assigned unique individual identifier.  While a facility is usually an assigning authority, not all assigning authorities are facilities.  Therefore, the fourth component is referred to as an assigning authority, but retains backward compatibility using the construct of the HD data type (see the note in chapter 2).  Additionally, CX data types support the use of assigning facility (HD) as the sixth component.</p>
+      <!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - PID - Patient Identification Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+DataElement
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Description
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Must Implement
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Flags
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+DataType
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/2021Jan/images/folder_icon.gif'>
+<b>
+PID
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+<a href='#PID-1'>
+00104
+</a>
+</td>
+<td>
+Set ID - PID
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+[1..4]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/SI.html'>
+SI
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+<a href='#PID-2'>
+00105
+</a>
+</td>
+<td>
+Patient ID
+</td>
+<td>
+SHALL NOT
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+[0..0]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+<a href='#PID-3'>
+00106
+</a>
+</td>
+<td>
+Patient Identifier List
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CX.html'>
+CX
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+<a href='#PID-4'>
+00107
+</a>
+</td>
+<td>
+Alternate Patient ID - PID
+</td>
+<td>
+SHALL NOT
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+[0..0]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+<a href='#PID-5'>
+00108
+</a>
+</td>
+<td>
+Patient Name
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0200/index.html'>
+0200
+<span class='vocab-link-text'>Name Type</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XPN.html'>
+XPN
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+<a href='#PID-6'>
+00109
+</a>
+</td>
+<td>
+Mother's Maiden Name
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XPN.html'>
+XPN
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+<a href='#PID-7'>
+00110
+</a>
+</td>
+<td>
+Date/Time of Birth
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/DTM.html'>
+DTM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+<a href='#PID-8'>
+00111
+</a>
+</td>
+<td>
+Administrative Sex
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0001/index.html'>
+0001
+<span class='vocab-link-text'>Administrative Sex</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+<a href='#PID-9'>
+00112
+</a>
+</td>
+<td>
+Patient Alias
+</td>
+<td>
+SHALL NOT
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+[0..0]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+<a href='#PID-10'>
+00113
+</a>
+</td>
+<td>
+Race
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0005/index.html'>
+0005
+<span class='vocab-link-text'>Race</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+<a href='#PID-11'>
+00114
+</a>
+</td>
+<td>
+Patient Address
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XAD.html'>
+XAD
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+<a href='#PID-12'>
+00115
+</a>
+</td>
+<td>
+County Code
+</td>
+<td>
+SHALL NOT
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+[0..0]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+<a href='#PID-13'>
+00116
+</a>
+</td>
+<td>
+Phone Number - Home
+</td>
+<td>
+SHALL NOT
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+[0..0]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XTN.html'>
+XTN
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+<a href='#PID-14'>
+00117
+</a>
+</td>
+<td>
+Phone Number - Business
+</td>
+<td>
+SHALL NOT
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+[0..0]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XTN.html'>
+XTN
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+<a href='#PID-15'>
+00118
+</a>
+</td>
+<td>
+Primary Language
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0296/index.html'>
+0296
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+<a href='#PID-16'>
+00119
+</a>
+</td>
+<td>
+Marital Status
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0002/index.html'>
+0002
+<span class='vocab-link-text'>Marital Status</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+<a href='#PID-17'>
+00120
+</a>
+</td>
+<td>
+Religion
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0006/index.html'>
+0006
+<span class='vocab-link-text'>ReligionVersion Dependent</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+<a href='#PID-18'>
+00121
+</a>
+</td>
+<td>
+Patient Account Number
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0061/index.html'>
+0061
+<span class='vocab-link-text'>Check Digit Scheme</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CX.html'>
+CX
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+<a href='#PID-19'>
+00122
+</a>
+</td>
+<td>
+SSN Number - Patient
+</td>
+<td>
+SHALL NOT
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+[0..0]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+<a href='#PID-20'>
+00123
+</a>
+</td>
+<td>
+Driver's License Number - Patient
+</td>
+<td>
+SHALL NOT
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+[0..0]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+21
+</td>
+<td>
+<a href='#PID-21'>
+00124
+</a>
+</td>
+<td>
+Mother's Identifier
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0061/index.html'>
+0061
+<span class='vocab-link-text'>Check Digit Scheme</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CX.html'>
+CX
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+22
+</td>
+<td>
+<a href='#PID-22'>
+00125
+</a>
+</td>
+<td>
+Ethnic Group
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0189/index.html'>
+0189
+<span class='vocab-link-text'>Ethnic Group</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+23
+</td>
+<td>
+<a href='#PID-23'>
+00126
+</a>
+</td>
+<td>
+Birth Place
+</td>
+<td>
+
+</td>
+<td class='centered'>
+#
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+250
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ST.html'>
+ST
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+24
+</td>
+<td>
+<a href='#PID-24'>
+00127
+</a>
+</td>
+<td>
+Multiple Birth Indicator
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0136/index.html'>
+0136
+<span class='vocab-link-text'>Yes/no Indicator</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ID.html'>
+ID
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+25
+</td>
+<td>
+<a href='#PID-25'>
+00128
+</a>
+</td>
+<td>
+Birth Order
+</td>
+<td>
+
+</td>
+<td class='centered'>
+=
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+2
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/NM.html'>
+NM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+26
+</td>
+<td>
+<a href='#PID-26'>
+00129
+</a>
+</td>
+<td>
+Citizenship
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0171/index.html'>
+0171
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+27
+</td>
+<td>
+<a href='#PID-27'>
+00130
+</a>
+</td>
+<td>
+Veterans Military Status
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0172/index.html'>
+0172
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+28
+</td>
+<td>
+<a href='#PID-28'>
+00739
+</a>
+</td>
+<td>
+Nationality
+</td>
+<td>
+SHALL NOT
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+[0..0]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0212/index.html'>
+0212
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+29
+</td>
+<td>
+<a href='#PID-29'>
+00740
+</a>
+</td>
+<td>
+Patient Death Date and Time
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/DTM.html'>
+DTM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+30
+</td>
+<td>
+<a href='#PID-30'>
+00741
+</a>
+</td>
+<td>
+Patient Death Indicator
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0136/index.html'>
+0136
+<span class='vocab-link-text'>Yes/no Indicator</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ID.html'>
+ID
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+31
+</td>
+<td>
+<a href='#PID-31'>
+01535
+</a>
+</td>
+<td>
+Identity Unknown Indicator
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0136/index.html'>
+0136
+<span class='vocab-link-text'>Yes/no Indicator</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ID.html'>
+ID
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+32
+</td>
+<td>
+<a href='#PID-32'>
+01536
+</a>
+</td>
+<td>
+Identity Reliability Code
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0445/index.html'>
+0445
+<span class='vocab-link-text'>Identity Reliability Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+33
+</td>
+<td>
+<a href='#PID-33'>
+01537
+</a>
+</td>
+<td>
+Last Update Date/Time
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/DTM.html'>
+DTM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+34
+</td>
+<td>
+<a href='#PID-34'>
+01538
+</a>
+</td>
+<td>
+Last Update Facility
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/HD.html'>
+HD
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+35
+</td>
+<td>
+<a href='#PID-35'>
+01539
+</a>
+</td>
+<td>
+Taxonomic Classification Code
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0446/index.html'>
+0446
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+36
+</td>
+<td>
+<a href='#PID-36'>
+01540
+</a>
+</td>
+<td>
+Breed Code
+</td>
+<td>
+
+</td>
+<td class='centered'>
+B
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0447/index.html'>
+0447
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+37
+</td>
+<td>
+<a href='#PID-37'>
+01541
+</a>
+</td>
+<td>
+Strain
+</td>
+<td>
+
+</td>
+<td class='centered'>
+=
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+80
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ST.html'>
+ST
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+38
+</td>
+<td>
+<a href='#PID-38'>
+01542
+</a>
+</td>
+<td>
+Production Class Code
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..2]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0429/index.html'>
+0429
+<span class='vocab-link-text'>Production Class Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+39
+</td>
+<td>
+<a href='#PID-39'>
+01840
+</a>
+</td>
+<td>
+Tribal Citizenship
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0171/index.html'>
+0171
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin_end.png'>
+40
+</td>
+<td>
+<a href='#PID-40'>
+02289
+</a>
+</td>
+<td>
+Patient Telecommunication Information
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XTN.html'>
+XTN
+</a>
+</td>
+</tr>
+
+</tbody>
+</table>
+
+    </div>
+<h4 class='v2' id='PID-1'>
+PID-1: Set ID - PID (<a href='/2021Jan/data-type/SI.html'>SI</a>) 00104
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the number that identifies this transaction.  For the first occurrence of the segment, the sequence number shall be one, for the second occurrence, the sequence number shall be two, etc.</p>
+    </div>
+
+<h4 class='v2' id='PID-2'>
+PID-2: Patient ID
+</h4>
+<div>
+      <p class="v2 v2-normalindented"><strong>Attention: The PID-2 field was retained for backward compatibility only as of v2.3.1</strong> and was withdrawn and removed from this message structure as of v2.7. It is recommended to use <a href="/2021Jan/segment-definition/PID.html#PID-3">PID-3 - Patient Identifier List</a> for all patient identifiers.</p>
+    </div>
+
+<h4 class='v2' id='PID-3'>
+PID-3: Patient Identifier List (<a href='/2021Jan/data-type/CX.html'>CX</a>) 00106
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PID.html#PID-3">PID.3</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the list of identifiers (one or more) used by the healthcare facility to uniquely identify a patient (e.g., medical record number, billing number, birth registry, national unique individual identifier, etc.).  In Canada, the Canadian Provincial Healthcare Number should be sent in this field.  The arbitrary term of "internal ID" has been removed from the name of this field for clarity.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/SCD.html#SCD-33">SCD.33</a> in Ch. 17)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  The unique identifier associating the patient with the supplies being sterilized. </p>
+    </div>
+
+<h4 class='v2' id='PID-4'>
+PID-4: Alternate Patient ID - PID
+</h4>
+<div>
+      <p class="v2 v2-normalindented"><strong>Attention: The PID-4 field was retained for backward compatibility only as of v2.3.1</strong> and was withdrawn and removed from this message structure as of v2.7.  It is recommended to use <a href="/2021Jan/segment-definition/PID.html#PID-3">PID-3 - Patient Identifier List</a> for all patient identifiers. </p>
+    </div>
+
+<h4 class='v2' id='PID-5'>
+PID-5: Patient Name (<a href='/2021Jan/data-type/XPN.html'>XPN</a>) 00108
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains one or more of the names of the patient. The XPN.7 Name Type Code, and not the order, conveys how the name should be interpreted. As of v2.7, Name Type Code is Required. Refer to <a href="https://www.hl7.org/fhir/v2/0200/index.html">HL7 Table 0200 - Name Type</a> in Chaper 2C, Code Tables, for valid values.  Specification of meaning based on sequence is deprecated.</p>
+      <p class="v2 v2-normalindented">In addition to allowing repetition of this field for transmitting multiple names with different Name Type Codes, repetition also allows for representing the same name in different character sets based on the value in XPN.8 Name Representation Code.  </p>
+      <p class="v2 v2-normalindented">Multiple given names and/or initials are separated by spaces.</p>
+      <p class="v2 v2-normalindented">For animals, if a Name Type of "R" is used, use "Name Context" to identify the authority with which the animal's name is registered.</p>
+    </div>
+
+<h4 class='v2' id='PID-6'>
+PID-6: Mother's Maiden Name (<a href='/2021Jan/data-type/XPN.html'>XPN</a>) 00109
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PID.html#PID-6">PID.6</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the family name under which the mother was born (i.e., before marriage). It is used to distinguish between patients with the same last name.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/NK1.html#NK1-26">NK1.26</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field indicates the maiden name of the next of kin/associated party's mother.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/GT1.html#GT1-42">GT1.42</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field indicates the guarantor's mother's maiden name.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/IN2.html#IN2-40">IN2.40</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field indicates the insured's mother's maiden name.</p>
+    </div>
+
+<h4 class='v2' id='PID-7'>
+PID-7: Date/Time of Birth (<a href='/2021Jan/data-type/DTM.html'>DTM</a>) 00110
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PID.html#PID-7">PID.7</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the patient's date and time of birth.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/NK1.html#NK1-16">NK1.16</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the next of kin/associated party's birth date and time.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/STF.html#STF-6">STF.6</a> in Ch. 15)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains a staff member's date and time of birth.</p>
+    </div>
+
+<h4 class='v2' id='PID-8'>
+PID-8: Administrative Sex (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00111
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PID.html#PID-8">PID.8</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the patient's sex.  Refer to <a href="https://www.hl7.org/fhir/v2/0001/index.html">User-defined Table 0001 - Administrative Sex</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/NK1.html#NK1-15">NK1.15</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the next of kin/associated party's sex.  Refer to <a href="https://www.hl7.org/fhir/v2/0001/index.html">User-defined Table 0001 - Administrative Sex</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/STF.html#STF-5">STF.5</a> in Ch. 15)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the staff person's sex.  Refer to <a href="https://www.hl7.org/fhir/v2/0001/index.html">User-defined Table 0001 – Administrative Sex</a> for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='PID-9'>
+PID-9: Patient Alias
+</h4>
+<div>
+      <p class="v2 v2-normalindented"><strong>Attention: The PID-9 field was retained for backward compatibility only as of v2.4</strong> and was withdrawn and removed from this message structure as of v2.7. it is recommended to use <a href="/2021Jan/segment-definition/PID.html#PID-5">PID-5 - Patient Name</a> for all patient names. </p>
+    </div>
+
+<h4 class='v2' id='PID-10'>
+PID-10: Race (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00113
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PID.html#PID-10">PID.10</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field refers to the patient's race.  Refer to <a href="https://www.hl7.org/fhir/v2/0005/index.html">User-defined Table 0005 - Race</a> in Chapter 2C, Code Tables, for suggested values.  The second triplet of the CWE data type for race (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/NK1.html#NK1-35">NK1.35</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field identifies the race of the next of kin/associated party. Refer to <a href="https://www.hl7.org/fhir/v2/0005/index.html">User-defined Table 0005 - Race</a> in Chapter 2C, Code Tables, for suggested values.  The second triplet of the CWE data type for race (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/IN2.html#IN2-71">IN2.71</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  Refer to <a href="https://www.hl7.org/fhir/v2/0005/index.html">User-defined Table 0005 - Race</a> in Chapter 2C, Code Tables, for suggested values.  The second triplet of the CE data type for race (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/STF.html#STF-27">STF.27</a> in Ch. 15)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field refers to the person's race.  Refer to <a href="https://www.hl7.org/fhir/v2/0005/index.html">User-defined Table 0005 - Race</a> in Chapter 2C, Code Tables, for suggested values.  The second triplet of the CWE data type for race (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes.</p>
+    </div>
+
+<h4 class='v2' id='PID-11'>
+PID-11: Patient Address (<a href='/2021Jan/data-type/XAD.html'>XAD</a>) 00114
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: This field contains the address of the patient. Multiple addresses for the same person may be sent. As of v2.7 the "primary mailing address" constraint as the first sequence has been removed...</p>
+    </div>
+
+<h4 class='v2' id='PID-12'>
+PID-12: County Code
+</h4>
+<div>
+      <p class="v2 v2-normalindented"><strong>Attention: The PID-12 field was retained for backward compatibility only as of v2.3</strong> and was withdrawn and removed from this message structure as of v2.7.   The county can now be supported in the county/parish code component of the XAD data type (<a href="/2021Jan/segment-definition/PID.html#PID-11">PID-11 - Patient Address</a>).  </p>
+    </div>
+
+<h4 class='v2' id='PID-13'>
+PID-13: Phone Number - Home
+</h4>
+<div>
+      <p class="v2 v2-normalindented"><strong>Attention:</strong>  The PID13 field has been retained for backward compatibility as of v 2.7 and withdrawn as of v 2.9. The reader is referrred to section <a href="/2021Jan/composition/Patient-Administration.html#Patient-Administration-4-2-40">3.4.2.40</a>, <a href="/2021Jan/segment-definition/PID.html#PID-40">PID-40 – Patient Telecommunication Information</a> instead, which replaces<a href="/2021Jan/segment-definition/PID.html#PID-13"> PID-13 – Phone Number - Home</a> with the intention that the components of the XTN data type be used to identify phone usage (Telecommunication use code) and type of equipment (telecommunication equipment type). </p>
+      <p class="v2 v2-normalindented">This field contains the patient's personal phone numbers.  All personal phone numbers for the patient are sent in the following sequence.  The first sequence is considered the primary number (for backward compatibility).  If the primary number is not sent, then a repeat delimiter is sent in the first sequence.  Refer to <a href="https://www.hl7.org/fhir/v2/0201/index.html">HL7 Table 0201 - Telecommunication Use Code</a> and <a href="https://www.hl7.org/fhir/v2/0202/index.html">HL7 Table 0202 - Telecommunication Equipment Type</a> in Chapter 2C, Code Tables, for valid values.</p>
+    </div>
+
+<h4 class='v2' id='PID-14'>
+PID-14: Phone Number - Business
+</h4>
+<div>
+      <p class="v2 v2-normalindented"><strong>Attention:</strong>  The PID-14 field has been retained for backward compatibility only as of v2.7 and withdrawn as of v 2.9.. The reader is referred to section <a href="/2021Jan/composition/Patient-Administration.html#Patient-Administration-4-2-40">3.4.2.40</a>, <a href="/2021Jan/segment-definition/PID.html#PID-40">PID-40 – Patient Telecommunication Information</a> instead, which replaces <a href="/2021Jan/segment-definition/PID.html#PID-14">PID-14 – Phone Number - Business</a> with the intention that the components of the XTN data type be used to identify phone usage (Telecommunication use code) and type of equipment (telecommunication equipment type). </p>
+      <p class="v2 v2-normalindented">This field contains the patient's business telephone numbers.  All business numbers for the patient are sent in the following sequence.  The first sequence is considered the patient's primary business phone number (for backward compatibility).  If the primary business phone number is not sent, then a repeat delimiter must be sent in the first sequence.  Refer to  <a href="https://www.hl7.org/fhir/v2/0201/index.html">HL7 Table 0201 - Telecommunication Use Code</a> and <a href="https://www.hl7.org/fhir/v2/0202/index.html">HL7 Table 0202 - Telecommunication Equipment Type</a> in Chapter 2C, Code Tables, for valid values.</p>
+    </div>
+
+<h4 class='v2' id='PID-15'>
+PID-15: Primary Language (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00118
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PID.html#PID-15">PID.15</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the patient's primary language.  HL7 recommends using ISO table 639 as the suggested values in <a href="https://www.hl7.org/fhir/v2/0296/index.html">User-defined Table 0296 - Primary Language</a> within Chapter 2C, Code Tables.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/NK1.html#NK1-20">NK1.20</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field identifies the next of kin/associated party's primary speaking language.  HL7 recommends using ISO 639 as the suggested values in <a href="https://www.hl7.org/fhir/v2/0296/index.html">User-defined Table 0296 - Language</a> in Chapter 2C, Code Tables.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/GT1.html#GT1-36">GT1.36</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field identifies the guarantor's primary speaking language.  HL7 recommends using ISO table 639 as the suggested values in <a href="https://www.hl7.org/fhir/v2/0296/index.html">User-defined Table 0296 - Primary Language</a><a href=""> </a>defined in Chapter 2C, Code Tables.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/IN2.html#IN2-34">IN2.34</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field identifies the insured's primary speaking language.  HL7 recommends using ISO table 639 as the suggested values in <a href="https://www.hl7.org/fhir/v2/0296/index.html">User-defined Table 0296 - Primary Language</a><a href=""> </a>defined in Chapter 2C, Code Tables.</p>
+    </div>
+
+<h4 class='v2' id='PID-16'>
+PID-16: Marital Status (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00119
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PID.html#PID-16">PID.16</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the patient's marital (civil) status.  Refer to <a href="https://www.hl7.org/fhir/v2/0002/index.html">User-defined Table 0002 - Marital Status</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/NK1.html#NK1-14">NK1.14</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the next of kin/associated party's marital status.  Refer to <a href="https://www.hl7.org/fhir/v2/0002/index.html">User-defined Table 0002 - Marital Status </a>in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/IN2.html#IN2-43">IN2.43</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the insured's marital status.  Refer to <a href="https://www.hl7.org/fhir/v2/0002/index.html">User-defined Table 0002 - Marital Status</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/STF.html#STF-17">STF.17</a> in Ch. 15)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the staff member's marital status.  Refer to <a href="https://www.hl7.org/fhir/v2/0002/index.html">User-defined Table 0002 - Marital Status</a> in Chapter 2C, Code Tables, for suggested values.  Same values as those for <a href="/2021Jan/segment-definition/PID.html#PID-16">PID-16 Marital Status</a>.</p>
+    </div>
+
+<h4 class='v2' id='PID-17'>
+PID-17: Religion (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00120
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PID.html#PID-17">PID.17</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the patient's religion.  Refer to <a href="https://www.hl7.org/fhir/v2/0006/index.html">User-defined Table 0006 - Religion</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/NK1.html#NK1-25">NK1.25</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field indicates the type of religion practiced by the next of kin/associated party.  Refer to <a href="https://www.hl7.org/fhir/v2/0006/index.html">User-defined Table 0006 - Religion</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/GT1.html#GT1-41">GT1.41</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field indicates the type of religion practiced by the guarantor. Refer to <a href="https://www.hl7.org/fhir/v2/0006/index.html">User-defined Table 0006 - Religion</a><a href=""> </a>in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/IN2.html#IN2-39">IN2.39</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field indicates the type of religion practiced by the insured.  Refer to <a href="https://www.hl7.org/fhir/v2/0006/index.html">User-defined Table 0006 - Religion</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/STF.html#STF-40">STF.40</a> in Ch. 15)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the staff member's religion.  Refer to <a href="https://www.hl7.org/fhir/v2/0006/index.html">User-defined Table 0006 - Religion</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='PID-18'>
+PID-18: Patient Account Number (<a href='/2021Jan/data-type/CX.html'>CX</a>) 00121
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the patient account number assigned by accounting to which all charges, payments, etc., are recorded.  It is used to identify the patient's account.  Refer to <a href="https://www.hl7.org/fhir/v2/0061/index.html">HL7 Table 0061 - Check Digit Scheme</a> in Chapter 2C, Code Tables, for valid values.</p>
+    </div>
+
+<h4 class='v2' id='PID-19'>
+PID-19: SSN Number - Patient
+</h4>
+<div>
+      <p class="v2 v2-normalindented"><strong>Attention: The PID-19 field was retained for backward compatibility only as of v 2.3.1</strong> and was withdrawn and removed from this message structure as of v 2.7.  It is recommended to use <a href="/2021Jan/segment-definition/PID.html#PID-3">PID-3 - Patient Identifier List</a> for all patient identifiers. </p>
+    </div>
+
+<h4 class='v2' id='PID-20'>
+PID-20: Driver's License Number - Patient
+</h4>
+<div>
+      <p class="v2 v2-normalindented"><strong>Attention: The PID-20 field was retained for backward compatibility only as of v 2.5</strong> and was withdrawn and removed from this message structure as of v 2.7. <strong> </strong> It is recommended to use <a href="/2021Jan/segment-definition/PID.html#PID-3">PID-3 - Patient Identifier List</a> for all patient identifiers. </p>
+    </div>
+
+<h4 class='v2' id='PID-21'>
+PID-21: Mother's Identifier (<a href='/2021Jan/data-type/CX.html'>CX</a>) 00124
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field is used, for example, as a link field for newborns.  Typically a patient ID or account number may be used.  This field can contain multiple identifiers for the same mother.  Refer to <a href="https://www.hl7.org/fhir/v2/0061/index.html">HL7 Table 0061 - Check Digit Scheme</a> in Chapter 2C, Code Tables, for valid values.</p>
+    </div>
+
+<h4 class='v2' id='PID-22'>
+PID-22: Ethnic Group (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00125
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PID.html#PID-22">PID.22</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field further defines the patient's ancestry.  Refer to <a href="https://www.hl7.org/fhir/v2/0189/index.html">User-defined Table 0189 - Ethnic Group</a> in Chapter 2C, Code Tables, for suggested values. The second triplet of the CWE data type for ethnic group (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes. In the US, a current use is to report ethnicity in line with US federal standards for Hispanic origin.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/NK1.html#NK1-28">NK1.28</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the next of kin/associated party's ethnic group.  Refer to <a href="https://www.hl7.org/fhir/v2/0189/index.html">User-defined Table 0189 - Ethnic Group</a> in Chapter 2C, Code Tables, for suggested values.  The second triplet of the CWE data type for ethnic group (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes. In the US, a current use is to report ethnicity in line with US federal standards for Hispanic origin.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/GT1.html#GT1-44">GT1.44</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the guarantor's ethnic group. Refer to <a href="https://www.hl7.org/fhir/v2/0189/index.html">User-defined Table 0189 - Ethnic Group</a> in Chapter 2C, Code Tables, for suggested values.  The second triplet of the CE data type for ethnic group (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes. In the US, a current use is to report ethnicity in line with US federal standards for Hispanic origin.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/IN2.html#IN2-42">IN2.42</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field indicates the insured's ethnic group. Refer to <a href="https://www.hl7.org/fhir/v2/0189/index.html">User-defined Table 0189 - Ethnic Group</a> in Chapter 2C, Code Tables, for suggested values.  The second triplet of the CE data type for ethnic group (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes. In the US, a current use is to report ethnicity in line with US federal standards for Hispanic origin.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/STF.html#STF-28">STF.28</a> in Ch. 15)</strong>
+      </p>
+      <ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none">
+        <li class="v2 v2-li">
+          <p class="v2 v2-normallist">Definition:  This field further defines the person's ancestry.  Refer to <a href="https://www.hl7.org/fhir/v2/0189/index.html">User-defined Table 0189 - Ethnic Group</a> in Chapter 2C, Code Tables, for suggested values. The second couplet of the CWE data type for ethnic group (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes. In the United States, a current use is to report ethnicity in line with US federal standards for Hispanic origin.</p>
+        </li>
+      </ul>
+    </div>
+
+<h4 class='v2' id='PID-23'>
+PID-23: Birth Place (<a href='/2021Jan/data-type/ST.html'>ST</a>) 00126
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field indicates the location of the patient's birth, for example "St. Francis Community Hospital of Lower South Side". The actual address is reported in PID-11 with an identifier of "N".</p>
+    </div>
+
+<h4 class='v2' id='PID-24'>
+PID-24: Multiple Birth Indicator (<a href='/2021Jan/data-type/ID.html'>ID</a>) 00127
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field indicates whether the patient was part of a multiple birth.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/No Indicator</a> in Chapter 2C, Code Tables, for valid values.</p>
+      <ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none">
+        <li class="v2 v2-li">
+          <p class="v2 v2-normallist">Y    the patient was part of a multiple birth</p>
+        </li>
+        <li class="v2 v2-li">
+          <p class="v2 v2-normallist">N    the patient was a single birth</p>
+        </li>
+      </ul>
+    </div>
+
+<h4 class='v2' id='PID-25'>
+PID-25: Birth Order (<a href='/2021Jan/data-type/NM.html'>NM</a>) 00128
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  When a patient was part of a multiple birth, a value (number) indicating the patient's birth order is entered in this field.</p>
+    </div>
+
+<h4 class='v2' id='PID-26'>
+PID-26: Citizenship (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00129
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PID.html#PID-26">PID.26</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">This field contains the information related to a person's country citizenship. For country citizenship HL7 recommends using ISO table 3166.  For a local definition, <a href="https://www.hl7.org/fhir/v2/0171/index.html">User-defined Table 0171 - Citizenship</a> in Chapter 2C, Code Tables, should be used.</p>
+      <p class="v2 v2-normalindented">This field repeats since persons can be citizens of more than one country.  The Name of Coding System component(s) of the CWE datatype should be used to identify the table from which citizenship membership is drawn.</p>
+      <p class="v2 v2-normalindented">In the Netherlands, this field is used for "Nationaliteit".</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/NK1.html#NK1-19">NK1.19</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the code to identify the next of kin/associated party's citizenship.  HL7 recommends using ISO 3166 as the suggested values in <a href="https://www.hl7.org/fhir/v2/0171/index.html">User-defined Table 0171 - Citizenship</a> in Chapter 2C, Code Tables.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/GT1.html#GT1-35">GT1.35</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the code to identify the guarantor's citizenship.  HL7 recommends using ISO table 3166 as the suggested values in <a href="https://www.hl7.org/fhir/v2/0171/index.html">User-defined Table 0171 - Citizenship</a> in Chapter 2C, Code Tables.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/IN2.html#IN2-33">IN2.33</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the code that identifies the insured's citizenship.  HL7 recommends using ISO table 3166 as the suggested values in <a href="https://www.hl7.org/fhir/v2/0171/index.html">User-defined Table 0171 - Citizenship</a><a href=""> </a>defined in Chapter 2C, Code Tables.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/STF.html#STF-30">STF.30</a> in Ch. 15)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the staff person's current country of citizenship.  HL7 recommends using ISO table 3166 as the suggested values in <a href="https://www.hl7.org/fhir/v2/0171/index.html">User-defined Table 0171 - Citizenship</a> (in Chapter 2C, Code Tables).</p>
+    </div>
+
+<h4 class='v2' id='PID-27'>
+PID-27: Veterans Military Status (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00130
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the military status assigned to a veteran.  Refer to <a href="https://www.hl7.org/fhir/v2/0172/index.html">User-defined Table 0172 - Veterans Military Status</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='PID-28'>
+PID-28: Nationality
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PID.html#PID-28">PID.28</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented"><strong>Attention: The PID-28 field was retained for backward compatibility only as of v 2.4</strong> and was withdrawn and removed from this message structure as of v 2.7. It is recommended to refer to <a href="/2021Jan/segment-definition/PID.html#PID-10">PID-10 - Race</a>, <a href="/2021Jan/segment-definition/PID.html#PID-22">PID-22 - Ethnic group</a> and <a href="/2021Jan/segment-definition/PID.html#PID-26">PID-26 - Citizenship</a>. </p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/NK1.html#NK1-27">NK1.27</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field identifies the nation or national group to which the next of kin/associated party belongs.  This information may be different than the person's citizenship in countries in which multiple nationalities are recognized (e.g., Spain: Basque, Catalan, etc.). Refer to <a href="https://www.hl7.org/fhir/v2/0212/index.html">User-defined Table 0212 - Nationality</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/GT1.html#GT1-43">GT1.43</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains a code that identifies the nation or national grouping to which the person belongs.  This may be different from a person's citizenship in countries in which multiple nationalities are recognized (for example, Spain: Basque, Catalan, etc.).  HL7 recommends using ISO table 3166 as suggested values in <a href="https://www.hl7.org/fhir/v2/0212/index.html">User-defined Table 0212 - Nationality</a><a href=""> </a>in Chapter 2C, Code Tables.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/IN2.html#IN2-41">IN2.41</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains a code that identifies the nation or national grouping to which the insured person belongs.  This information may be different from a person's citizenship in countries in which multiple nationalities are recognized (for example, Spain: Basque, Catalan, etc.).  HL7 recommends using ISO table 3166 as the suggested values in <a href="https://www.hl7.org/fhir/v2/0212/index.html">User-defined Table 0212 - Nationality</a> in Chapter 2C, Code Tables.</p>
+    </div>
+
+<h4 class='v2' id='PID-29'>
+PID-29: Patient Death Date and Time (<a href='/2021Jan/data-type/DTM.html'>DTM</a>) 00740
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the date and time at which the patient death occurred.</p>
+    </div>
+
+<h4 class='v2' id='PID-30'>
+PID-30: Patient Death Indicator (<a href='/2021Jan/data-type/ID.html'>ID</a>) 00741
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field indicates whether the patient is deceased.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/No Indicator</a> in Chapter 2C, Code Tables, for valid values.</p>
+      <ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none">
+        <li class="v2 v2-li">
+          <p class="v2 v2-normallist">Y    the patient is deceased</p>
+        </li>
+        <li class="v2 v2-li">
+          <p class="v2 v2-normallist">N    the patient is not deceased</p>
+        </li>
+      </ul>
+    </div>
+
+<h4 class='v2' id='PID-31'>
+PID-31: Identity Unknown Indicator (<a href='/2021Jan/data-type/ID.html'>ID</a>) 01535
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field indicates whether or not the patient's/person's identity is known.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/No Indicator</a> in Chapter 2C, Code Tables, for valid values.</p>
+      <ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none">
+        <li class="v2 v2-li">
+          <p class="v2 v2-normallist">Y    the patient's/person's identity is unknown</p>
+        </li>
+        <li class="v2 v2-li">
+          <p class="v2 v2-normallist">N    the patient's/person's identity is known</p>
+        </li>
+      </ul>
+    </div>
+
+<h4 class='v2' id='PID-32'>
+PID-32: Identity Reliability Code (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 01536
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains a coded value used to communicate information regarding the reliability of patient/person identifying data transmitted via a transaction.  Values could indicate that certain fields on a PID segment for a given patient/person are known to be false (e.g., use of default or system-generated values for Date of Birth or Social Security Number).  Refer to <a href="https://www.hl7.org/fhir/v2/0445/index.html">User-defined Table 0445 - Identity Reliability Code</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='PID-33'>
+PID-33: Last Update Date/Time (<a href='/2021Jan/data-type/DTM.html'>DTM</a>) 01537
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the last update date and time for the patient's/person's identifying and demographic data, as defined in the PID segment.  Receiving systems will use this field to determine how to apply the transaction to their systems.  If the receiving system (such as an enterprise master patient index) already has a record for the person with a later last update date/time, then the EMPI could decide not to apply the patient's/person's demographic and identifying data from this transaction.</p>
+    </div>
+
+<h4 class='v2' id='PID-34'>
+PID-34: Last Update Facility (<a href='/2021Jan/data-type/HD.html'>HD</a>) 01538
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: This field identifies the facility of the last update to a patient's/person's identifying and demographic data, as defined in the PID segment.  Receiving systems or users will use this field to determine how to apply the transaction to their systems.  If the receiving system (such as a hospital's patient management system) already has a record for the patient/person, then it may decide to only update its data if the source is a "trusted" source.  A hospital might consider other hospitals trusted sources, but not "trust" updates from non-acute care facilities.  For example:</p>
+      <p class="v2 v2-example">...|GOOD HEALTH Hospital|...</p>
+    </div>
+
+<h4 class='v2' id='PID-35'>
+PID-35: Taxonomic Classification Code (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 01539
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PID.html#PID-35">PID.35</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition: A code representing the taxonomic classification (e.g. species and/or breed) of an organism.  This may include the common or scientific name in the description component, based on the coding system(s) used.  SNOMED-CT is the recommended coding system.  If this field is not valued, a human is assumed.  If the specificity of the coding system is insufficient to represent the organism to the degree desired, the most detailed coded value available may be used in this field and additional information sent in the text field, <a href="/2021Jan/segment-definition/PID.html#PID-37">PID-37 – Strain</a>. </p>
+      <p class="v2 v2-normalindented">For example:</p>
+      <p class="v2 v2-example">...|L-80700^Canine, NOS^SNM3|...</p>
+      <p class="v2 v2-example">...|L-80100^Bovine^SNM3|...</p>
+      <p class="v2 v2-example">...|L-80A00^Feline^SNM3|...</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/OM1.html#OM1-50">OM1.50</a> in Ch. 8)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  The species of living organism. This may include the common or scientific name, based on the coding system(s) used. SNOMED is the recommended coding system. If this field is not valued, a human is assumed. Refer to <a href="https://www.hl7.org/fhir/v2/0446/index.html">User-defined Table 0446 - Species Code</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="v2 v2-normalindented">For example:</p>
+      <p class="v2 v2-example">...|L-80700^Canine, NOS^SNM3|...</p>
+      <p class="v2 v2-example">...|L-80100^Bovine^SNM3|...</p>
+      <p class="v2 v2-example">...|L-80A00^Feline^SNM3|....</p>
+      <p class="v2 v2-normalindented">This field is a list of species or other taxonomic classification(s) to which the indicated specimen type may appropriately be applied for the indicated observation or test.  If this field is omitted the default meaning is that the test or observation is applicable to humans.  In a veterinary context if the test is applicable to any species, an appropriate code such as "Kingdom Animalia (organism)" should be used to avoid confusion with the meaning of human only.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/OM4.html#OM4-18">OM4.18</a> in Ch. 8)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  The species of living organism. This may include the common or scientific name, based on the coding system(s) used. SNOMED is the recommended coding system. If this field is not valued, a human is assumed. Refer to User-defined Table 0446 - Species Code for suggested values. Refer to Table 0661 - Taxonomic Classification Code in Chapter 2C for valid values.</p>
+      <p class="v2 v2-normalindented">For example:</p>
+      <p class="v2 v2-example">...|L-80700^Canine, NOS^SNM3|...</p>
+      <p class="v2 v2-example">...|L-80100^Bovine^SNM3|...</p>
+      <p class="v2 v2-example">...|L-80A00^Feline^SNM3|....</p>
+      <p class="v2 v2-normalindented">This field is a list of species or other taxonomic classification(s) to which the indicated specimen type may appropriately be applied for the indicated observation or test.  If this field is omitted the default meaning is that the test or observation is applicable to humans.  In a veterinary context, if the test is applicable to any species, an appropriate code such as "Kingdom Animalia (organism)" should be used to avoid confusion with the meaning of human only.</p>
+    </div>
+
+<h4 class='v2' id='PID-36'>
+PID-36: Breed Code (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 01540
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  <strong>From v 2.8 onward, this field has been retained for backward compatibility only.</strong> The specific breed of animal.  This field, unlike Species and Strain is specific to animals and cannot be generally used for all living organisms.  SNOMED is the recommended coding system. Refer to <a href="https://www.hl7.org/fhir/v2/0447/index.html">User-defined Table 0447 - Breed Code</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="v2 v2-normalindented">Conditionality Rule: This field must be valued if <a href="/2021Jan/segment-definition/PID.html#PID-37">PID-37 - Strain</a> is valued.</p>
+      <p class="v2 v2-normalindented">For example, (showing primary and alternative coding systems, using locally defined "American Kennel Club" nomenclature):</p>
+      <p class="v2 v2-example">...|L-80733^ Staffordshire bull terrier^SNM3^^American Staffordshire Terrier^99AKC|...</p>
+      <p class="v2 v2-example">...|L-80900^Weimaraner^SNM3|...</p>
+      <p class="v2 v2-example">...|L-80439^Peruvian Paso Horse^SNM3|...</p>
+    </div>
+
+<h4 class='v2' id='PID-37'>
+PID-37: Strain (<a href='/2021Jan/data-type/ST.html'>ST</a>) 01541
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the specific strain of animal.  It can also be expanded to include strain of any living organism and is not restricted to animals.</p>
+      <p class="v2 v2-normalindented">Example:</p>
+      <p class="v2 v2-example">...|DeKalb|...</p>
+      <p class="v2 v2-example">...|Balb/c|...</p>
+      <p class="v2 v2-example">...|DXL|...</p>
+    </div>
+
+<h4 class='v2' id='PID-38'>
+PID-38: Production Class Code (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 01542
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: This field contains the code and/or text indicating the primary use for which the living subject was bred or grown. Refer to <a href="https://www.hl7.org/fhir/v2/0429/index.html">User-defined Table 0429 - Production Class Code</a> in Chapter 2C, Code Tables, for suggested values. For example:</p>
+      <p class="v2 v2-example">...|DA^Dairy^L|...</p>
+      <p class="v2 v2-example">...|MT^Meat^L|...</p>
+      <p class="v2 v2-example">...|RA^Racing^L|...</p>
+    </div>
+
+<h4 class='v2' id='PID-39'>
+PID-39: Tribal Citizenship (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 01840
+</h4>
+<div>
+      <p class="v2 v2-normalindented">This field contains the information related to a person's tribal citizenship.  For tribal citizenship, in the United States, HL7 recommends using the Bureau of Indian Affairs (BIA) Tribal Identity List.  For a local definition,<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0171/index.html">User-defined Table 0171 - Citizenship</a> in Chapter 2C, Code Tables should be used.</p>
+      <p class="v2 v2-normalindented">This field repeats since persons can have tribal membership(s) and can be members of more than one tribe.  The Name of Coding System component(s) of the CWE datatype should be used to identify the table from which tribal membership is drawn.</p>
+    </div>
+
+<h4 class='v2' id='PID-40'>
+PID-40: Patient Telecommunication Information (<a href='/2021Jan/data-type/XTN.html'>XTN</a>) 02289
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: This field contains the patient's personal telecommunication contact information. This field replaces <a href="/2021Jan/segment-definition/PID.html#PID-13">PID-13 – Phone Number - Home</a> and <a href="/2021Jan/segment-definition/PID.html#PID-14">PID-14 – Phone Number – Business</a> with the intention that the components of the XTN data type be used to identify phone usage (Telecommunication use code) and type of equipment (telecommunication equipment type). Jointly, these components will describe the nature of the telecommunication data contained in this field and removes the sequenced-based assumptions in PID-13 and PID-14.</p>
+    </div>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+December 11, 2020
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/2021Jan/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/2021Jan/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/2021Jan/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "/images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

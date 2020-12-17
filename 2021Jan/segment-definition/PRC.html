@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+<style type='text/css'>
+@import "/2021Jan/css/bootstrap.css";
+@import "/2021Jan/css/codemirror.css";
+@import "/2021Jan/css/hl7.css";
+@import "/2021Jan/css/fhir.css";
+<!-- @import "css/bootstrap-fhir.css"; -->
+@import "/2021Jan/css/bootstrap-v2.css";
+@import "/2021Jan/css/project.css";
+@import "/2021Jan/css/pygments-manni.css";
+@import "/2021Jan/css/jquery-ui.css";
+@import "/2021Jan/css/modules.css";
+@import "/2021Jan/css/v2.css";
+</style>
+<script src='/2021Jan/js/jquery.js'></script>
+<script src='/2021Jan/js/jquery-ui.min.js'></script>
+<script src='/2021Jan/js/bootstrap.min.js'></script>
+<script src='/2021Jan/js/respond.min.js'></script>
+<script src='/2021Jan/js/codemirror/codemirror.js'></script>
+<script src='/2021Jan/js/codemirror/mode/xml.js'></script>
+<script src='/2021Jan/js/v2.js'></script>
+<script src='/2021Jan/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/2021Jan/js/format_xml.js' type='text/javascript'></script>
+<link href='/2021Jan/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/2021Jan/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/2021Jan/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/2021Jan/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/2021Jan/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/2021Jan/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/2021Jan/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/2021Jan/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/2021Jan/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/2021Jan/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='https://www.hl7.org/fhir/terminologies-valuesets.html#tabs-v2'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/2021Jan/composition/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/2021Jan/composition/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/2021Jan/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/2021Jan/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+PRC - Pricing Segment
+</h3>
+<div>
+      <p class="v2 v2-normalindented">The Technical Steward for the PRC segment is Financial Management.</p>
+      <p class="v2 v2-normalindented">The PRC segment contains the pricing information for the preceding CDM segment's chargeable item.  It contains the fields which, for the same chargeable item, might vary depending upon facility or department or patient type.  The preceding CDM segment contains the fields which, for one chargeable item, remain the same across facilities, departments, and patient types.  </p>
+      <!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - PRC - Pricing Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+DataElement
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Description
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Must Implement
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Flags
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+DataType
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/2021Jan/images/folder_icon.gif'>
+<b>
+PRC
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+<a href='#PRC-1'>
+00982
+</a>
+</td>
+<td>
+Primary Key Value - PRC
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0132/index.html'>
+0132
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+<a href='#PRC-2'>
+00995
+</a>
+</td>
+<td>
+Facility ID - PRC
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0464/index.html'>
+0464
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+<a href='#PRC-3'>
+00676
+</a>
+</td>
+<td>
+Department
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0184/index.html'>
+0184
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+<a href='#PRC-4'>
+00967
+</a>
+</td>
+<td>
+Valid Patient Classes
+</td>
+<td>
+
+</td>
+<td class='centered'>
+=
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+1
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0004/index.html'>
+0004
+<span class='vocab-link-text'>Patient Class</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+5
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+</td>
+<td>
+<a href='#PRC-5'>
+00998
+</a>
+</td>
+<td>
+Price
+</td>
+<td>
+MAY
+<br>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+True:
+<br>
+<img src='/2021Jan/images/tbl_vjoin_end.png'>
+False:
+
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<br/>[1..1]<br/>[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CP.html'>
+CP
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+<a href='#PRC-6'>
+00999
+</a>
+</td>
+<td>
+Formula
+</td>
+<td>
+
+</td>
+<td class='centered'>
+=
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+200
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ST.html'>
+ST
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+<a href='#PRC-7'>
+01000
+</a>
+</td>
+<td>
+Minimum Quantity
+</td>
+<td>
+
+</td>
+<td class='centered'>
+=
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+4
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/NM.html'>
+NM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+<a href='#PRC-8'>
+01001
+</a>
+</td>
+<td>
+Maximum Quantity
+</td>
+<td>
+
+</td>
+<td class='centered'>
+=
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+4
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/NM.html'>
+NM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+<a href='#PRC-9'>
+01002
+</a>
+</td>
+<td>
+Minimum Price
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/MO.html'>
+MO
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+<a href='#PRC-10'>
+01003
+</a>
+</td>
+<td>
+Maximum Price
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/MO.html'>
+MO
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+<a href='#PRC-11'>
+01004
+</a>
+</td>
+<td>
+Effective Start Date
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/DTM.html'>
+DTM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+<a href='#PRC-12'>
+01005
+</a>
+</td>
+<td>
+Effective End Date
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/DTM.html'>
+DTM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+<a href='#PRC-13'>
+01006
+</a>
+</td>
+<td>
+Price Override Flag
+</td>
+<td>
+
+</td>
+<td class='centered'>
+=
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+1
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0268/index.html'>
+0268
+<span class='vocab-link-text'>Override</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+<a href='#PRC-14'>
+01007
+</a>
+</td>
+<td>
+Billing Category
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0293/index.html'>
+0293
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+<a href='#PRC-15'>
+01008
+</a>
+</td>
+<td>
+Chargeable Flag
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0136/index.html'>
+0136
+<span class='vocab-link-text'>Yes/no Indicator</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ID.html'>
+ID
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+<a href='#PRC-16'>
+00675
+</a>
+</td>
+<td>
+Active/Inactive Flag
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0183/index.html'>
+0183
+<span class='vocab-link-text'>Active/Inactive</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ID.html'>
+ID
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+<a href='#PRC-17'>
+00989
+</a>
+</td>
+<td>
+Cost
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/MO.html'>
+MO
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin_end.png'>
+18
+</td>
+<td>
+<a href='#PRC-18'>
+01009
+</a>
+</td>
+<td>
+Charge on Indicator
+</td>
+<td>
+
+</td>
+<td class='centered'>
+=
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+1
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0269/index.html'>
+0269
+<span class='vocab-link-text'>Charge On Indicator</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+</tbody>
+</table>
+
+    </div>
+<h4 class='v2' id='PRC-1'>
+PRC-1: Primary Key Value - PRC (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00982
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the code assigned by the institution for the purpose of uniquely identifying the thing that can be charged.  The key field of the entry.  For example, this field would be used to uniquely identify a procedure, item, or test for charging purposes.  Probably the same set of values as used in <a href="/2021Jan/segment-definition/FT1.html#FT1-7">FT1-7 - Transaction Code</a> in financial messages.  Must match <a href="/2021Jan/segment-definition/MFE.html#MFE-4">MFE-4 - Primary Key - MFE</a> and <a href="/2021Jan/segment-definition/CDM.html#CDM-1">CDM-1 - Primary Key - CDM</a>.  Refer to <a href="https://www.hl7.org/fhir/v2/0132/index.html">User-defined Table 0132 - Transaction code</a> in Chapter 2C, Code Tables, for suggested values.  See Chapter 7 for discussion of the universal service ID.  </p>
+    </div>
+
+<h4 class='v2' id='PRC-2'>
+PRC-2: Facility ID - PRC (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00995
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the facility of the institution for which this price (for the preceding CDM entry) is valid.  For use when needing multi-facility pricing.  If null, assume all facilities.  In a multi-facility environment, the facility associated with this chargeable item may not be the same as the sending or receiving facility identified in the MSH segment.  Use only when the price is not the same for all facilities, that is, a null value indicates that this pricing is valid for all facilities.</p>
+      <p class="v2 v2-normalindented">When two PRC segments are sent with the same key values but different facility identifiers, the second is sent in addition to the first, not to replace the first.  The effective unique identifier is the charge code (<a href="/2021Jan/segment-definition/PRC.html#PRC-1">PRC-1 - Primary Key Value - PRC</a>) plus the facility ID (<a href="/2021Jan/segment-definition/PRC.html#PRC-2">PRC-2 - Facility ID</a>).  Multiple facility identifiers can be sent in the same segment to indicate that those facilities use the same pricing. Refer to <a href="https://www.hl7.org/fhir/v2/0464/index.html">User-defined Table 0464 - Facility ID</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='PRC-3'>
+PRC-3: Department (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00676
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PRC.html#PRC-3">PRC.3</a> in Ch. 8)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the department of the facility which accrues revenue/cost for this type of charge.  When pricing is different for different departments within the same facility, this will indicate for which department the following pricing information is valid.  Use only when the price is not the same for all departments, that is, a null value indicates that this pricing is valid for all departments.</p>
+      <p class="v2 v2-normalindented">When two PRC segments are sent the same key values but with different departments, the second is sent in addition to the first, not to replace the first.  The effective unique identifier is the charge code <a href="/2021Jan/segment-definition/PRC.html#PRC-1">(PRC-1 - Primary Key - PRC</a>) plus the facility ID (<a href="/2021Jan/segment-definition/PRC.html#PRC-2">PRC-2 - Facility ID</a>) plus the department (<a href="/2021Jan/segment-definition/PRC.html#PRC-3">PRC-3 - Department</a>).  Multiple departments can be sent in the same segment to indicate that those departments use the same pricing. Refer to <a href="https://www.hl7.org/fhir/v2/0184/index.html">User-defined Table 0184 - Department</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/STF.html#STF-8">STF.8</a> in Ch. 15)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the institution department to which this person reports or belongs.  Refer to <a href="https://www.hl7.org/fhir/v2/0184/index.html">User-defined Table 0184 - Departmen</a><a href="t">t</a> in Chapter 2C, Code Tables, for suggested values.  This table contains no suggested values.</p>
+    </div>
+
+<h4 class='v2' id='PRC-4'>
+PRC-4: Valid Patient Classes (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00967
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/LDP.html#LDP-5">LDP.5</a> in Ch. 8)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the patient types that are allowed to be assigned to this bed.  For example, Inpatient, Outpatient, Series, Clinic, ER, Ambulatory, Observation, etc.  These values should be the same set of values as those used for <a href="/2021Jan/segment-definition/PV1.html#PV1-2">PV1-2 - Patient Class</a>.  Refer to <a href="https://www.hl7.org/fhir/v2/0004/index.html">User-defined Table 0004 – Patient Class</a> in Chapter 2C, Code Tables, for suggested values.  </p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PRC.html#PRC-4">PRC.4</a> in Ch. 8)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the patient types for which this charge description is valid.  For example, Inpatient, Outpatient, Series, Clinic, ER, Ambulatory, Observation, etc.  These values should be the same set of values as those used for <a href="/2021Jan/segment-definition/PV1.html#PV1-3">PV1-3 - Patient Class</a>, which is site defined.  Use only when the price is not valid for all patient types, that is, a null value indicates that this pricing is valid for all patient classes.  Refer to <a href="https://www.hl7.org/fhir/v2/0004/index.html">User-defined Table 0004 - Patient Class</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="v2 v2-normalindented">When two PRC segments are sent the same key values but with different valid patient classes, the second is sent in addition to the first, not to replace the first.  The effective unique identifier is the charge code (<a href="/2021Jan/segment-definition/PRC.html#PRC-1">PRC-1 - PRC Primary Key</a>) plus the facility ID (<a href="/2021Jan/segment-definition/PRC.html#PRC-2">PRC-2 - Facility ID</a>) plus the department (<a href="/2021Jan/segment-definition/PRC.html#PRC-3">PRC-3 - Department</a>) plus the patient class (<a href="/2021Jan/segment-definition/PRC.html#PRC-4">PRC-4 - Valid Patient Classes</a>).  Multiple patient classes can be sent in the same segment to indicate that those patient classes use the same pricing.</p>
+    </div>
+
+<h4 class='v2' id='PRC-5'>
+PRC-5: Price (<a href='/2021Jan/data-type/CP.html'>CP</a>) 00998
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the price to be charged for service, item, or procedure.  If CDM price will always be overridden when charges are posted, then this field is optional.  Otherwise, price would be a required field.  The formula or calculation that is to be used to get total price from these price components is left to implementation negotiations agreed upon by the participating institutions.  See Chapter 2, section 2.8.8, "CP - composite price," for a description of the use of the composite price (CP) data type.</p>
+    </div>
+
+<h4 class='v2' id='PRC-6'>
+PRC-6: Formula (<a href='/2021Jan/data-type/ST.html'>ST</a>) 00999
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the mathematical formula to apply to <a href="/2021Jan/segment-definition/PRC.html#PRC-5">PRC-5 - Price</a> in order to compute total price.  The syntax of this formula must conform to Arden Syntax rules.</p>
+    </div>
+
+<h4 class='v2' id='PRC-7'>
+PRC-7: Minimum Quantity (<a href='/2021Jan/data-type/NM.html'>NM</a>) 01000
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the minimum number of identical charges allowed on one patient account for this CDM entry.</p>
+    </div>
+
+<h4 class='v2' id='PRC-8'>
+PRC-8: Maximum Quantity (<a href='/2021Jan/data-type/NM.html'>NM</a>) 01001
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the maximum number of identical charges allowed on one patient account for this CDM entry.</p>
+    </div>
+
+<h4 class='v2' id='PRC-9'>
+PRC-9: Minimum Price (<a href='/2021Jan/data-type/MO.html'>MO</a>) 01002
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the minimum total price (after computation of components of price) that can be charged for this item.</p>
+    </div>
+
+<h4 class='v2' id='PRC-10'>
+PRC-10: Maximum Price (<a href='/2021Jan/data-type/MO.html'>MO</a>) 01003
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the maximum total price (after computation of components of price) that can be charged for this item.</p>
+    </div>
+
+<h4 class='v2' id='PRC-11'>
+PRC-11: Effective Start Date (<a href='/2021Jan/data-type/DTM.html'>DTM</a>) 01004
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/NTE.html#NTE-7">NTE.7</a> in Ch. 2)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition: This field contains the date the comment becomes or became effective.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PRC.html#PRC-11">PRC.11</a> in Ch. 8)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the date/time when this CDM entry becomes effective.</p>
+    </div>
+
+<h4 class='v2' id='PRC-12'>
+PRC-12: Effective End Date (<a href='/2021Jan/data-type/DTM.html'>DTM</a>) 01005
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the date/time when this CDM entry is no longer effective.</p>
+    </div>
+
+<h4 class='v2' id='PRC-13'>
+PRC-13: Price Override Flag (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 01006
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field indicates whether this CDM entry's price can be overridden.  Refer to <a href="https://www.hl7.org/fhir/v2/0268/index.html">User-defined Table 0268 - Override</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='PRC-14'>
+PRC-14: Billing Category (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 01007
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the billing category codes for any classification systems needed, for example, general ledger codes and UB92 categories.  Repeating field with coded entry made up of category code plus category system.  Refer to <a href="https://www.hl7.org/fhir/v2/0293/index.html">User-defined Table 0293 - Billing category</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='PRC-15'>
+PRC-15: Chargeable Flag (<a href='/2021Jan/data-type/ID.html'>ID</a>) 01008
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains a chargeable indicator. Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/no Indicator</a> in Chapter 2C, Code Tables, for valid values. </p>
+      <ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none">
+        <li class="v2 v2-li">
+          <p class="v2 v2-normallist">N    charge is not billable, that is, do not create charges for this CDM entry; this is zero price item</p>
+        </li>
+        <li class="v2 v2-li">
+          <p class="v2 v2-normallist">Y    item is billable (this is also the default when NULL)</p>
+        </li>
+      </ul>
+    </div>
+
+<h4 class='v2' id='PRC-16'>
+PRC-16: Active/Inactive Flag (<a href='/2021Jan/data-type/ID.html'>ID</a>) 00675
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/LDP.html#LDP-6">LDP.6</a> in Ch. 8)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field indicates whether the entry for this location is currently an active, that is, valid, usable entry (disregarding whether it's waiting to be maintained by housekeeping).  Refer to <a href="https://www.hl7.org/fhir/v2/0183/index.html">HL7 Table 0183 - Active/Inactive</a> in Chapter 2C, Code Tables, for valid values. </p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/CDM.html#CDM-8">CDM.8</a> in Ch. 8)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field indicates whether this is a usable CDM entry.  Refer to <a href="https://www.hl7.org/fhir/v2/0183/index.html">HL7 Table 0183 - Active/Inactive</a> in Chapter 2C, Code Tables, for valid values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PRC.html#PRC-16">PRC.16</a> in Ch. 8)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This indicates whether this is a usable CDM entry.  Refer to <a href="https://www.hl7.org/fhir/v2/0183/index.html">HL7 Table 0183 - Active/Inactive</a> in Chapter 2C, Code Tables, for valid values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/STF.html#STF-7">STF.7</a> in Ch. 15)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field indicates whether person is currently a valid staff member.  Refer to <a href="https://www.hl7.org/fhir/v2/0183/index.html">HL7 Table 0183 - Active/Inactive</a><a href=""> </a>in Chapter 2C, Code Tables, for valid values. This table contains values for active or inactive. </p>
+    </div>
+
+<h4 class='v2' id='PRC-17'>
+PRC-17: Cost (<a href='/2021Jan/data-type/MO.html'>MO</a>) 00989
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the institution's calculation of how much it costs to provide this item, that is, what the institution had to pay for the material plus any specified payment expenditure, effort or loss due to performing or providing the chargeable item.</p>
+    </div>
+
+<h4 class='v2' id='PRC-18'>
+PRC-18: Charge on Indicator (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 01009
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the user-defined table of values which indicates when a charge for services or procedures should be accrued.  Refer to <a href="https://www.hl7.org/fhir/v2/0269/index.html">User-defined Table 0269 - Charge On Indicator</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+December 11, 2020
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/2021Jan/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/2021Jan/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/2021Jan/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "/images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

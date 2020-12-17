@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+<style type='text/css'>
+@import "/2021Jan/css/bootstrap.css";
+@import "/2021Jan/css/codemirror.css";
+@import "/2021Jan/css/hl7.css";
+@import "/2021Jan/css/fhir.css";
+<!-- @import "css/bootstrap-fhir.css"; -->
+@import "/2021Jan/css/bootstrap-v2.css";
+@import "/2021Jan/css/project.css";
+@import "/2021Jan/css/pygments-manni.css";
+@import "/2021Jan/css/jquery-ui.css";
+@import "/2021Jan/css/modules.css";
+@import "/2021Jan/css/v2.css";
+</style>
+<script src='/2021Jan/js/jquery.js'></script>
+<script src='/2021Jan/js/jquery-ui.min.js'></script>
+<script src='/2021Jan/js/bootstrap.min.js'></script>
+<script src='/2021Jan/js/respond.min.js'></script>
+<script src='/2021Jan/js/codemirror/codemirror.js'></script>
+<script src='/2021Jan/js/codemirror/mode/xml.js'></script>
+<script src='/2021Jan/js/v2.js'></script>
+<script src='/2021Jan/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/2021Jan/js/format_xml.js' type='text/javascript'></script>
+<link href='/2021Jan/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/2021Jan/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/2021Jan/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/2021Jan/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/2021Jan/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/2021Jan/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/2021Jan/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/2021Jan/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/2021Jan/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/2021Jan/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='https://www.hl7.org/fhir/terminologies-valuesets.html#tabs-v2'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/2021Jan/composition/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/2021Jan/composition/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/2021Jan/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/2021Jan/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+BTX - Blood Product Transfusion/Disposition Segment
+</h3>
+<div>
+      <!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - BTX - Blood Product Transfusion/Disposition Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+DataElement
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Description
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Must Implement
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Flags
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+DataType
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/2021Jan/images/folder_icon.gif'>
+<b>
+BTX
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+<a href='#BTX-1'>
+01735
+</a>
+</td>
+<td>
+Set ID – BTX
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+[1..4]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/SI.html'>
+SI
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+2
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+</td>
+<td>
+<a href='#BTX-2'>
+01736
+</a>
+</td>
+<td>
+BC Donation ID
+</td>
+<td>
+MAY
+<br>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+True:
+<br>
+<img src='/2021Jan/images/tbl_vjoin_end.png'>
+False:
+
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<br/>[1..1]<br/>[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/EI.html'>
+EI
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+3
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+</td>
+<td>
+<a href='#BTX-3'>
+01737
+</a>
+</td>
+<td>
+BC Component
+</td>
+<td>
+MAY
+<br>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+True:
+<br>
+<img src='/2021Jan/images/tbl_vjoin_end.png'>
+False:
+
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<br/>[1..1]<br/>[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0582/index.html'>
+0582
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CNE.html'>
+CNE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+4
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+</td>
+<td>
+<a href='#BTX-4'>
+01738
+</a>
+</td>
+<td>
+BC Blood Group
+</td>
+<td>
+MAY
+<br>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+True:
+<br>
+<img src='/2021Jan/images/tbl_vjoin_end.png'>
+False:
+
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<br/>[1..1]<br/>[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0583/index.html'>
+0583
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CNE.html'>
+CNE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+5
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+</td>
+<td>
+<a href='#BTX-5'>
+01739
+</a>
+</td>
+<td>
+CP Commercial Product
+</td>
+<td>
+MAY
+<br>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+True:
+<br>
+<img src='/2021Jan/images/tbl_vjoin_end.png'>
+False:
+
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<br/>[1..1]<br/>[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0512/index.html'>
+0512
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+6
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+</td>
+<td>
+<a href='#BTX-6'>
+01740
+</a>
+</td>
+<td>
+CP Manufacturer
+</td>
+<td>
+MAY
+<br>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+True:
+<br>
+<img src='/2021Jan/images/tbl_vjoin_end.png'>
+False:
+
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<br/>[1..1]<br/>[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XON.html'>
+XON
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+7
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+</td>
+<td>
+<a href='#BTX-7'>
+01741
+</a>
+</td>
+<td>
+CP Lot Number
+</td>
+<td>
+MAY
+<br>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+True:
+<br>
+<img src='/2021Jan/images/tbl_vjoin_end.png'>
+False:
+
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<br/>[1..1]<br/>[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/EI.html'>
+EI
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+<a href='#BTX-8'>
+01742
+</a>
+</td>
+<td>
+BP Quantity
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+=
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+5
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/NM.html'>
+NM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+<a href='#BTX-9'>
+01743
+</a>
+</td>
+<td>
+BP Amount
+</td>
+<td>
+
+</td>
+<td class='centered'>
+=
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+5
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/NM.html'>
+NM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+<a href='#BTX-10'>
+01744
+</a>
+</td>
+<td>
+BP Units
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0584/index.html'>
+0584
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+<a href='#BTX-11'>
+01745
+</a>
+</td>
+<td>
+BP Transfusion/Disposition Status
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0513/index.html'>
+0513
+<span class='vocab-link-text'>Blood Product Transfusion/Disposition Status</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+<a href='#BTX-12'>
+01746
+</a>
+</td>
+<td>
+BP Message Status
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0511/index.html'>
+0511
+<span class='vocab-link-text'>BP Observation Status Codes Interpretation</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ID.html'>
+ID
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+<a href='#BTX-13'>
+01747
+</a>
+</td>
+<td>
+BP Date/Time of Status
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/DTM.html'>
+DTM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+<a href='#BTX-14'>
+01748
+</a>
+</td>
+<td>
+BP Transfusion Administrator
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XCN.html'>
+XCN
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+<a href='#BTX-15'>
+01749
+</a>
+</td>
+<td>
+BP Transfusion Verifier
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XCN.html'>
+XCN
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+<a href='#BTX-16'>
+01750
+</a>
+</td>
+<td>
+BP Transfusion Start Date/Time of Status
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/DTM.html'>
+DTM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+<a href='#BTX-17'>
+01751
+</a>
+</td>
+<td>
+BP Transfusion End Date/Time of Status
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/DTM.html'>
+DTM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+<a href='#BTX-18'>
+01752
+</a>
+</td>
+<td>
+BP Adverse Reaction Type
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0514/index.html'>
+0514
+<span class='vocab-link-text'>Transfusion Adverse Reaction</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+<a href='#BTX-19'>
+01753
+</a>
+</td>
+<td>
+BP Transfusion Interrupted Reason
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0515/index.html'>
+0515
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+<a href='#BTX-20'>
+03391
+</a>
+</td>
+<td>
+BP Unique ID
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/EI.html'>
+EI
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin_end.png'>
+21
+</td>
+<td>
+<a href='#BTX-21'>
+00816
+</a>
+</td>
+<td>
+Action Code
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+[2..2]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0206/index.html'>
+0206
+<span class='vocab-link-text'>Segment Action Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ID.html'>
+ID
+</a>
+</td>
+</tr>
+
+</tbody>
+</table>
+
+    </div>
+<h4 class='v2' id='BTX-1'>
+BTX-1: Set ID – BTX (<a href='/2021Jan/data-type/SI.html'>SI</a>) 01735
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: This field contains the sequence number for the BTX segment under the related BPO segment.  For the first product transfusion/disposition transmitted, the sequence number shall be 1; for the second product transfusion/disposition, it shall be 2; and so on.</p>
+    </div>
+
+<h4 class='v2' id='BTX-2'>
+BTX-2: BC Donation ID (<a href='/2021Jan/data-type/EI.html'>EI</a>) 01736
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: The donation ID is the unique identification number assigned to a blood donation. The Donation ID depends upon the bar code labeling system used for the component.  There are currently two blood component labeling standards: ABC CODABAR and ISBT 128.  The preferred labeling system is ISBT 128.  If using ISBT 128, the Donation ID is an internationally unique identifier consisting of the following 13 characters:</p>
+      <p class="v2 v2-normalindented">    Country Code &amp; Collection Facility - 5 characters</p>
+      <p class="v2 v2-normalindented">    Donation Year - 2 characters</p>
+      <p class="v2 v2-normalindented">    Serial Number - 6 characters</p>
+      <p class="v2 v2-normalindented">This is required for blood components and is not applicable for commercial product messages.</p>
+    </div>
+
+<h4 class='v2' id='BTX-3'>
+BTX-3: BC Component (<a href='/2021Jan/data-type/CNE.html'>CNE</a>) 01737
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: The Blood Component field includes an identifier and description of the specific blood component.  Refer to Table 0582 - BC Component in Chapter 2C for valid values.</p>
+      <p class="v2 v2-normalindented">The identifier consists of a numeric or alphanumeric product code that represents the type of blood component. The coding system will be determined by the bar code labeling system on the particular component of blood.  The preferred coding system is ISBT 128.  </p>
+      <p class="v2 v2-normalindented">If using ISBT 128 labeling standard, the product code will consist of an 8-character alphanumeric code, starting with an alpha character and including the component class, donation type/intended use and division indicator.</p>
+      <p class="v2 v2-normalindented">If using CODABAR product labeling standard, the product code is a 5-digit number.</p>
+      <p class="v2 v2-normalindented">This field is required for blood components and is not applicable for commercial product messages.</p>
+    </div>
+
+<h4 class='v2' id='BTX-4'>
+BTX-4: BC Blood Group (<a href='/2021Jan/data-type/CNE.html'>CNE</a>) 01738
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: This field indicates the ABO/Rh blood group of the blood component. The preferred values for the blood group are the specified values in Table 3A - Encodation of ABO/Rh Blood Group in the ISBT 128 Application Specification.  Refer to Table 0583 - BC Blood Group in Chapter 2C for valid values.</p>
+      <p class="v2 v2-normalindented">This field is required for blood components and certain commercial products (such as solvent detergent plasma).</p>
+    </div>
+
+<h4 class='v2' id='BTX-5'>
+BTX-5: CP Commercial Product (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 01739
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: This field contains the code and/or text to identify a commercial product.  Examples of commercial products are blood derivatives such as Rh Immune Globulin and Factor VIII concentrate, Leukoreduction filters, and blood administration sets.</p>
+      <p class="v2 v2-normalindented">Either code and/or text may be absent.  However, the code is always placed in the first component position and any free text in the second component.  Thus, free text without a code must be preceded by a component delimiter.  Free text can be utilized if no update is to occur.  Refer to <a href="https://www.hl7.org/fhir/v2/0512/index.html">User-Defined Table 0512 - Commercial Product</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="v2 v2-normalindented">This field is required for commercial blood products and is not applicable to blood component messages.</p>
+    </div>
+
+<h4 class='v2' id='BTX-6'>
+BTX-6: CP Manufacturer (<a href='/2021Jan/data-type/XON.html'>XON</a>) 01740
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: This field identifies the manufacturer of the commercial product.  The manufacturer may not be the same as the supplier of the commercial product.</p>
+      <p class="v2 v2-normalindented">This field is required for commercial blood products and is not applicable for blood component messages.</p>
+    </div>
+
+<h4 class='v2' id='BTX-7'>
+BTX-7: CP Lot Number (<a href='/2021Jan/data-type/EI.html'>EI</a>) 01741
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: This field identifies the lot number for blood derivatives or commercially supplied items used as accessories to transfusion.</p>
+      <p class="v2 v2-normalindented">This field is required for commercial blood products and is not applicable for blood component messages.</p>
+    </div>
+
+<h4 class='v2' id='BTX-8'>
+BTX-8: BP Quantity (<a href='/2021Jan/data-type/NM.html'>NM</a>) 01742
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field indicates the number of blood components or commercial products to which the message refers.</p>
+    </div>
+
+<h4 class='v2' id='BTX-9'>
+BTX-9: BP Amount (<a href='/2021Jan/data-type/NM.html'>NM</a>) 01743
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the amount (volume) associated with each blood component or commercial product.  When included in this segment, it may be used to indicate the volume of the blood component or product that was actually transfused.  </p>
+    </div>
+
+<h4 class='v2' id='BTX-10'>
+BTX-10: BP Units (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 01744
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: This field contains the units of measure for the blood component or commercial product  amount. (See Chapter 7 for more details about reporting units.)  This specifies the units of measure for volume of a blood component (i.e., 50 ml) or the units of measure or dosage of a commercial product (i.e., 910 I.U. - International Units - of Factor VIII Concentrate). Refer to Table 0584 - BP Units in Chapter 2C for valid values.</p>
+    </div>
+
+<h4 class='v2' id='BTX-11'>
+BTX-11: BP Transfusion/Disposition Status (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 01745
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: This field indicates the current status of the specified blood product as indicated by the placer.  For example, the placer may return the blood product to the transfusion service unused because an IV could not be started. The blood component may have been entered, but the line was clogged and could not be used, in which case the component must be wasted.  A final status would indicate that the product has actually been "transfused."  Refer to <a href="https://www.hl7.org/fhir/v2/0513/index.html">HL7 Table 0513 - Blood Product Transfusion/Disposition Status</a> in Chapter 2C, Code Tables, for suggested values. </p>
+    </div>
+
+<h4 class='v2' id='BTX-12'>
+BTX-12: BP Message Status (<a href='/2021Jan/data-type/ID.html'>ID</a>) 01746
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: The most commonly used message status values in a BTX will be preliminary and final.  A status is considered preliminary until a blood product has reached a final disposition for the patient.  For example, when the product is first cross-matched and a status message is sent, it would be considered preliminary.  When the product is dispensed to the patient, that status would also be considered preliminary.  However, once the product is transfused, the status would be considered final.  The status of a blood product (BTX-11) can continue to change and the previous result should be overwritten until it reaches a final status (BTX-12). Refer to <a href="https://www.hl7.org/fhir/v2/0511/index.html">HL7 Table 0511 – BP Observation Status Codes Interpretation</a> in Chapter 2C, Code Tables, for valid entries.  </p>
+    </div>
+
+<h4 class='v2' id='BTX-13'>
+BTX-13: BP Date/Time of Status (<a href='/2021Jan/data-type/DTM.html'>DTM</a>) 01747
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:   This field indicates the date and time that the status of the blood component was changed.  For example, if the blood component had a status of "TX" (Transfused), the date and time in this field would indicate the date and time the component was transfused by the placer system.</p>
+    </div>
+
+<h4 class='v2' id='BTX-14'>
+BTX-14: BP Transfusion Administrator (<a href='/2021Jan/data-type/XCN.html'>XCN</a>) 01748
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: This field contains the identity of the individual who administers the transfusion of the blood product.   If the code is sent as a local code, it should be unique and unambiguous.  This field can be free text to permit capture without table update.   In this case, the administrator's name must be recorded as the second through fourth components of the field.</p>
+    </div>
+
+<h4 class='v2' id='BTX-15'>
+BTX-15: BP Transfusion Verifier (<a href='/2021Jan/data-type/XCN.html'>XCN</a>) 01749
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: This field contains the identity of the individual who assists in the identification of the patient and verification of the product information prior to transfusion of the blood product.  If the ID Number is sent as a local code, it should be unique and unambiguous.  This field can be free text to permit capture without table update.   In this case, the verifier's name must be recorded as the second through fourth components of the field.</p>
+    </div>
+
+<h4 class='v2' id='BTX-16'>
+BTX-16: BP Transfusion Start Date/Time of Status (<a href='/2021Jan/data-type/DTM.html'>DTM</a>) 01750
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:   This field indicates the date and time that the administrator started the transfusion of the blood component or commercial product. </p>
+    </div>
+
+<h4 class='v2' id='BTX-17'>
+BTX-17: BP Transfusion End Date/Time of Status (<a href='/2021Jan/data-type/DTM.html'>DTM</a>) 01751
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:   This field indicates the date and time that the transfusion of the blood component or commercial product was completed or stopped.</p>
+    </div>
+
+<h4 class='v2' id='BTX-18'>
+BTX-18: BP Adverse Reaction Type (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 01752
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: This field contains the type of adverse reaction that the recipient of the blood product experienced.  Refer to <a href="https://www.hl7.org/fhir/v2/0514/index.html">User-Defined Table 0514 - Transfusion Adverse Reaction</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='BTX-19'>
+BTX-19: BP Transfusion Interrupted Reason (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 01753
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: This field contains the reason that the transfusion of the blood product was interrupted.   Refer to <a href="https://www.hl7.org/fhir/v2/0515/index.html">User-Defined Table 0515 - Transfusion Interrupted Reason</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='BTX-20'>
+BTX-20: BP Unique ID (<a href='/2021Jan/data-type/EI.html'>EI</a>) 03391
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:<strong>  </strong>This field is a unique system-generated number assigned to the blood product to which the message is referring.  Each time the status is updated, the new message should replace the previous message if the Blood Product Unique ID is the same.  If the Blood Product Unique ID is different, it indicates that the status applies to a different blood product.</p>
+    </div>
+
+<h4 class='v2' id='BTX-21'>
+BTX-21: Action Code (<a href='/2021Jan/data-type/ID.html'>ID</a>) 00816
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/OH1.html#OH1-2">OH1.2</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition: This field contains a code defining the action to be taken for this segment. It allows this segment to be sent to delete or update, for example, previously sent information. Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html"><strong>HL7 Table 0206 – Segment Action Code</strong></a> in Chapter 2C, Code Tables, for valid values. </p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/OH2.html#OH2-2">OH2.2</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition: This field contains a code defining the action to be taken for this  segment. It allows this segment to be sent to delete or update, for example, previously sent information. Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html"><strong>HL7 Table 0206 – Segment Action Code</strong></a> in Chapter 2C, Code Tables, for valid values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/OH3.html#OH3-2">OH3.2</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-indent720">Definition: This field contains a code defining the action to be taken for this  segment. It allows this segment to be sent to delete or update, for example, previously sent information. Refer to <a href="/2021Jan/composition/Control.html#Control-9">HL7 Table 0206 – Segment Action Code</a> in Chapter 2C, Code Tables, for valid values.  </p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/OH4.html#OH4-2">OH4.2</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition: This field contains a code defining the action to be taken for this  segment. It allows this segment to be sent to delete or update, for example, previously sent information. Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html"><strong>HL7 Table 0206 – Segment Action Code</strong></a> in Chapter 2C, Code Tables, for valid values.  </p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/ORC.html#ORC-35">ORC.35</a> in Ch. 4)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when either ORC-2 and/or ORC 3 is valued with a unique identifier in accordance with Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/OBR.html#OBR-55">OBR.55</a> in Ch. 4)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when either an OBR-2 and/or OBR-3 is valued with unique identifier in accordance with Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/IPC.html#IPC-10">IPC.10</a> in Ch. 4)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when the combination of IPC-1, IPC-2, IPC-3, and IPC-4 represents a unique identifier according to Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/BPX.html#BPX-22">BPX.22</a> in Ch. 4)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when an BPX is uniquely identified sufficiently within the specific implementation using BPX-17 or BPX-6 as agreed to by the trading partners and in accordance with Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/BTX.html#BTX-21">BTX.21</a> in Ch. 4)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when an BTX is uniquely identified sufficiently within the specific implementation using BTX-20 or BTX-3 as agreed to by the trading partners in accordance with Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/DON.html#DON-34">DON.34</a> in Ch. 4)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when an DON is uniquely identified sufficiently within the specific implementation using DON-1 in accordance with Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/BUI.html#BUI-13">BUI.13</a> in Ch. 4)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when an BUI is uniquely identified sufficiently within the specific implementation using BUI-2 in accordance with Chapter 2, Section 2.10.4.2</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/RXV.html#RXV-22">RXV.22</a> in Ch. 4A)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:   The intended handling by the receiver of the infusion order is represented by this segment.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 – Segment Action Code</a> in Chapter 2C, Code Tables, for valid values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/CDO.html#CDO-2">CDO.2</a> in Ch. 4A)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  The Action Code indicates whether the cumulative dosage segment is intended to be added, deleted, updated, or did not change.  If the field is not valued in any CDO segments for the order, the segments are considered to have been sent in snapshot mode.  If some but not all CDO segments for the order do not have the action code valued, the default value is Add.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> in Chapter 2C, Code Tables, for valid values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/OBR.html#OBR-55">OBR.55</a> in Ch. 7)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when an either OBR-2 and/or OBR-3 is valued with unique identifier in accordance with Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/OBX.html#OBX-31">OBX.31</a> in Ch. 7)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when an OBX-21 is valued in accordance with guidance in Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/SPM.html#SPM-35">SPM.35</a> in Ch. 7)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when an SPM-2 or SPM-31 is valued in accordance with the guidance in Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PRT.html#PRT-2">PRT.2</a> in Ch. 7)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0287/index.html">HL7 Table 0287 – Problem/goal action code</a> for valid values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/CSR.html#CSR-17">CSR.17</a> in Ch. 7)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when CSR-1 and CSR-4, or CSR-2 and CSR-5 are valued as agreed to by the trading partners in accordance with the guidance in Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/CTI.html#CTI-4">CTI.4</a> in Ch. 7)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when CTI-1 is valued in accordance with the guidance in Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/SHP.html#SHP-12">SHP.12</a> in Ch. 7)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when SHP-1 is valued in accordance with the guidance in Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PAC.html#PAC-9">PAC.9</a> in Ch. 7)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when PAC-2 is valued in accordance with the guidance in Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/GOL.html#GOL-1">GOL.1</a> in Ch. 12)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  The action code field gives the intent of the problem or goal.  Refer to <a href="https://www.hl7.org/fhir/v2/0287/index.html">HL7 Table 0287 – Problem/Goal Action Code</a> in Chapter 2C, Code Tables, for valid values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PRB.html#PRB-1">PRB.1</a> in Ch. 12)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0287/index.html">HL7 Table 0287 – Problem/Goal Action Code</a> in Chapter 2C, Code Tables, for valid values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PTH.html#PTH-1">PTH.1</a> in Ch. 12)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0287/index.html">HL7 Table 0287 – Problem/Goal Action Code</a> in Chapter 2C, Code Tables, for valid values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/DEV.html#DEV-1">DEV.1</a> in Ch. 17)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0287/index.html">HL7 Table 0287 – Problem/goal action code</a> for valid values.</p>
+    </div>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+December 11, 2020
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/2021Jan/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/2021Jan/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/2021Jan/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "/images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

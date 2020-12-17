@@ -1,0 +1,3657 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+<style type='text/css'>
+@import "/2021Jan/css/bootstrap.css";
+@import "/2021Jan/css/codemirror.css";
+@import "/2021Jan/css/hl7.css";
+@import "/2021Jan/css/fhir.css";
+<!-- @import "css/bootstrap-fhir.css"; -->
+@import "/2021Jan/css/bootstrap-v2.css";
+@import "/2021Jan/css/project.css";
+@import "/2021Jan/css/pygments-manni.css";
+@import "/2021Jan/css/jquery-ui.css";
+@import "/2021Jan/css/modules.css";
+@import "/2021Jan/css/v2.css";
+</style>
+<script src='/2021Jan/js/jquery.js'></script>
+<script src='/2021Jan/js/jquery-ui.min.js'></script>
+<script src='/2021Jan/js/bootstrap.min.js'></script>
+<script src='/2021Jan/js/respond.min.js'></script>
+<script src='/2021Jan/js/codemirror/codemirror.js'></script>
+<script src='/2021Jan/js/codemirror/mode/xml.js'></script>
+<script src='/2021Jan/js/v2.js'></script>
+<script src='/2021Jan/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/2021Jan/js/format_xml.js' type='text/javascript'></script>
+<link href='/2021Jan/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/2021Jan/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/2021Jan/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/2021Jan/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/2021Jan/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/2021Jan/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/2021Jan/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/2021Jan/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/2021Jan/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/2021Jan/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='https://www.hl7.org/fhir/terminologies-valuesets.html#tabs-v2'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/2021Jan/composition/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/2021Jan/composition/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/2021Jan/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/2021Jan/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+FT1 - Financial Transaction Segment
+</h3>
+<div>
+      <p class="v2 v2-normalindented">The FT1 segment contains the detail data necessary to post charges, payments, adjustments, etc., to patient accounting records.</p>
+      <!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - FT1 - Financial Transaction Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+DataElement
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Description
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Must Implement
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Flags
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+DataType
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/2021Jan/images/folder_icon.gif'>
+<b>
+FT1
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+<a href='#FT1-1'>
+00355
+</a>
+</td>
+<td>
+Set ID - FT1
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+[1..4]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/SI.html'>
+SI
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+<a href='#FT1-2'>
+00356
+</a>
+</td>
+<td>
+Transaction ID
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+[1..12]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CX.html'>
+CX
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+<a href='#FT1-3'>
+00357
+</a>
+</td>
+<td>
+Transaction Batch ID
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+[1..10]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ST.html'>
+ST
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+<a href='#FT1-4'>
+00358
+</a>
+</td>
+<td>
+Transaction Date
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/DR.html'>
+DR
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+<a href='#FT1-5'>
+00359
+</a>
+</td>
+<td>
+Transaction Posting Date
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/DTM.html'>
+DTM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+<a href='#FT1-6'>
+00360
+</a>
+</td>
+<td>
+Transaction Type
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0017/index.html'>
+0017
+<span class='vocab-link-text'>Transaction Type</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+<a href='#FT1-7'>
+00361
+</a>
+</td>
+<td>
+Transaction Code
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0132/index.html'>
+0132
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+<a href='#FT1-8'>
+00362
+</a>
+</td>
+<td>
+Transaction Description
+</td>
+<td>
+SHALL NOT
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+[0..0]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+<a href='#FT1-9'>
+00363
+</a>
+</td>
+<td>
+Transaction Description - Alt
+</td>
+<td>
+SHALL NOT
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+[0..0]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+<a href='#FT1-10'>
+00364
+</a>
+</td>
+<td>
+Transaction Quantity
+</td>
+<td>
+
+</td>
+<td class='centered'>
+=
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+6
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/NM.html'>
+NM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+<a href='#FT1-11'>
+00365
+</a>
+</td>
+<td>
+Transaction Amount - Extended
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CP.html'>
+CP
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+<a href='#FT1-12'>
+00366
+</a>
+</td>
+<td>
+Transaction Amount - Unit
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CP.html'>
+CP
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+<a href='#FT1-13'>
+00367
+</a>
+</td>
+<td>
+Department Code
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0049/index.html'>
+0049
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+<a href='#FT1-14'>
+00368
+</a>
+</td>
+<td>
+Health Plan ID
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0072/index.html'>
+0072
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+<a href='#FT1-15'>
+00369
+</a>
+</td>
+<td>
+Insurance Amount
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CP.html'>
+CP
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+<a href='#FT1-16'>
+00133
+</a>
+</td>
+<td>
+Assigned Patient Location
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/PL.html'>
+PL
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+<a href='#FT1-17'>
+00370
+</a>
+</td>
+<td>
+Fee Schedule
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0024/index.html'>
+0024
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+<a href='#FT1-18'>
+00148
+</a>
+</td>
+<td>
+Patient Type
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0018/index.html'>
+0018
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+<a href='#FT1-19'>
+00371
+</a>
+</td>
+<td>
+Diagnosis Code - FT1
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0051/index.html'>
+0051
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+<a href='#FT1-20'>
+00372
+</a>
+</td>
+<td>
+Performed By Code
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0084/index.html'>
+0084
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XCN.html'>
+XCN
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+21
+</td>
+<td>
+<a href='#FT1-21'>
+00373
+</a>
+</td>
+<td>
+Ordered By Code
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XCN.html'>
+XCN
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+22
+</td>
+<td>
+<a href='#FT1-22'>
+00374
+</a>
+</td>
+<td>
+Unit Cost
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CP.html'>
+CP
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+23
+</td>
+<td>
+<a href='#FT1-23'>
+00217
+</a>
+</td>
+<td>
+Filler Order Number
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/EI.html'>
+EI
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+24
+</td>
+<td>
+<a href='#FT1-24'>
+00765
+</a>
+</td>
+<td>
+Entered By Code
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XCN.html'>
+XCN
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+25
+</td>
+<td>
+<a href='#FT1-25'>
+00393
+</a>
+</td>
+<td>
+Procedure Code
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CNE.html'>
+CNE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+26
+</td>
+<td>
+<a href='#FT1-26'>
+01316
+</a>
+</td>
+<td>
+Procedure Code Modifier
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CNE.html'>
+CNE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+27
+</td>
+<td>
+<a href='#FT1-27'>
+01310
+</a>
+</td>
+<td>
+Advanced Beneficiary Notice Code
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0339/index.html'>
+0339
+<span class='vocab-link-text'>Advanced Beneficiary Notice Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+28
+</td>
+<td>
+<a href='#FT1-28'>
+01646
+</a>
+</td>
+<td>
+Medically Necessary Duplicate Procedure Reason
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0476/index.html'>
+0476
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+29
+</td>
+<td>
+<a href='#FT1-29'>
+01845
+</a>
+</td>
+<td>
+NDC Code
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0549/index.html'>
+0549
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+30
+</td>
+<td>
+<a href='#FT1-30'>
+01846
+</a>
+</td>
+<td>
+Payment Reference ID
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CX.html'>
+CX
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+31
+</td>
+<td>
+<a href='#FT1-31'>
+01847
+</a>
+</td>
+<td>
+Transaction Reference Key
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+[1..4]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/SI.html'>
+SI
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+32
+</td>
+<td>
+<a href='#FT1-32'>
+02361
+</a>
+</td>
+<td>
+Performing Facility
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XON.html'>
+XON
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+33
+</td>
+<td>
+<a href='#FT1-33'>
+02362
+</a>
+</td>
+<td>
+Ordering Facility
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XON.html'>
+XON
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+34
+</td>
+<td>
+<a href='#FT1-34'>
+02363
+</a>
+</td>
+<td>
+Item Number
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+35
+</td>
+<td>
+<a href='#FT1-35'>
+02364
+</a>
+</td>
+<td>
+Model Number
+</td>
+<td>
+
+</td>
+<td class='centered'>
+=
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+20
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ST.html'>
+ST
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+36
+</td>
+<td>
+<a href='#FT1-36'>
+02365
+</a>
+</td>
+<td>
+Special Processing Code
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+37
+</td>
+<td>
+<a href='#FT1-37'>
+02366
+</a>
+</td>
+<td>
+Clinic Code
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+38
+</td>
+<td>
+<a href='#FT1-38'>
+02367
+</a>
+</td>
+<td>
+Referral Number
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CX.html'>
+CX
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+39
+</td>
+<td>
+<a href='#FT1-39'>
+02368
+</a>
+</td>
+<td>
+Authorization Number
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CX.html'>
+CX
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+40
+</td>
+<td>
+<a href='#FT1-40'>
+02369
+</a>
+</td>
+<td>
+Service Provider Taxonomy Code
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+41
+</td>
+<td>
+<a href='#FT1-41'>
+01600
+</a>
+</td>
+<td>
+Revenue Code
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0456/index.html'>
+0456
+<span class='vocab-link-text'>Revenue code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+42
+</td>
+<td>
+<a href='#FT1-42'>
+00325
+</a>
+</td>
+<td>
+Prescription Number
+</td>
+<td>
+
+</td>
+<td class='centered'>
+=
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+20
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ST.html'>
+ST
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+43
+</td>
+<td>
+<a href='#FT1-43'>
+02370
+</a>
+</td>
+<td>
+NDC Qty and UOM
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CQ.html'>
+CQ
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+44
+</td>
+<td>
+<a href='#FT1-44'>
+03496
+</a>
+</td>
+<td>
+DME Certificate of Medical Necessity Transmission Code
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+45
+</td>
+<td>
+<a href='#FT1-45'>
+03497
+</a>
+</td>
+<td>
+DME Certification Type Code
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+46
+</td>
+<td>
+<a href='#FT1-46'>
+03498
+</a>
+</td>
+<td>
+DME Duration Value
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/NM.html'>
+NM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+47
+</td>
+<td>
+<a href='#FT1-47'>
+03499
+</a>
+</td>
+<td>
+DME Certification Revision Date
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/DT.html'>
+DT
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+48
+</td>
+<td>
+<a href='#FT1-48'>
+03500
+</a>
+</td>
+<td>
+DME Initial Certification Date
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/DT.html'>
+DT
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+49
+</td>
+<td>
+<a href='#FT1-49'>
+03501
+</a>
+</td>
+<td>
+DME Last Certification Date
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/DT.html'>
+DT
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+50
+</td>
+<td>
+<a href='#FT1-50'>
+03502
+</a>
+</td>
+<td>
+DME Length of Medical Necessity Days
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/NM.html'>
+NM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+51
+</td>
+<td>
+<a href='#FT1-51'>
+03503
+</a>
+</td>
+<td>
+DME Rental Price
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/MO.html'>
+MO
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+52
+</td>
+<td>
+<a href='#FT1-52'>
+03504
+</a>
+</td>
+<td>
+DME Purchase Price
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/MO.html'>
+MO
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+53
+</td>
+<td>
+<a href='#FT1-53'>
+03505
+</a>
+</td>
+<td>
+DME Frequency Code
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+54
+</td>
+<td>
+<a href='#FT1-54'>
+03506
+</a>
+</td>
+<td>
+DME Certification Condition Indicator
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ID.html'>
+ID
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+55
+</td>
+<td>
+<a href='#FT1-55'>
+03507
+</a>
+</td>
+<td>
+DME Condition Indicator Code
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..2]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin_end.png'>
+56
+</td>
+<td>
+<a href='#FT1-56'>
+03508
+</a>
+</td>
+<td>
+Service Reason Code
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0964/index.html'>
+0964
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+</tbody>
+</table>
+
+    </div>
+<h4 class='v2' id='FT1-1'>
+FT1-1: Set ID - FT1 (<a href='/2021Jan/data-type/SI.html'>SI</a>) 00355
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the number that identifies this transaction.  For the first occurrence of the segment the sequence number shall be 1, for the second occurrence it shall be 2, etc.</p>
+    </div>
+
+<h4 class='v2' id='FT1-2'>
+FT1-2: Transaction ID (<a href='/2021Jan/data-type/CX.html'>CX</a>) 00356
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains a number assigned by the sending system for control purposes.  The number can be returned by the receiving system to identify errors.</p>
+    </div>
+
+<h4 class='v2' id='FT1-3'>
+FT1-3: Transaction Batch ID (<a href='/2021Jan/data-type/ST.html'>ST</a>) 00357
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field uniquely identifies the batch in which this transaction belongs.</p>
+    </div>
+
+<h4 class='v2' id='FT1-4'>
+FT1-4: Transaction Date (<a href='/2021Jan/data-type/DR.html'>DR</a>) 00358
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the date/time or date/time range of the transaction.  For example, this field would be used to identify the date a procedure, item, or test was conducted or used.  It may be defaulted to today's date. To specify a single point in time, only the first component is valued. When the second component is valued, the field specifies a time interval during which the transaction took place.</p>
+    </div>
+
+<h4 class='v2' id='FT1-5'>
+FT1-5: Transaction Posting Date (<a href='/2021Jan/data-type/DTM.html'>DTM</a>) 00359
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the date of the transaction that was sent to the financial system for posting.</p>
+    </div>
+
+<h4 class='v2' id='FT1-6'>
+FT1-6: Transaction Type (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00360
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the code that identifies the type of transaction.  Refer to<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0017/index.html">User-defined Table 0017 - Transaction Type</a><a href=""> </a>in Chapter 2C, Code Tables,<a href=""> </a>for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='FT1-7'>
+FT1-7: Transaction Code (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00361
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/FT1.html#FT1-7">FT1.7</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the code assigned by the institution for the purpose of uniquely identifying the transaction based on the Transaction Type (FT1-6).  For example, this field would be used to uniquely identify a procedure, supply item, or test for charges, or to identify the payment medium for payments.  Refer to <a href="https://www.hl7.org/fhir/v2/0132/index.html">User-defined Table 0132 - Transaction Code</a> in Chapter 2C, Code Tables, for suggested values.  See Chapter 7 for a discussion of the universal service ID for charges.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/ITM.html#ITM-12">ITM.12</a> in Ch. 17)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the code assigned by the institution for the purpose of uniquely identifying a patient billing code specific for a supply item.  In the context of this message, this is a code that is a cross-reference to the Item Code/Id.  This field would be used to uniquely identify a procedure, supply item, or test for charges; or to identify the payment medium for payments. It can reference, for example, a CBC (a lab charge), or an Elastic Bandage 3'' (supply charge), or Chest 1 View (radiology charge).   For instance the code would be 300-0001, with a description of CBC.</p>
+      <p class="v2 v2-normalindented">Refer to <a href="https://www.hl7.org/fhir/v2/0132/index.html">User-defined Table 0132 - Transaction Code</a> in Chapter 2C, Code Tables, for suggested values.  See Chapter 7 for a discussion of the universal service ID for charges.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PCE.html#PCE-3">PCE.3</a> in Ch. 17)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains a code that is used by a billing system to charge for the inventory supply item, the descriptive name of the patient charge for that system (as it may appear on a patient's bill or charge labels) and the name of the coding system that assigned the charge code.  Refer to <a href="https://www.hl7.org/fhir/v2/0132/index.html">User-defined Table 0132 – Transaction Codes</a> in Chapter 6, Financial Management, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/IVT.html#IVT-12">IVT.12</a> in Ch. 17)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains a code that is used by a billing system to charge for the inventory supply item, the descriptive name of the patient charge for that system (as it may appear on a patient's bill or charge labels) and the name of the coding system that assigned the charge code.  Refer to <a href="https://www.hl7.org/fhir/v2/0132/index.html">User-defined Table 0132 – Transaction Codes</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='FT1-8'>
+FT1-8: Transaction Description
+</h4>
+<div>
+      <p class="v2 v2-normalindented">
+        <strong>Attention: FT1-8 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6.</strong>
+      </p>
+    </div>
+
+<h4 class='v2' id='FT1-9'>
+FT1-9: Transaction Description - Alt
+</h4>
+<div>
+      <p class="v2 v2-normalindented">
+        <strong>Attention: FT1-9 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6.</strong>
+      </p>
+    </div>
+
+<h4 class='v2' id='FT1-10'>
+FT1-10: Transaction Quantity (<a href='/2021Jan/data-type/NM.html'>NM</a>) 00364
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the quantity of items associated with this transaction.</p>
+    </div>
+
+<h4 class='v2' id='FT1-11'>
+FT1-11: Transaction Amount - Extended (<a href='/2021Jan/data-type/CP.html'>CP</a>) 00365
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the amount of a transaction.  It may be left blank if the transaction is automatically priced.  Total price for multiple items.</p>
+    </div>
+
+<h4 class='v2' id='FT1-12'>
+FT1-12: Transaction Amount - Unit (<a href='/2021Jan/data-type/CP.html'>CP</a>) 00366
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/FT1.html#FT1-12">FT1.12</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the unit price of a transaction.  Price of a single item.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/ITM.html#ITM-13">ITM.13</a> in Ch. 17)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition: Unit price of transaction. Price of a single item. This field contains the dollar amount charged to patients for this item.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PCE.html#PCE-4">PCE.4</a> in Ch. 17)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  The price that a department charges to a patient for this inventory supply item when using the Patient Charge Billing code present in this segment. </p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/IVT.html#IVT-13">IVT.13</a> in Ch. 17)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition: This field contains the dollar amount charged to patients for this single inventory supply item.</p>
+    </div>
+
+<h4 class='v2' id='FT1-13'>
+FT1-13: Department Code (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00367
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the department code that controls the transaction code described above. Refer to <a href="https://www.hl7.org/fhir/v2/0049/index.html">User-defined Table 0049 - Department Code</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='FT1-14'>
+FT1-14: Health Plan ID (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00368
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/FT1.html#FT1-14">FT1.14</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the identifier of the primary insurance plan with which this transaction should be associated.  Refer to <a href="https://www.hl7.org/fhir/v2/0072/index.html">User-defined Table 0072 - Insurance Plan ID</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/IN1.html#IN1-2">IN1.2</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains a unique identifier for the insurance plan.  Refer to <a href="https://www.hl7.org/fhir/v2/0072/index.html">User-defined Table 0072 - Insurance Plan ID</a> in Chapter 2C, Code Tables, for suggested values.  To eliminate a plan, the plan could be sent with Delete Indication values in each subsequent element.  If the respective systems can support it, a Delete Indication value can be sent in the plan field.</p>
+      <p class="v2 v2-normalindented">The assigning authority for <a href="/2021Jan/segment-definition/IN1.html#IN1-2">IN1-2, Health Plan ID</a> is assumed to be the Entity named in <a href="/2021Jan/segment-definition/IN1.html#IN1-3">IN1-3, Insurance Company ID</a>.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PM1.html#PM1-1">PM1.1</a> in Ch. 8)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition: This field contains a unique identifier for the insurance plan. Refer to User-defined Table 0072 - Insurance Plan ID in Chapter 2C, Code Tables, for suggested values. To eliminate a plan, the plan could be sent with null values in each subsequent element. If the respective systems can support it, a null value can be sent in the plan field. </p>
+      <p class="v2 v2-normalindented">The assigning authority for PM1-1, Health Plan ID is assumed to be the Entity named in PM1-2, Insurance Company ID.</p>
+    </div>
+
+<h4 class='v2' id='FT1-15'>
+FT1-15: Insurance Amount (<a href='/2021Jan/data-type/CP.html'>CP</a>) 00369
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the amount to be posted to the insurance plan referenced above.</p>
+    </div>
+
+<h4 class='v2' id='FT1-16'>
+FT1-16: Assigned Patient Location (<a href='/2021Jan/data-type/PL.html'>PL</a>) 00133
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PV1.html#PV1-3">PV1.3</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the patient's initial assigned location or the location to which the patient is being moved.  The first component may be the nursing station for inpatient locations, or clinic or department, for locations other than inpatient.  For canceling a transaction or discharging a patient, the current location (after the cancellation event or before the discharge event) should be in this field.  If a value exists in the fifth component (location status), it supersedes the value in <a href="/2021Jan/segment-definition/PV1.html#PV1-40">PV1-40 - Bed Status</a>.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/FT1.html#FT1-16">FT1.16</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the current patient location.  This can be the location of the patient when the charge item was ordered or when the charged service was rendered.  For the current assigned patient location, use <a href="/2021Jan/segment-definition/PV1.html#PV1-3">PV1-3 - Assigned Patient Location.</a></p>
+    </div>
+
+<h4 class='v2' id='FT1-17'>
+FT1-17: Fee Schedule (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00370
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the code used to select the appropriate fee schedule to be used for this transaction posting.  Refer to <a href="https://www.hl7.org/fhir/v2/0024/index.html">User-defined Table 0024 - Fee Schedule</a> in chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='FT1-18'>
+FT1-18: Patient Type (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00148
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PV1.html#PV1-18">PV1.18</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains site-specific values that identify the patient type. Refer to <a href="https://www.hl7.org/fhir/v2/0018/index.html">User-defined Table 0018 - Patient Type</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/FT1.html#FT1-18">FT1.18</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the type code assigned to the patient for this episode of care (visit or stay).  Refer to <a href="https://www.hl7.org/fhir/v2/0018/index.html">User-defined Table 0018 - Patient Type</a> in Chapter 2C, Code Tables, for suggested values.  This is for use when the patient type for billing purposes is different than the visit patient type in<a href="/2021Jan/segment-definition/PV1.html#PV1-18"> PV1-18 - Patient Type</a>.</p>
+    </div>
+
+<h4 class='v2' id='FT1-19'>
+FT1-19: Diagnosis Code - FT1 (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00371
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the primary diagnosis code for billing purposes.  ICD9-CM is assumed for all diagnosis codes.  This is the most current diagnosis code that has been assigned to the patient.  ICD10 can also be used.  The name of coding system (third component) indicates which coding system is used. Refer to <a href="https://www.hl7.org/fhir/v2/0051/index.html">User-defined Table 0051 - Diagnosis Code</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='FT1-20'>
+FT1-20: Performed By Code (<a href='/2021Jan/data-type/XCN.html'>XCN</a>) 00372
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the composite number/name of the person/group that performed the test/procedure/transaction, etc.  This is the service provider. Refer to <a href="https://www.hl7.org/fhir/v2/0084/index.html">User-defined Table 0084 - Performed by</a> in Chapter 2C, Code Tables, for suggested values.  As of v 2.7, if <a href="/2021Jan/data-type/XCN-1.html#XCN-1">XCN.1 - ID Number</a> is populated, then the <a href="/2021Jan/data-type/XCN-13.html#XCN-13">XCN.13 - Identifier Type Code</a> and the <a href="/2021Jan/data-type/XCN-9.html#XCN-9">XCN.9 - Assigning Authority</a> or <a href="/2021Jan/data-type/XCN-22.html#XCN-22">XCN.22 - Assigning Jurisdiction</a> or <a href="/2021Jan/data-type/XCN-23.html#XCN-23">XCN.23 - Assigning Agency or Department</a> are required. If <a href="/2021Jan/data-type/XCN-2.html#XCN-2">XCN.2 - Family Name</a> is populated, then the <a href="/2021Jan/data-type/XCN-10.html#XCN-10">XCN.10 - Name Type Code</a> is required. No assumptions can be safely made based on position or sequence.  Specification of meaning based on sequence is deprecated.  </p>
+    </div>
+
+<h4 class='v2' id='FT1-21'>
+FT1-21: Ordered By Code (<a href='/2021Jan/data-type/XCN.html'>XCN</a>) 00373
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the composite number/name of the person/group that ordered the test/ procedure/transaction, etc.  As of v 2.7, if <a href="/2021Jan/data-type/XCN-1.html#XCN-1">XCN.1 - ID Number</a> is populated, then the <a href="/2021Jan/data-type/XCN-13.html#XCN-13">XCN.13 - Identifier Type Code</a> and the <a href="/2021Jan/data-type/XCN-9.html#XCN-9">XCN.9 - Assigning Authority</a> or <a href="/2021Jan/data-type/XCN-22.html#XCN-22">XCN.22 - Assigning Jurisdiction</a> or <a href="/2021Jan/data-type/XCN-23.html#XCN-23">XCN.23 - Assigning Agency or Department</a> are required. If <a href="/2021Jan/data-type/XCN-2.html#XCN-2">XCN.2 - Family Name</a> is populated, then the <a href="/2021Jan/data-type/XCN-10.html#XCN-10">XCN.10 - Name Type Code</a> is required. No assumptions can be safely made based on position or sequence.  Specification of meaning based on sequence is deprecated.  .</p>
+    </div>
+
+<h4 class='v2' id='FT1-22'>
+FT1-22: Unit Cost (<a href='/2021Jan/data-type/CP.html'>CP</a>) 00374
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the unit cost of transaction.  The cost of a single item.</p>
+    </div>
+
+<h4 class='v2' id='FT1-23'>
+FT1-23: Filler Order Number (<a href='/2021Jan/data-type/EI.html'>EI</a>) 00217
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/ORC.html#ORC-3">ORC.3</a> in Ch. 4)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field is the order number associated with the filling application.  It is a case of the Entity Identifier data type (Section 2.A.28).  Its first component is a string that identifies an order detail segment (i.e., ORC segment and associated order detail segment).  It is assigned by the order filler (receiving) application.  This string must uniquely identify the order (as specified in the order detail segment) from other orders in a particular filling application (e.g., clinical laboratory).  This uniqueness must persist over time.</p>
+      <p class="v2 v2-normalindented">The second through fourth components contain the filler application ID, in the form of the HD data type (see Section 2.A.36, "HD – hierarchic designator"). The second component is a user-defined coded value that uniquely defines the application from other applications on the network.  A limit of six (6) characters is suggested but not required.  The second component of the filler order number always identifies the actual filler of an order.</p>
+      <p class="v2 v2-normalindented">A given institution or group of intercommunicating institutions should establish a list of applications that may be potential placers and fillers of orders and assign each a unique application ID.  The application ID list becomes one of the institution's master dictionary lists that is documented in Chapter 8.  Since third- party applications (those other than the placer and filler of an order) can send and receive ORM and ORR messages, the filler application ID in this field may not be the same as any sending and receiving application on the network (as identified in the MSH segment).</p>
+      <p class="v2 v2-normalindented">The conditions which make this field required are divided into two main issues.  The data in <a href="/2021Jan/segment-definition/ORC.html#ORC-2">ORC-2</a> and <a href="/2021Jan/segment-definition/OBR.html#OBR-2">OBR-2</a> are logically the same thing: a placer id.  The data in <a href="/2021Jan/segment-definition/ORC.html#ORC-3">ORC-3</a> and <a href="/2021Jan/segment-definition/OBR.html#OBR-3">OBR-3</a> are logically the same thing: the filler id.</p>
+      <p class="v2 v2-normalindented">From that perspective each message must have either a placer or a filler id with an exception for the case of a "Send Number" control code since its purpose is to request a placer id.</p>
+      <p class="v2 v2-normalindented">If both ORC and OBR are present in a message, then only one of the Segments must contain the value(s). Note that if both <a href="/2021Jan/segment-definition/ORC.html#ORC-2">ORC-2</a> and <a href="/2021Jan/segment-definition/OBR.html#OBR-2">OBR-2</a> are valued, then they must be valued the same; as well, if both <a href="/2021Jan/segment-definition/ORC.html#ORC-3">ORC-3</a> and <a href="/2021Jan/segment-definition/OBR.html#OBR-3">OBR-3</a> are valued, then they must be valued the same.  The sending system can include both the filler and the placer number in both the ORC and OBR segments as long as the data is the same between the two segments. It is recommended that the initiating system should provide a unique number for the placer order number when a new order is placed or a unique number for the filler order number when an unsolicited result is initially communicated.</p>
+      <p class="v2 v2-normalindented">The <a href="/2021Jan/segment-definition/OBR.html#OBR-3">filler order number (OBR-3 or ORC-3)</a> also uniquely identifies an order and its associated observations.  For example, suppose that an institution collects observations from several ancillary applications into a common database and this common database is queried by yet another application for observations.  In this case, the filler order number and placer order number transmitted by the common database application would be that of the original filler and placer, respectively, rather than a new one assigned by the common database application.  </p>
+      <p class="v2 v2-normalindented">Similarly, if a third-party application, not the filler or placer, of an order were authorized to modify the status of an order (say, cancel it), the third-party application would send the filler an ORM message containing an ORC segment with <a href="/2021Jan/segment-definition/ORC.html#ORC-1">ORC-1-order control</a> equal to "CA" and containing the original placer order number and filler order number, rather than assign either itself.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/OBR.html#OBR-3">OBR.3</a> in Ch. 4)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition: This field is the order number associated with the filling application. This is a permanent identifier for an order and its associated observations.  It is a special case of the Entity Identifier data type (see Chapter 2, section 2.A.28, "EI – entity identifier").</p>
+      <p class="v2 v2-normalindented">The first component is a string that identifies an individual order segment (i.e., ORC segment and associated order detail segment).  It is assigned by the order filling (receiving) application.  It identifies an order uniquely among all orders from a particular filling application (e.g., clinical laboratory).   This uniqueness must persist over time.</p>
+      <p class="v2 v2-normalindented">The second through fourth components contain the filler application ID, in the form of the HD data type (see section 2.A.36, "HD – hierarchic designator").  The second component is a user-defined coded value that uniquely defines the application from other applications on the network.  A limit of six (6) characters is suggested but not required.  The second component of the filler order number always identifies the actual filler of an order.</p>
+      <p class="v2 v2-normalindented">See <a href="/2021Jan/segment-definition/ORC.html#ORC-3">ORC-3-filler order number</a> for information on when this field must be valued.</p>
+      <p class="v2 v2-normalindented">The conditions which make this field required are divided into two main issues.  The data in <a href="/2021Jan/segment-definition/ORC.html#ORC-2">ORC-2</a> and <a href="/2021Jan/segment-definition/OBR.html#OBR-2">OBR-2</a> are logically the same thing: a placer id.  The data in <a href="/2021Jan/segment-definition/ORC.html#ORC-3">ORC-3</a> and <a href="/2021Jan/segment-definition/OBR.html#OBR-3">OBR-3</a> are logically the same thing: the filler id.</p>
+      <p class="v2 v2-normalindented">From that perspective, each message must have either a placer or a filler id with an exception for the case of a "Send Number" control code since its purpose is to request a placer id.</p>
+      <p class="v2 v2-normalindented">If both ORC and OBR are present in a message, then only one of the Segments must contain the value(s). If both segments contain either ORC-2/OBR-2 or ORC-3/OBR-3, then each pair must be a matching pair.  The sending system can include both the filler and the placer number in both the ORC and OBR segments as long as the data is the same between the two segments. </p>
+      <p class="v2 v2-normalindented">It is recommended that the initiating system should provide a unique number when a new order or unsolicited result is initially communicated.</p>
+      <p class="v2 v2-normalindented">The filler order number (OBR-3 or ORC-3) also uniquely identifies an order and its associated observations.  For example, suppose that an institution collects observations from several ancillary applications into a common database and this common database is queried by yet another application for observations.  In this case, the filler order number and placer order number transmitted by the common database application would be that of the original filler and placer, respectively, rather than a new one assigned by the common database application.  </p>
+      <p class="v2 v2-normalindented">Similarly, if a third-party application, not the filler or placer, of an order were authorized to modify the status of an order (say, cancel it), the third-party application would send the filler an ORM message containing an ORC segment with <a href="/2021Jan/segment-definition/ORC.html#ORC-1">ORC-1-order control</a> equal to "CA" and containing the original placer order number and filler order number, rather than assign either itself.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/FT1.html#FT1-23">FT1.23</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field is used when the billing system is requesting observational reporting justification for a charge.  This is the number used by a filler to uniquely identify a result.  See Chapter 4 for a complete description.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/OBR.html#OBR-3">OBR.3</a> in Ch. 7)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition: This field is the order number associated with the filling application. This is a permanent identifier for an order and its associated observations.  It is a special case of the Entity Identifier data type (see Chapter 2, section 2.A.28, "EI – entity identifier").</p>
+      <p class="v2 v2-normalindented">The first component is a string that identifies an individual order segment (i.e., ORC segment and associated order detail segment).  It is assigned by the order filling (receiving) application.  It identifies an order uniquely among all orders from a particular filling application (e.g., clinical laboratory).   This uniqueness must persist over time.</p>
+      <p class="v2 v2-normalindented">The second through fourth components contain the filler application ID, in the form of the HD data type (see section 2.A.36, "HD – hierarchic designator").  The second component is a user-defined coded value that uniquely defines the application from other applications on the network.  A limit of six (6) characters is suggested but not required.  The second component of the filler order number always identifies the actual filler of an order.</p>
+      <p class="v2 v2-normalindented">See <a href="/2021Jan/segment-definition/ORC.html#ORC-3">ORC-3-filler order number</a> for information on when this field must be valued.</p>
+      <p class="v2 v2-normalindented">The conditions which make this field required are divided into two main issues.  The data in <a href="/2021Jan/segment-definition/ORC.html#ORC-2">ORC-2</a> and <a href="/2021Jan/segment-definition/OBR.html#OBR-2">OBR-2</a> are logically the same thing: a placer id.  The data in <a href="/2021Jan/segment-definition/ORC.html#ORC-3">ORC-3</a> and <a href="/2021Jan/segment-definition/OBR.html#OBR-3">OBR-3</a> are logically the same thing: the filler id.</p>
+      <p class="v2 v2-normalindented">From that perspective, each message must have either a placer or a filler id with an exception for the case of a "Send Number" control code since its purpose is to request a placer id.</p>
+      <p class="v2 v2-normalindented">If both ORC and OBR are present in a message, then only one of the Segments must contain the value(s). If both segments contain either ORC-2/OBR-2 or ORC-3/OBR-3, then each pair must be a matching pair.  The sending system can include both the filler and the placer number in both the ORC and OBR segments as long as the data is the same between the two segments. </p>
+      <p class="v2 v2-normalindented">It is recommended that the initiating system should provide a unique number when a new order or unsolicited result is initially communicated.</p>
+      <p class="v2 v2-normalindented">The filler order number (OBR-3 or ORC-3) also uniquely identifies an order and its associated observations.  For example, suppose that an institution collects observations from several ancillary applications into a common database and this common database is queried by yet another application for observations.  In this case, the filler order number and placer order number transmitted by the common database application would be that of the original filler and placer, respectively, rather than a new one assigned by the common database application.  </p>
+      <p class="v2 v2-normalindented">Similarly, if a third-party application, not the filler or placer, of an order were authorized to modify the status of an order (say, cancel it), the third-party application would send the filler an ORM message containing an ORC segment with <a href="/2021Jan/segment-definition/ORC.html#ORC-1">ORC-1-order control</a> equal to "CA" and containing the original placer order number and filler order number, rather than assign either itself.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/TXA.html#TXA-15">TXA.15</a> in Ch. 9)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field is the order number associated with the filling application.  Where a transcription service or similar organization creates the document and uses an internally unique identifier, that number should be inserted in this field.  Its first component is a string of characters that identifies an order detail segment (i.e., OBR).  This string must uniquely identify the order (as specified in the order detail segment) from other orders in a particular filling application (i.e., transcription service).  This uniqueness must persist over time.  Where a number is reused over time, a date can be affixed to the non-unique number to make it unique.</p>
+      <p class="v2 v2-normalindented">The second through fourth components contains the (filler) assigning authority.  The (filler) assigning authority is a string of characters that uniquely defines the application from other applications on the network.  The second through fourth components of the filler order number always identify the actual filler of an order.</p>
+      <p class="v2 v2-normalindented">TXA-15 - Condition: If corresponding ORC and/or OBR segments are present in the message and ORC-3 or OBR-3 is valued, this field must be blank.  If TXA-14 is valued while ORC-3 or OBR-3 is valued it shall be ignored.  See message definitions including TXA for further guidanceon which ORC/OBR pairs to consider.</p>
+      <p class="v2 v2-normalindented"> For further details, please see the definitions provided in Chapter 4, "Orders".</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/ARQ.html#ARQ-25">ARQ.25</a> in Ch. 10)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field is the order number assigned by the filler application for the order associated with this scheduling request.  </p>
+      <p class="v2 v2-normalindented">This field is described in detail in Chapter 4, section 4.5.1.3, "ORC-3 – Filler Order Number.”  It is conditionally mandatory depending on the presence of the Placer order number (<a href="/2021Jan/segment-definition/ARQ.html#ARQ-24">ARQ-24 – Placer Order Number</a>).  This conditionally mandatory requirement addresses the concern that a Scheduling system cannot and should not create or fill an order.  Therefore, an order must have been accepted by the filler application before scheduling the resources associated with that order.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/SCH.html#SCH-27">SCH.27</a> in Ch. 10)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field is the order number assigned by the filler application for the order associated with this scheduling filler response.  </p>
+      <p class="v2 v2-normalindented">This field is described in detail in Chapter 4, Orders, section 4.5.1.3.  It is conditionally mandatory depending on the presence of the placer order number (section <a href="/2021Jan/composition/Scheduling.html#Scheduling-6-2-26">10.6.2.26</a>).  This conditionally mandatory requirement addresses the concern that a Scheduling system cannot and should not create or fill an order.  Therefore, an order must have been accepted by the order filler application before scheduling the resources associated with that order.</p>
+    </div>
+
+<h4 class='v2' id='FT1-24'>
+FT1-24: Entered By Code (<a href='/2021Jan/data-type/XCN.html'>XCN</a>) 00765
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field identifies the composite number/name of the person who entered the insurance information.</p>
+    </div>
+
+<h4 class='v2' id='FT1-25'>
+FT1-25: Procedure Code (<a href='/2021Jan/data-type/CNE.html'>CNE</a>) 00393
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/OBR.html#OBR-44">OBR.44</a> in Ch. 4)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains a unique identifier assigned to the procedure, if any, associated with the charge.  Refer to <a href="https://www.hl7.org/fhir/v2/0088/index.html">Externally-defined table 0088 – Procedure code</a> in Chapter 2C, Code Tables, for suggested values.  This field is a coded data type for compatibility with clinical and ancillary systems.  </p>
+      <p class="v2 v2-normalindented">As of version 2.6, applicable external coding systems include those in the referenced table. If the code set used is in the referenced table, then the coding scheme designation in the table shall be used.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/FT1.html#FT1-25">FT1.25</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains a unique identifier assigned to the procedure, if any, associated with the charge.  Refer to <a href="https://www.hl7.org/fhir/v2/0088/index.html">Externally-defined Table 0088 - Procedure Code</a> in Chapter 2C, Code Tables, for suggested values.  This field is a coded data type for compatibility with clinical and ancillary systems.</p>
+      <p class="v2 v2-normalindented">As of v 2.6, the known applicable external coding systems include those in the table below.  If the code set you are using is in this table, then you must use that designation.</p>
+      <p class="v2 v2-othertablecaption">Procedure Code Coding Systems (from HL7 Table 0396)</p>
+      <table class="v2" style="width: 94%; border-top: 3px solid black; border-left: 3px solid black; border-bottom: 3px solid black; border-right: 3px solid black; ">
+        <colgroup>
+          <col span="1" style="width: 11.46%;">
+          <col span="1" style="width: 22.56%;">
+          <col span="1" style="width: 65.96%;">
+        </colgroup>
+        <tr class="v2-table-header">
+          <td style="border-top: 2px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color: #E6E6E6; width:11.46%; ">
+            <p class="v2 v2-othertableheader">Code</p>
+          </td>
+          <td style="border-top: 2px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color: #E6E6E6; width:22.56%; ">
+            <p class="v2 v2-othertableheader">Description</p>
+          </td>
+          <td style="border-top: 2px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color: #E6E6E6; width:65.96%; ">
+            <p class="v2 v2-othertableheader">Comment / Source</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:11.46%; ">
+            <p class="v2 v2-othertablebody">C4</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:22.56%; ">
+            <p class="v2 v2-othertablebody">CPT-4</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:65.96%; ">
+            <p class="v2 v2-othertablebody">American Medical Association, P.O. Box 10946, Chicago IL  60610.</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:11.46%; ">
+            <p class="v2 v2-othertablebody">C5</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:22.56%; ">
+            <p class="v2 v2-othertablebody">CPT-5  </p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:65.96%; ">
+            <p class="v2 v2-othertablebody">(under development – same contact as above)</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:11.46%; ">
+            <p class="v2 v2-othertablebody">HCPCS</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:22.56%; ">
+            <p class="v2 v2-othertablebody">CMS (formerly HCFA)  Common Procedure Coding System</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:65.96%; ">
+            <p class="v2 v2-othertablebody">HCPCS: contains codes for medical equipment, injectable drugs, transportation services, and other services not found in CPT4.</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:11.46%; ">
+            <p class="v2 v2-othertablebody">HPC</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:22.56%; ">
+            <p class="v2 v2-othertablebody">CMS (formerly HCFA )Procedure Codes (HCPCS)</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:65.96%; ">
+            <p class="v2 v2-othertablebody">Health Care Financing Administration (HCFA) Common Procedure Coding System (HCPCS) including modifiers.</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: 1px solid black; border-bottom: 2px solid black; border-right: 1px solid black; border-left: 1px solid black; width:11.46%; ">
+            <p class="v2 v2-othertablebody">I10P</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 2px solid black; border-right: 1px solid black; border-left: 1px solid black; width:22.56%; ">
+            <p class="v2 v2-othertablebody">ICD-10  Procedure Codes</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 2px solid black; border-right: 1px solid black; border-left: 1px solid black; width:65.96%; ">
+            <p class="v2 v2-othertablebody">Procedure Coding System (ICD-10-PCS.)  See <a href="http://www/hcfa.gov/stats/icd10.icd10.htm">http://www/hcfa.gov/stats/icd10.icd10.htm</a> for more information.</p>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PR1.html#PR1-3">PR1.3</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition: This field contains a unique identifier assigned to the procedure.  Refer to <a href="https://www.hl7.org/fhir/v2/0088/index.html">Externally-defined Table 0088 - Procedure Code</a> in Chapter 2C, Code Tables, for suggested values.  This field is a CNE data type for compatibility with clinical and ancillary systems.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/OBR.html#OBR-44">OBR.44</a> in Ch. 7)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains a unique identifier assigned to the procedure, if any, associated with the charge.  Refer to <a href="https://www.hl7.org/fhir/v2/0088/index.html">Externally-defined table 0088 – Procedure code</a> in Chapter 2C, Code Tables, for suggested values.  This field is a coded data type for compatibility with clinical and ancillary systems.  </p>
+      <p class="v2 v2-normalindented">As of version 2.6, applicable external coding systems include those in the referenced table. If the code set used is in the referenced table, then the coding scheme designation in the table shall be used.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/CDM.html#CDM-7">CDM.7</a> in Ch. 8)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the procedure code for procedure, if any, associated with this charge description.  Repeating field allows for different procedure coding systems such as CPT4, ICD9.  Coded entry made up of code plus coding schema.  Refer to <a href="https://www.hl7.org/fhir/v2/0088/index.html">Externally-defined Table 0088 - Procedure Code</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/IIM.html#IIM-14">IIM.14</a> in Ch. 17)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains a unique identifier assigned to the service item, if any, associated with the charge.  In the United States this is often the HCPCS code.  Refer to <a href="https://www.hl7.org/fhir/v2/0088/index.html">Externally Defined Table 0088 - Procedure Code</a> in Chapter 2C, Code Tables, for suggested values.  This field is a CNE data type for compatibility with clinical and ancillary systems. </p>
+      <p class="v2 v2-normalindented">As of v2.6, the known applicable external coding systems include those in the table below. If the code set you are using is in this table, then you must use that designation.</p>
+      <p class="v2 v2-othertablecaption">Procedure Code Coding Systems</p>
+      <table class="v2" style="width: 87%; border-top: 1px solid black; border-left: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; ">
+        <colgroup>
+          <col span="1" style="width: 17.79%;">
+          <col span="1" style="width: 30.73%;">
+          <col span="1" style="width: 51.47%;">
+        </colgroup>
+        <tr class="v2-table-header">
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color: #E6E6E6; width:17.79%; ">
+            <p class="v2 v2-othertableheader">Coding System</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color: #E6E6E6; width:30.73%; ">
+            <p class="v2 v2-othertableheader">Description</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color: #E6E6E6; width:51.47%; ">
+            <p class="v2 v2-othertableheader">Comment</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:17.79%; ">
+            <p class="v2 v2-othertablebody">C4</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:30.73%; ">
+            <p class="v2 v2-othertablebody">CPT-4</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:51.47%; ">
+            <p class="v2 v2-othertablebody">American Medical Association, P.O. Box 10946, Chicago IL  60610.</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:17.79%; ">
+            <p class="v2 v2-othertablebody">C5</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:30.73%; ">
+            <p class="v2 v2-othertablebody">CPT-5  </p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:51.47%; ">
+            <p class="v2 v2-othertablebody">(under development – same contact as above)</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:17.79%; ">
+            <p class="v2 v2-othertablebody">HCPCS</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:30.73%; ">
+            <p class="v2 v2-othertablebody">CMS (formerly HCFA)  Common Procedure Coding System</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:51.47%; ">
+            <p class="v2 v2-othertablebody">HCPCS: contains codes for medical equipment, injectable drugs, transportation services, and other services not found in CPT4.</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:17.79%; ">
+            <p class="v2 v2-othertablebody">HPC</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:30.73%; ">
+            <p class="v2 v2-othertablebody">CMS (formerly HCFA) Procedure Codes (HCPCS)</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:51.47%; ">
+            <p class="v2 v2-othertablebody">Health Care Financing Administration (HCFA) Common Procedure Coding System (HCPCS) including modifiers.</p>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/ITM.html#ITM-27">ITM.27</a> in Ch. 17)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains a unique identifier assigned to the service item, if any, associated with the charge.  In the United States this is often the HCPCS code.  Refer to Externally defined Table 0088 - Procedure code for suggested values.  This field is a CNE data type for compatibility with clinical and ancillary systems.   Refer to <a href="https://www.hl7.org/fhir/v2/0088/index.html">HL7 Table 0088 – Procedure Coding Systems</a> in Chapter 2C, Code Tables, for valid values.</p>
+      <p class="v2 v2-normalindented">As of v2.6, the known applicable external coding systems include those in the table below. If the code set you are using is in this table, then you must use that designation.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/SCD.html#SCD-32">SCD.32</a> in Ch. 17)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  The unique identifier indicating the type of procedure performed on the patient with the supplies being sterilized. </p>
+      <p class="v2 v2-normalindented">Refer to <a href="https://www.hl7.org/fhir/v2/0088/index.html">HL7 Table 0088 – Procedure Code</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="v2 v2-normalindented">As of v2.6, the known applicable external coding systems include those in the referenced table. If the code set you are using is in this table, then you must use that designation.</p>
+    </div>
+
+<h4 class='v2' id='FT1-26'>
+FT1-26: Procedure Code Modifier (<a href='/2021Jan/data-type/CNE.html'>CNE</a>) 01316
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/OBR.html#OBR-45">OBR.45</a> in Ch. 4)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the procedure code modifier to the procedure code reported in <a href="/2021Jan/segment-definition/OBR.html#OBR-44">OBR-44-procedure code</a>, when applicable.  Procedure code modifiers are defined by regulatory agencies such as CMS and the AMA.  Multiple modifiers may be reported.  The modifiers are sequenced in priority according to user entry. In the USA, this is a requirement of the UB and the 1500 claim forms. Multiple modifiers are allowed and the order placed on the form affects reimbursement.  Refer to <a href="https://www.hl7.org/fhir/v2/0340/index.html">Externally- defined table 0340 – Procedure code modifier</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="v2 v2-normalindented">Usage Rule: This field can only be used if <a href="/2021Jan/segment-definition/OBR.html#OBR-44">OBR-44 – procedure code</a> contains certain procedure codes that require a modifier in order to be billed or performed.  For example, HCPCS codes that require a modifier to be precise. </p>
+      <p class="v2 v2-normalindented">As of version 2.6, applicable external coding systems include those in the referenced table. If the code set used is in the referenced table, then the coding scheme designation in the table shall be used.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/FT1.html#FT1-26">FT1.26</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the procedure code modifier to the procedure code reported in <a href="/2021Jan/segment-definition/FT1.html#FT1-25">FT1-25 - Procedure Code</a>, when applicable.  Procedure code modifiers are defined by regulatory agencies such as CMS and the AMA.  Multiple modifiers may be reported.  The modifiers are sequenced in priority according to user entry. This is a requirement of the UB and the 1500 claim forms. Multiple modifiers are allowed and the order placed on the form affects reimbursement. Refer to <a href="https://www.hl7.org/fhir/v2/0340/index.html">Externally-defined Table 0340 - Procedure Code Modifier</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="v2 v2-normalindented">Usage Rule: This field can only be used if <a href="/2021Jan/segment-definition/FT1.html#FT1-25">FT1-25 - Procedure Code</a> contains certain procedure codes that require a modifier in order to be billed or performed.  For example, HCPCS codes that require a modifier to be precise.</p>
+      <p class="v2 v2-normalindented">As of v 2.6, the known applicable external coding systems include those in the table below.  If the code set you are using is in this table, then you must use that designation.</p>
+      <p class="v2 v2-othertablecaption">Procedure Code Modifier Coding Systems (From HL7 Table 0396) </p>
+      <table class="v2" style="width: 84%; border-top: 3px solid black; border-left: 3px solid black; border-bottom: 3px solid black; border-right: 3px solid black; ">
+        <colgroup>
+          <col span="1" style="width: 12.92%;">
+          <col span="1" style="width: 25.44%;">
+          <col span="1" style="width: 61.62%;">
+        </colgroup>
+        <tr class="v2-table-header">
+          <td style="border-top: 2px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color: #E6E6E6; width:12.92%; ">
+            <p class="v2 v2-othertableheader">Code</p>
+          </td>
+          <td style="border-top: 2px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color: #E6E6E6; width:25.44%; ">
+            <p class="v2 v2-othertableheader">Description</p>
+          </td>
+          <td style="border-top: 2px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color: #E6E6E6; width:61.62%; ">
+            <p class="v2 v2-othertableheader">Comment / Source</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:12.92%; ">
+            <p class="v2 v2-othertablebody">CPTM</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:25.44%; ">
+            <p class="v2 v2-othertablebody">CPT Modifier Code</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:61.62%; ">
+            <p class="v2 v2-othertablebody">Available for the AMA at the address listed for CPT above. These codes are found in Appendix A of CPT 2000 Standard Edition. (CPT 2000 Standard Edition, American Medical Association, Chicago, IL).</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:12.92%; ">
+            <p class="v2 v2-othertablebody">HPC</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:25.44%; ">
+            <p class="v2 v2-othertablebody">CMS (formerly HCFA )Procedure Codes (HCPCS)</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:61.62%; ">
+            <p class="v2 v2-othertablebody">Health Care Financing Administration (HCFA) Common Procedure Coding System (HCPCS) including modifiers.</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:12.92%; ">
+            <p class="v2 v2-othertablebody">I10P</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:25.44%; ">
+            <p class="v2 v2-othertablebody">ICD-10  Procedure Codes</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:61.62%; ">
+            <p class="v2 v2-othertablebody">Procedure Coding System (ICD-10-PCS.)  See <a href="http://www/hcfa.gov/stats/icd10.icd10.htm">http://www/hcfa.gov/stats/icd10.icd10.htm</a> for more information.</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:12.92%; ">
+            <p class="v2 v2-othertablebody">I9C</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:25.44%; ">
+            <p class="v2 v2-othertablebody">ICD-9CM </p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:61.62%; ">
+            <p class="v2 v2-othertablebody">Commission on Professional and Hospital Activities, 1968 Green Road, Ann Arbor, MI 48105 (includes all procedures and diagnostic tests).</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:12.92%; ">
+            <p class="v2 v2-othertablebody">ICD10AM</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:25.44%; ">
+            <p class="v2 v2-othertablebody">ICD-10 Australian modification</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:61.62%; ">
+            <p class="v2 v2-othertablebody"></p>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: 1px solid black; border-bottom: 2px solid black; border-right: 1px solid black; border-left: 1px solid black; width:12.92%; ">
+            <p class="v2 v2-othertablebody">ICD10CA</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 2px solid black; border-right: 1px solid black; border-left: 1px solid black; width:25.44%; ">
+            <p class="v2 v2-othertablebody">ICD-10 Canada</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 2px solid black; border-right: 1px solid black; border-left: 1px solid black; width:61.62%; ">
+            <p class="v2 v2-othertablebody"></p>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <p class="v2 v2-normalindented"></p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PR1.html#PR1-16">PR1.16</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the procedure code modifier to the procedure code reported in field 3, when applicable.  Procedure code modifiers are defined by regulatory agencies such as <span class="v2-normal-indented-char">CMS</span> and the AMA.  Multiple modifiers may be reported.  Refer to <a href="https://www.hl7.org/fhir/v2/0340/index.html">Externally-defined Table 0340 - Procedure Code Modifier</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/OBR.html#OBR-45">OBR.45</a> in Ch. 7)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the procedure code modifier to the procedure code reported in <a href="/2021Jan/segment-definition/OBR.html#OBR-44">OBR-44-procedure code</a>, when applicable.  Procedure code modifiers are defined by regulatory agencies such as CMS and the AMA.  Multiple modifiers may be reported.  The modifiers are sequenced in priority according to user entry. In the USA, this is a requirement of the UB and the 1500 claim forms. Multiple modifiers are allowed and the order placed on the form affects reimbursement.  Refer to <a href="https://www.hl7.org/fhir/v2/0340/index.html">Externally- defined table 0340 – Procedure code modifier</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="v2 v2-normalindented">Usage Rule: This field can only be used if <a href="/2021Jan/segment-definition/OBR.html#OBR-44">OBR-44 – procedure code</a> contains certain procedure codes that require a modifier in order to be billed or performed.  For example, HCPCS codes that require a modifier to be precise. </p>
+      <p class="v2 v2-normalindented">As of version 2.6, applicable external coding systems include those in the referenced table. If the code set used is in the referenced table, then the coding scheme designation in the table shall be used.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/IIM.html#IIM-15">IIM.15</a> in Ch. 17)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the procedure code modifier to the procedure code reported in <a href="/2021Jan/segment-definition/IIM.html#IIM-14">IIM-14 Procedure Code</a>, when applicable.  Procedure code modifiers are defined by USA regulatory agencies such as CMS and the AMA.  Multiple modifiers may be reported.  Refer to <a href="https://www.hl7.org/fhir/v2/0340/index.html">Externally defined Table 0340 - Procedure Code Modifier</a> in Chapter 2C, Code Tables, for suggested values.  </p>
+      <p class="v2 v2-normalindented">As of v2.6, the known applicable external coding systems include those in the table below. If the code set you are using is in this table, then you must use that designation.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/ITM.html#ITM-28">ITM.28</a> in Ch. 17)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the procedure code modifier to the procedure code reported in <a href="/2021Jan/segment-definition/ITM.html#ITM-27">ITM-27, Procedure Code</a>, when applicable.  Procedure code modifiers are defined by USA regulatory agencies such as CMS and the AMA.  Multiple modifiers may be reported.  Refer to <a href="https://www.hl7.org/fhir/v2/0340/index.html">Externally-defined Table 0340 - Procedure Code Modifier</a> in Chapter 2C, Code Tables, for suggested values.  </p>
+    </div>
+
+<h4 class='v2' id='FT1-27'>
+FT1-27: Advanced Beneficiary Notice Code (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 01310
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/ORC.html#ORC-20">ORC.20</a> in Ch. 4)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition: This field indicates the status of the patient's or the patient's representative's consent for responsibility to pay for potentially uninsured services. This element is introduced to satisfy CMS Medical Necessity requirements for outpatient services. This element indicates (a) whether the associated diagnosis codes for the service are subject to medical necessity procedures, (b) whether, for this type of service, the patient has been informed that they may be responsible for payment for the service, and (c) whether the patient agrees to be billed for this service. The values for this field are drawn from <a href="https://www.hl7.org/fhir/v2/0339/index.html">User-Defined Table 0339 – Advanced Beneficiary Notice Code</a> in Chapter 2C, Code Tables<a href=".">.</a></p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/FT1.html#FT1-27">FT1.27</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented"><span class="v2-normal-indented-char">Definition: This field indicates the status of the patient's or the patient's representative's consent for responsibility to pay for potentially uninsured services. This element is introduced to satisfy CMS Medical Necessity requirements for outpatient services. This element indicates (a) whether the associated diagnosis codes for the service are subject to medical necessity procedures, (b) whether, for this type of service, the patient has been informed that they may be responsible for payment for the service, and (c) whether the patient agrees to be billed for this service. Refer to </span><a href="https://www.hl7.org/fhir/v2/0339/index.html">User-defined Table 0339 - Advanced Beneficiary Notice Code</a> in Chapter 2C, Code Tables,<a href=""> </a><span class="v2-normal-indented-char">for suggested values</span>.</p>
+    </div>
+
+<h4 class='v2' id='FT1-28'>
+FT1-28: Medically Necessary Duplicate Procedure Reason (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 01646
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/OBR.html#OBR-48">OBR.48</a> in Ch. 4)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition: This field is used to document why the procedure found in <a href="/2021Jan/segment-definition/OBR.html#OBR-44">OBR-44 - Procedure Code</a> is a duplicate of one ordered/charged previously for the same patient within the same date of service and has been determined to be medically necessary.  The reason may be coded or it may be a free text entry. </p>
+      <p class="v2 v2-normalindented">This field is intended to provide financial systems information on who to bill for duplicate procedures.  </p>
+      <p class="v2 v2-normalindented">Refer to <a href="https://www.hl7.org/fhir/v2/0476/index.html">User-Defined Table 0476 – Medically Necessary Duplicate Procedure Reason</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/FT1.html#FT1-28">FT1.28</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition: This field is used to document why the procedure found in <a href="/2021Jan/segment-definition/FT1.html#FT1-25">FT1-25 - Procedure Code</a> is a duplicate of one ordered/charged previously for the same patient within the same date of service and has been determined to be medically necessary.  The reason may be coded or it may be a free text entry. This field is intended to provide financial systems information on who to bill for duplicate procedures.  Refer to <a href="https://www.hl7.org/fhir/v2/0476/index.html">User-Defined Table 0476 – Medically Necessary Duplicate Procedure Reason</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/OBR.html#OBR-48">OBR.48</a> in Ch. 7)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition: This field is used to document why the procedure found in <a href="/2021Jan/segment-definition/OBR.html#OBR-44">OBR-44 - Procedure Code</a> is a duplicate of one ordered/charged previously for the same patient within the same date of service and has been determined to be medically necessary.  The reason may be coded or it may be a free text entry. </p>
+      <p class="v2 v2-normalindented">This field is intended to provide financial systems information on who to bill for duplicate procedures.  </p>
+      <p class="v2 v2-normalindented">Refer to <a href="https://www.hl7.org/fhir/v2/0476/index.html">User-Defined Table 0476 – Medically Necessary Duplicate Procedure Reason</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='FT1-29'>
+FT1-29: NDC Code (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 01845
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: This field has been defined for NDC codes that are required by HIPAA for electronic claims for Pharmacy charges. Refer to <a href="https://www.hl7.org/fhir/v2/0549/index.html">Externally-defined Table 0549- NDC Codes</a> in Chapter 2C, Code Tables, for suggested values. </p>
+      <p class="v2 v2-normalindented">If a system supports multiple NDC codes for a charge, this information will be sent in OBX segments. FT1-29 and FT1-43 can be used for single NDC codes and quantities instead of using OBX.</p>
+    </div>
+
+<h4 class='v2' id='FT1-30'>
+FT1-30: Payment Reference ID (<a href='/2021Jan/data-type/CX.html'>CX</a>) 01846
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: The payment reference number of the payment medium reported in <a href="/2021Jan/segment-definition/FT1.html#FT1-7">FT1-7 - Transaction Code</a>.</p>
+    </div>
+
+<h4 class='v2' id='FT1-31'>
+FT1-31: Transaction Reference Key (<a href='/2021Jan/data-type/SI.html'>SI</a>) 01847
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: The reference key linking the payment to the corresponding charge in an e-claim.  This field should contain the <a href="/2021Jan/segment-definition/FT1.html#FT1-1">FT1-1 - Set ID FT1</a> that identifies the charge corresponding to the payment.  This field is repeating to allow a payment to be posted against multiple charges.</p>
+    </div>
+
+<h4 class='v2' id='FT1-32'>
+FT1-32: Performing Facility (<a href='/2021Jan/data-type/XON.html'>XON</a>) 02361
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: This field contains the name of the Facility where the service is performed by the Provider Person/Group identified in <a href="/2021Jan/segment-definition/FT1.html#FT1-20">FT1-20 – Performed By Code</a>. </p>
+    </div>
+
+<h4 class='v2' id='FT1-33'>
+FT1-33: Ordering Facility (<a href='/2021Jan/data-type/XON.html'>XON</a>) 02362
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: This field contains the name of the Facility where the service is ordered by the Ordering Provider/Group identified in <a href="/2021Jan/segment-definition/FT1.html#FT1-21">FT1-21 – Ordered By Code</a>. </p>
+    </div>
+
+<h4 class='v2' id='FT1-34'>
+FT1-34: Item Number (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 02363
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: This field contains the Item Number for a product.  If valued, this field will override the value in the Service Catalog. Item Number (along with Model Number) can be seen as a supplemental number for specific equipment or inventory-related charges. </p>
+    </div>
+
+<h4 class='v2' id='FT1-35'>
+FT1-35: Model Number (<a href='/2021Jan/data-type/ST.html'>ST</a>) 02364
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: This field contains the Model Number for a product.  If valued, this field will override the value in the Service Catalog. Model Number (along with Item Number) can be seen as a supplemental number for specific equipment or inventory-related charges.   </p>
+    </div>
+
+<h4 class='v2' id='FT1-36'>
+FT1-36: Special Processing Code (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 02365
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: This field contains a Special Processing Code that is available in reimbursement expressions.  If valued, this field will override the value in the Service Catalog.  </p>
+    </div>
+
+<h4 class='v2' id='FT1-37'>
+FT1-37: Clinic Code (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 02366
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: This field contains the state specific or payer specific type of service or place of service.</p>
+    </div>
+
+<h4 class='v2' id='FT1-38'>
+FT1-38: Referral Number (<a href='/2021Jan/data-type/CX.html'>CX</a>) 02367
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: This field contains the Referral Number associated with the charge.    </p>
+    </div>
+
+<h4 class='v2' id='FT1-39'>
+FT1-39: Authorization Number (<a href='/2021Jan/data-type/CX.html'>CX</a>) 02368
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: This field contains an authorization number assigned to the referral charge.</p>
+    </div>
+
+<h4 class='v2' id='FT1-40'>
+FT1-40: Service Provider Taxonomy Code (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 02369
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: This field contains the Taxonomy code for the Service Provider.  It allows the provider to identify their specialty category for the particular service.</p>
+    </div>
+
+<h4 class='v2' id='FT1-41'>
+FT1-41: Revenue Code (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 01600
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/FT1.html#FT1-41">FT1.41</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition: This field contains the Revenue Code for the charge.  If valued, this field will override the value in the Service Catalog.  Refer to <a href="https://www.hl7.org/fhir/v2/0456/index.html">User-defined Table 0456 – Revenue Code</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/GP1.html#GP1-2">GP1.2</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition: This field is the same as UB92 Form Locator 42 "Revenue Code".  Refer to <a href="/2021Jan/composition/Introduction.html#Introduction-8-5">User-defined Table  0456 - Revenue Code</a> in Chapter 2C, Code Tables, for suggested values.  This field identifies revenue codes that are not linked to a HCPCS/CPT code.  It is used for claiming for non-medical services such as telephone, TV or cafeteria charges, etc.  There can be many per visit or claim.  This field is defined by CMS or other regulatory agencies.</p>
+      <p class="v2 v2-normalindented">There can also be a revenue code linked to a HCPCS/CPT code.  These are found in <a href="/2021Jan/segment-definition/GP2.html#GP2-1">GP2-1 - Revenue Code</a>.  Refer to UB92 specifications.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/GP2.html#GP2-1">GP2.1</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition: This field identifies a specific ancillary service for each HCPC/CPT   This field is the same as UB92 Form Locator 42 "Revenue Code".  Refer to <a href="https://www.hl7.org/fhir/v2/0456/index.html">User-defined Table 0456 - Revenue Code</a> in Chapter 2C, Code Tables, for suggested values.  This field is defined by CMS or other regulatory agencies.</p>
+    </div>
+
+<h4 class='v2' id='FT1-42'>
+FT1-42: Prescription Number (<a href='/2021Jan/data-type/ST.html'>ST</a>) 00325
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/RXE.html#RXE-15">RXE.15</a> in Ch. 4A)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the prescription number as assigned by the pharmacy or treatment application.  Equivalent in uniqueness to the pharmacy/treatment filler order number.  At some sites, this may be the pharmacy or treatment system (internal) sequential form.  At other sites, this may be an external form.  This is a required field in RXE when used in pharmacy/treatment messages, but it is not required when used in product experience messages (see Chapter 7).</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/RXD.html#RXD-7">RXD.7</a> in Ch. 4A)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field is equivalent in uniqueness to the pharmacy/treatment supplier filler order number.  At some sites, this may be the pharmacy/treatment supplier (internal) sequential form.  At other sites, this may be an external number.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/FT1.html#FT1-42">FT1.42</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the prescription number as assigned by the pharmacy or treatment application.  Equivalent in uniqueness to the pharmacy/treatment filler order number.  At some sites, this may be the pharmacy or treatment system (internal) sequential form.  At other sites, this may be an external form.</p>
+    </div>
+
+<h4 class='v2' id='FT1-43'>
+FT1-43: NDC Qty and UOM (<a href='/2021Jan/data-type/CQ.html'>CQ</a>) 02370
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the Drug Code Quantity and the Units of Measurement for the corresponding NDC-Code in <a href="/2021Jan/segment-definition/FT1.html#FT1-29">FT1-29 – NDC Code</a>.</p>
+    </div>
+
+<h4 class='v2' id='FT1-44'>
+FT1-44: DME Certificate of Medical Necessity Transmission Code (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 03496
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This code defines the timing, transmission method, or format by which a DME Certificate of Medical Necessity report is to be sent for the service.</p>
+      <p class="v2 v2-normalindented">For the US realm, the ANSI ASC X12 PWK DMERC CMN Indicator Segment, reference element PWK02, listed below is suggested to map to the X12 837 values:</p>
+      <p class="v2 v2-normalindented"></p>
+      <table class="v2" style="width: 71%; border-top: 1px solid black; border-left: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; ">
+        <colgroup>
+          <col span="1" style="width: 32.52%;">
+          <col span="1" style="width: 67.47%;">
+        </colgroup>
+        <tr>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color:#FFFF99; width:32.52%; ">
+            <p class="v2">AB</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color:#FFFF99; width:67.47%; ">
+            <p class="v2">Previously Submitted to Payer </p>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color:#FFFF99; width:32.52%; ">
+            <p class="v2">AD</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color:#FFFF99; width:67.47%; ">
+            <p class="v2">Certification Included in this Claim</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color:#FFFF99; width:32.52%; ">
+            <p class="v2">AF</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color:#FFFF99; width:67.47%; ">
+            <p class="v2">Narrative Segment Included in this Claim </p>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color:#FFFF99; width:32.52%; ">
+            <p class="v2">AG</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color:#FFFF99; width:67.47%; ">
+            <p class="v2">No Documentation is Required </p>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color:#FFFF99; width:32.52%; ">
+            <p class="v2">NS</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color:#FFFF99; width:67.47%; ">
+            <p class="v2">Not Specified</p>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <p class="v2 v2-indent720"></p>
+    </div>
+
+<h4 class='v2' id='FT1-45'>
+FT1-45: DME Certification Type Code (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 03497
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This code identifies the type of certification for the durable medical equipment service.</p>
+      <p class="v2 v2-indent720">For the US realm, the ANSI ASC X12 CR3 Durable Medical Equipment Certification Segment, reference element CR301, listed below is suggested to map to the X12 837 values:</p>
+      <table class="v2" style="width: 71%; border-top: 1px solid black; border-left: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; ">
+        <colgroup>
+          <col span="1" style="width: 32.52%;">
+          <col span="1" style="width: 67.47%;">
+        </colgroup>
+        <tr>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color:#FFFF99; width:32.52%; ">
+            <p class="v2">I</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color:#FFFF99; width:67.47%; ">
+            <p class="v2">Initial</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color:#FFFF99; width:32.52%; ">
+            <p class="v2">R</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color:#FFFF99; width:67.47%; ">
+            <p class="v2">Renewal</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color:#FFFF99; width:32.52%; ">
+            <p class="v2">S</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color:#FFFF99; width:67.47%; ">
+            <p class="v2">Revised</p>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <p class="v2 v2-indent720"></p>
+    </div>
+
+<h4 class='v2' id='FT1-46'>
+FT1-46: DME Duration Value (<a href='/2021Jan/data-type/NM.html'>NM</a>) 03498
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: This is the length of time, in months, the durable medical equipment is needed.</p>
+    </div>
+
+<h4 class='v2' id='FT1-47'>
+FT1-47: DME Certification Revision Date (<a href='/2021Jan/data-type/DT.html'>DT</a>) 03499
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: This is the durable medical equipment certification revision/recertification date.  It is required when the DME Certification Type Code is set to Renewal or Revised.</p>
+    </div>
+
+<h4 class='v2' id='FT1-48'>
+FT1-48: DME Initial Certification Date (<a href='/2021Jan/data-type/DT.html'>DT</a>) 03500
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: This is durable medical equipment initial certification date. It is used to indicate the beginning of therapy and the DME Certification Type Code is set to Initial.</p>
+    </div>
+
+<h4 class='v2' id='FT1-49'>
+FT1-49: DME Last Certification Date (<a href='/2021Jan/data-type/DT.html'>DT</a>) 03501
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: This is the durable medical equipment last certification date.  This is required if it is necessary to include supporting documentation in an electronic form for Medicare DMERC claims for which the provider is required to obtain a Certificate of Medical Necessity (CMN) from the physician.</p>
+    </div>
+
+<h4 class='v2' id='FT1-50'>
+FT1-50: DME Length of Medical Necessity Days (<a href='/2021Jan/data-type/NM.html'>NM</a>) 03502
+</h4>
+<div>
+      <p class="v2 v2-indent720">Definition: This is the length of duration, in days, of medical necessity for the purchased or rental durable medical equipment service.</p>
+    </div>
+
+<h4 class='v2' id='FT1-51'>
+FT1-51: DME Rental Price (<a href='/2021Jan/data-type/MO.html'>MO</a>) 03503
+</h4>
+<div>
+      <p class="v2 v2-indent720">Definition: This is the rental price of the durable medical equipment.</p>
+    </div>
+
+<h4 class='v2' id='FT1-52'>
+FT1-52: DME Purchase Price (<a href='/2021Jan/data-type/MO.html'>MO</a>) 03504
+</h4>
+<div>
+      <p class="v2 v2-indent720">Definition: This is the purchase price for the durable medical equipment.</p>
+    </div>
+
+<h4 class='v2' id='FT1-53'>
+FT1-53: DME Frequency Code (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 03505
+</h4>
+<div>
+      <p class="v2 v2-indent720">Definition: This is the frequency or type of payment for the rental of durable medical equipment.</p>
+      <p class="v2 v2-indent720">For the US realm, the ANSI ASC X12 SV5 Durable Medical Equipment Service Segment, reference element SV506, listed below is suggested to map to the X12 837 values:</p>
+      <table class="v2" style="width: 71%; border-top: 1px solid black; border-left: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; ">
+        <colgroup>
+          <col span="1" style="width: 23.44%;">
+          <col span="1" style="width: 76.55%;">
+        </colgroup>
+        <tr>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:23.44%; ">
+            <p class="v2">1</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:76.55%; ">
+            <p class="v2">Weekly</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:23.44%; ">
+            <p class="v2">4</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:76.55%; ">
+            <p class="v2">Monthly</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:23.44%; ">
+            <p class="v2">6</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:76.55%; ">
+            <p class="v2">Daily</p>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <p class="v2 v2-indent720"></p>
+    </div>
+
+<h4 class='v2' id='FT1-54'>
+FT1-54: DME Certification Condition Indicator (<a href='/2021Jan/data-type/ID.html'>ID</a>) 03506
+</h4>
+<div>
+      <p class="v2 v2-indent720">Definition: This field indicates if the DME Condition Codes apply to the service.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/no Indicator</a> for valid values.  A "Y" value indicates the condition codes apply.  An "N" value indicates the condition codes do not apply.  </p>
+    </div>
+
+<h4 class='v2' id='FT1-55'>
+FT1-55: DME Condition Indicator Code (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 03507
+</h4>
+<div>
+      <p class="v2 v2-indent720">Definition: This the condition indicator code for durable medical equipment.  It is used on the claim service line when this information is necessary for adjudication.  Two occurrences are supported.</p>
+      <p class="v2 v2-indent720">For the US realm, the ANSI ASC X12 CRC DMERC Condition Indicator Segment, reference element CRC03, listed below is suggested to map to the X12 837 values:</p>
+      <table class="v2" style="width: 85%; border-top: 1px solid black; border-left: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; ">
+        <colgroup>
+          <col span="1" style="width: 19.47%;">
+          <col span="1" style="width: 80.52%;">
+        </colgroup>
+        <tr>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:19.47%; ">
+            <p class="v2">38</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:80.52%; ">
+            <p class="v2">Certification signed by the physician is on file at the supplier’s office</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:19.47%; ">
+            <p class="v2">ZV</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:80.52%; ">
+            <p class="v2">Replacement Item</p>
+          </td>
+        </tr>
+      </table>
+      <br>
+    </div>
+
+<h4 class='v2' id='FT1-56'>
+FT1-56: Service Reason Code (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 03508
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the reason why the service has been performed.   Refer to <a href="/2021Jan/composition/Introduction.html#Introduction-6">User-defined Table HL70964 –Service Reason Code</a> for suggested values.  </p>
+    </div>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+December 11, 2020
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/2021Jan/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/2021Jan/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/2021Jan/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "/images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

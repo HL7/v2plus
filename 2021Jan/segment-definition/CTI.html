@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+<style type='text/css'>
+@import "/2021Jan/css/bootstrap.css";
+@import "/2021Jan/css/codemirror.css";
+@import "/2021Jan/css/hl7.css";
+@import "/2021Jan/css/fhir.css";
+<!-- @import "css/bootstrap-fhir.css"; -->
+@import "/2021Jan/css/bootstrap-v2.css";
+@import "/2021Jan/css/project.css";
+@import "/2021Jan/css/pygments-manni.css";
+@import "/2021Jan/css/jquery-ui.css";
+@import "/2021Jan/css/modules.css";
+@import "/2021Jan/css/v2.css";
+</style>
+<script src='/2021Jan/js/jquery.js'></script>
+<script src='/2021Jan/js/jquery-ui.min.js'></script>
+<script src='/2021Jan/js/bootstrap.min.js'></script>
+<script src='/2021Jan/js/respond.min.js'></script>
+<script src='/2021Jan/js/codemirror/codemirror.js'></script>
+<script src='/2021Jan/js/codemirror/mode/xml.js'></script>
+<script src='/2021Jan/js/v2.js'></script>
+<script src='/2021Jan/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/2021Jan/js/format_xml.js' type='text/javascript'></script>
+<link href='/2021Jan/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/2021Jan/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/2021Jan/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/2021Jan/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/2021Jan/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/2021Jan/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/2021Jan/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/2021Jan/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/2021Jan/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/2021Jan/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='https://www.hl7.org/fhir/terminologies-valuesets.html#tabs-v2'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/2021Jan/composition/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/2021Jan/composition/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/2021Jan/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/2021Jan/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+CTI - Clinical Trial Identification Segment
+</h3>
+<div>
+      <p class="v2 v2-normalindented">The CTI segment is an optional segment that contains information to identify the clinical trial, phase and time point with which an order or result is associated.</p>
+      <!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - CTI - Clinical Trial Identification Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+DataElement
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Description
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Must Implement
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Flags
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+DataType
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/2021Jan/images/folder_icon.gif'>
+<b>
+CTI
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+<a href='#CTI-1'>
+01011
+</a>
+</td>
+<td>
+Sponsor Study ID
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/EI.html'>
+EI
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+2
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+</td>
+<td>
+<a href='#CTI-2'>
+01022
+</a>
+</td>
+<td>
+Study Phase Identifier
+</td>
+<td>
+MAY
+<br>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+True:
+<br>
+<img src='/2021Jan/images/tbl_vjoin_end.png'>
+False:
+
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<br/>[1..1]<br/>[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0587/index.html'>
+0587
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+<a href='#CTI-3'>
+01055
+</a>
+</td>
+<td>
+Study Scheduled Time Point
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0595/index.html'>
+0595
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin_end.png'>
+4
+</td>
+<td>
+<a href='#CTI-4'>
+00816
+</a>
+</td>
+<td>
+Action Code
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+[2..2]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0206/index.html'>
+0206
+<span class='vocab-link-text'>Segment Action Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ID.html'>
+ID
+</a>
+</td>
+</tr>
+
+</tbody>
+</table>
+
+    </div>
+<h4 class='v2' id='CTI-1'>
+CTI-1: Sponsor Study ID (<a href='/2021Jan/data-type/EI.html'>EI</a>) 01011
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/CSR.html#CSR-1">CSR.1</a> in Ch. 7)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  The field contains the universal identifier for the clinical trial.  Since many clinical trials are collaborative and multi-centered, and since one goal of these standards is to promote automated data exchange among sites, the primary identifier should come from the sponsor.  The coding system component may reference the sponsor.  Example:</p>
+      <p class="v2 v2-example">T93-0807^NCI (where NCI refers to the National Cancer Institute).</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/CTI.html#CTI-1">CTI.1</a> in Ch. 7)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition: This field contains the universal identifier for the clinical trial.  The coding system is as described in <a href="/2021Jan/segment-definition/CSR.html#CSR-1">CSR-1 Sponsor Study ID</a>.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/CM0.html#CM0-2">CM0.2</a> in Ch. 8)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the study number established by the study sponsor.  Please see discussion in Chapter 7, section 7.7.1.1, "Sponsor study ID."</p>
+    </div>
+
+<h4 class='v2' id='CTI-2'>
+CTI-2: Study Phase Identifier (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 01022
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/CSP.html#CSP-1">CSP.1</a> in Ch. 7)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field identifies the phase of the study that a patient has entered.  The set of codes will generally be developed for each clinical trial, although there are patterns that trials in particular disease or prevention categories may follow.  The phase structure will be based on data collation and reporting needs for the study.  It is an operational structure and need not be discussed in the clinical trial protocol documentation or even made known to patient care or data collection personnel.  The coding system will usually be developed by the sponsor for multicentered clinical trials to standardize the receipt of automated data.  Local codes could be added if an additional local message is desired.  Otherwise, local coding conventions will be used.  Refer to Table 0587 - Study Phase Identifier in Chapter 2C for valid values.</p>
+      <p class="v2 v2-normalindented">Example:  </p>
+      <p class="v2 v2-example">2^Init Rx, Crs 1^NCI T93-0807 Phases</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/CTI.html#CTI-2">CTI.2</a> in Ch. 7)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition: This field identifies the phase of the study that a patient has entered.  See <a href="/2021Jan/segment-definition/CSP.html#CSP-1">CSP-1 Study Phase Identifier</a> for details of coding systems. Refer to Table 0597 - Study Phase Identifier in Chapter 2C for valid values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/CM1.html#CM1-2">CM1.2</a> in Ch. 8)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field should correspond to the study phase ID coding system in Chapter 7, section 7.7.2.1, "Study Phase ID."</p>
+    </div>
+
+<h4 class='v2' id='CTI-3'>
+CTI-3: Study Scheduled Time Point (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 01055
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/CSS.html#CSS-1">CSS.1</a> in Ch. 7)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the time point for which some instance of data for the clinical trial was scheduled.  The time point may be expressed in any coded format.  Some examples of time point values are: <strong>Prestudy, Pretreatment, 4 times/day, Weekly, Every 3 days, Every course, At Relapse, At Off Study.</strong>  Alternatively, frequency values from Section 2.A.81.2, "Interval component (RI)," (the Interval component of the TQ Timing/Quantity data type could be used; however, note that as of version 2.5, the TQ data type is retained only for backward compatibility).  Time point naming conventions and usage must be specified by implementers. Refer to Table 0595 - Study Scheduled Time Point in Chapter 2C for valid values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/CTI.html#CTI-3">CTI.3</a> in Ch. 7)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field identifies a time point in the clinical trial phase.  <a href="/2021Jan/segment-definition/CTI.html#CTI-2">CTI-2 Study Phase Identifier</a> must be valued if <a href="/2021Jan/segment-definition/CTI.html#CTI-3">CTI-3 Study Scheduled Time Point</a> is valued.  Should correspond to <a href="/2021Jan/segment-definition/CSS.html#CSS-1">CSS-1 Study Scheduled Time Point</a>. Refer to Table 0598 - Study Scheduled Time Point in Chapter 2C for valid values.</p>
+    </div>
+
+<h4 class='v2' id='CTI-4'>
+CTI-4: Action Code (<a href='/2021Jan/data-type/ID.html'>ID</a>) 00816
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/OH1.html#OH1-2">OH1.2</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition: This field contains a code defining the action to be taken for this segment. It allows this segment to be sent to delete or update, for example, previously sent information. Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html"><strong>HL7 Table 0206 – Segment Action Code</strong></a> in Chapter 2C, Code Tables, for valid values. </p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/OH2.html#OH2-2">OH2.2</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition: This field contains a code defining the action to be taken for this  segment. It allows this segment to be sent to delete or update, for example, previously sent information. Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html"><strong>HL7 Table 0206 – Segment Action Code</strong></a> in Chapter 2C, Code Tables, for valid values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/OH3.html#OH3-2">OH3.2</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-indent720">Definition: This field contains a code defining the action to be taken for this  segment. It allows this segment to be sent to delete or update, for example, previously sent information. Refer to <a href="/2021Jan/composition/Control.html#Control-9">HL7 Table 0206 – Segment Action Code</a> in Chapter 2C, Code Tables, for valid values.  </p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/OH4.html#OH4-2">OH4.2</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition: This field contains a code defining the action to be taken for this  segment. It allows this segment to be sent to delete or update, for example, previously sent information. Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html"><strong>HL7 Table 0206 – Segment Action Code</strong></a> in Chapter 2C, Code Tables, for valid values.  </p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/ORC.html#ORC-35">ORC.35</a> in Ch. 4)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when either ORC-2 and/or ORC 3 is valued with a unique identifier in accordance with Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/OBR.html#OBR-55">OBR.55</a> in Ch. 4)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when either an OBR-2 and/or OBR-3 is valued with unique identifier in accordance with Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/IPC.html#IPC-10">IPC.10</a> in Ch. 4)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when the combination of IPC-1, IPC-2, IPC-3, and IPC-4 represents a unique identifier according to Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/BPX.html#BPX-22">BPX.22</a> in Ch. 4)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when an BPX is uniquely identified sufficiently within the specific implementation using BPX-17 or BPX-6 as agreed to by the trading partners and in accordance with Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/BTX.html#BTX-21">BTX.21</a> in Ch. 4)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when an BTX is uniquely identified sufficiently within the specific implementation using BTX-20 or BTX-3 as agreed to by the trading partners in accordance with Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/DON.html#DON-34">DON.34</a> in Ch. 4)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when an DON is uniquely identified sufficiently within the specific implementation using DON-1 in accordance with Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/BUI.html#BUI-13">BUI.13</a> in Ch. 4)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when an BUI is uniquely identified sufficiently within the specific implementation using BUI-2 in accordance with Chapter 2, Section 2.10.4.2</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/RXV.html#RXV-22">RXV.22</a> in Ch. 4A)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:   The intended handling by the receiver of the infusion order is represented by this segment.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 – Segment Action Code</a> in Chapter 2C, Code Tables, for valid values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/CDO.html#CDO-2">CDO.2</a> in Ch. 4A)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  The Action Code indicates whether the cumulative dosage segment is intended to be added, deleted, updated, or did not change.  If the field is not valued in any CDO segments for the order, the segments are considered to have been sent in snapshot mode.  If some but not all CDO segments for the order do not have the action code valued, the default value is Add.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> in Chapter 2C, Code Tables, for valid values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/OBR.html#OBR-55">OBR.55</a> in Ch. 7)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when an either OBR-2 and/or OBR-3 is valued with unique identifier in accordance with Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/OBX.html#OBX-31">OBX.31</a> in Ch. 7)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when an OBX-21 is valued in accordance with guidance in Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/SPM.html#SPM-35">SPM.35</a> in Ch. 7)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when an SPM-2 or SPM-31 is valued in accordance with the guidance in Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PRT.html#PRT-2">PRT.2</a> in Ch. 7)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0287/index.html">HL7 Table 0287 – Problem/goal action code</a> for valid values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/CSR.html#CSR-17">CSR.17</a> in Ch. 7)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when CSR-1 and CSR-4, or CSR-2 and CSR-5 are valued as agreed to by the trading partners in accordance with the guidance in Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/CTI.html#CTI-4">CTI.4</a> in Ch. 7)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when CTI-1 is valued in accordance with the guidance in Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/SHP.html#SHP-12">SHP.12</a> in Ch. 7)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when SHP-1 is valued in accordance with the guidance in Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PAC.html#PAC-9">PAC.9</a> in Ch. 7)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when PAC-2 is valued in accordance with the guidance in Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/GOL.html#GOL-1">GOL.1</a> in Ch. 12)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  The action code field gives the intent of the problem or goal.  Refer to <a href="https://www.hl7.org/fhir/v2/0287/index.html">HL7 Table 0287 – Problem/Goal Action Code</a> in Chapter 2C, Code Tables, for valid values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PRB.html#PRB-1">PRB.1</a> in Ch. 12)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0287/index.html">HL7 Table 0287 – Problem/Goal Action Code</a> in Chapter 2C, Code Tables, for valid values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PTH.html#PTH-1">PTH.1</a> in Ch. 12)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0287/index.html">HL7 Table 0287 – Problem/Goal Action Code</a> in Chapter 2C, Code Tables, for valid values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/DEV.html#DEV-1">DEV.1</a> in Ch. 17)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0287/index.html">HL7 Table 0287 – Problem/goal action code</a> for valid values.</p>
+    </div>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+December 11, 2020
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/2021Jan/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/2021Jan/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/2021Jan/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "/images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

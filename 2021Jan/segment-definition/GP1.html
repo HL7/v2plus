@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+<style type='text/css'>
+@import "/2021Jan/css/bootstrap.css";
+@import "/2021Jan/css/codemirror.css";
+@import "/2021Jan/css/hl7.css";
+@import "/2021Jan/css/fhir.css";
+<!-- @import "css/bootstrap-fhir.css"; -->
+@import "/2021Jan/css/bootstrap-v2.css";
+@import "/2021Jan/css/project.css";
+@import "/2021Jan/css/pygments-manni.css";
+@import "/2021Jan/css/jquery-ui.css";
+@import "/2021Jan/css/modules.css";
+@import "/2021Jan/css/v2.css";
+</style>
+<script src='/2021Jan/js/jquery.js'></script>
+<script src='/2021Jan/js/jquery-ui.min.js'></script>
+<script src='/2021Jan/js/bootstrap.min.js'></script>
+<script src='/2021Jan/js/respond.min.js'></script>
+<script src='/2021Jan/js/codemirror/codemirror.js'></script>
+<script src='/2021Jan/js/codemirror/mode/xml.js'></script>
+<script src='/2021Jan/js/v2.js'></script>
+<script src='/2021Jan/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/2021Jan/js/format_xml.js' type='text/javascript'></script>
+<link href='/2021Jan/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/2021Jan/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/2021Jan/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/2021Jan/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/2021Jan/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/2021Jan/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/2021Jan/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/2021Jan/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/2021Jan/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/2021Jan/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='https://www.hl7.org/fhir/terminologies-valuesets.html#tabs-v2'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/2021Jan/composition/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/2021Jan/composition/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/2021Jan/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/2021Jan/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+GP1 - Grouping/Reimbursement - Visit Segment
+</h3>
+<div>
+      <p class="v2 v2-normalindented">These fields are used in grouping and reimbursement for CMS APCs. Please refer to the "Outpatient Prospective Payment System Final Rule" ("OPPS Final Rule") issued by CMS.</p>
+      <p class="v2 v2-normalindented">
+        <strong>The GP1 segment is specific to the US and may not be implemented in non-US systems.</strong>
+      </p>
+      <!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - GP1 - Grouping/Reimbursement - Visit Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+DataElement
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Description
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Must Implement
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Flags
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+DataType
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/2021Jan/images/folder_icon.gif'>
+<b>
+GP1
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+<a href='#GP1-1'>
+01599
+</a>
+</td>
+<td>
+Type of Bill Code
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0455/index.html'>
+0455
+<span class='vocab-link-text'>Type of Bill Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+<a href='#GP1-2'>
+01600
+</a>
+</td>
+<td>
+Revenue Code
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0456/index.html'>
+0456
+<span class='vocab-link-text'>Revenue code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+<a href='#GP1-3'>
+01601
+</a>
+</td>
+<td>
+Overall Claim Disposition Code
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0457/index.html'>
+0457
+<span class='vocab-link-text'>Overall Claim Disposition Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+<a href='#GP1-4'>
+01602
+</a>
+</td>
+<td>
+OCE Edits per Visit Code
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0458/index.html'>
+0458
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin_end.png'>
+5
+</td>
+<td>
+<a href='#GP1-5'>
+00387
+</a>
+</td>
+<td>
+Outlier Cost
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CP.html'>
+CP
+</a>
+</td>
+</tr>
+
+</tbody>
+</table>
+
+    </div>
+<h4 class='v2' id='GP1-1'>
+GP1-1: Type of Bill Code (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 01599
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field is the same as UB92 Form Locator 4 "Type of Bill".  Refer to <a href="https://www.hl7.org/fhir/v2/0455/index.html">User-defined Table 0455 - Type of Bill Code</a> in Chapter 2C, Code Tables, for suggested values.  Refer to a UB specification for additional information.  This field is defined by CMS or other regulatory agencies.  It is a code indicating the specific type of bill with digit 1 showing type of facility, digit 2 showing bill classification, and digit 3 showing frequency.</p>
+    </div>
+
+<h4 class='v2' id='GP1-2'>
+GP1-2: Revenue Code (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 01600
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/FT1.html#FT1-41">FT1.41</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition: This field contains the Revenue Code for the charge.  If valued, this field will override the value in the Service Catalog.  Refer to <a href="https://www.hl7.org/fhir/v2/0456/index.html">User-defined Table 0456 – Revenue Code</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/GP1.html#GP1-2">GP1.2</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition: This field is the same as UB92 Form Locator 42 "Revenue Code".  Refer to <a href="/2021Jan/composition/Introduction.html#Introduction-8-5">User-defined Table  0456 - Revenue Code</a> in Chapter 2C, Code Tables, for suggested values.  This field identifies revenue codes that are not linked to a HCPCS/CPT code.  It is used for claiming for non-medical services such as telephone, TV or cafeteria charges, etc.  There can be many per visit or claim.  This field is defined by CMS or other regulatory agencies.</p>
+      <p class="v2 v2-normalindented">There can also be a revenue code linked to a HCPCS/CPT code.  These are found in <a href="/2021Jan/segment-definition/GP2.html#GP2-1">GP2-1 - Revenue Code</a>.  Refer to UB92 specifications.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/GP2.html#GP2-1">GP2.1</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition: This field identifies a specific ancillary service for each HCPC/CPT   This field is the same as UB92 Form Locator 42 "Revenue Code".  Refer to <a href="https://www.hl7.org/fhir/v2/0456/index.html">User-defined Table 0456 - Revenue Code</a> in Chapter 2C, Code Tables, for suggested values.  This field is defined by CMS or other regulatory agencies.</p>
+    </div>
+
+<h4 class='v2' id='GP1-3'>
+GP1-3: Overall Claim Disposition Code (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 01601
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: This field identifies the final status of the claim.  The codes listed as examples are not an exhaustive or current list, refer to OPPS Final Rule.  Refer to <a href="https://www.hl7.org/fhir/v2/0457/index.html">User-defined Table 0457 - Overall Claim Disposition</a><a href="/2021Jan/composition/Financial-Management.html#Financial-Management-5-1-7"> Code</a> in Chapter 2C, Code Tables, for suggested values.  This field is defined by CMS or other regulatory agencies.</p>
+    </div>
+
+<h4 class='v2' id='GP1-4'>
+GP1-4: OCE Edits per Visit Code (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 01602
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the edits that result from processing the HCPCS/CPT procedures for a record after evaluating all the codes, revenue codes, and modifiers.  The codes listed as examples are not an exhaustive or current list, refer to OPPS Final Rule.  OCE (Outpatient Code Editor) edits also exist at the pre-procedure level.  Refer to <a href="https://www.hl7.org/fhir/v2/0458/index.html">User-defined Table 0458 - OCE Edit Code</a> in Chapter 2C, Code Tables, for suggested values.  This field is defined by CMS or other regulatory agencies.</p>
+    </div>
+
+<h4 class='v2' id='GP1-5'>
+GP1-5: Outlier Cost (<a href='/2021Jan/data-type/CP.html'>CP</a>) 00387
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/DG1.html#DG1-13">DG1.13</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">
+        <strong>Attention: DG1-13 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6</strong>
+      </p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/DRG.html#DRG-7">DRG.7</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the amount of money that has been approved for an outlier payment.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/GP1.html#GP1-5">GP1.5</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the amount that exceeds the outlier limitation as defined by APC regulations. This field is analogous to <a href="/2021Jan/segment-definition/DRG.html#DRG-7">DRG-7 - Outlier Cost</a>; however, the definition in this field note supersedes the DRG-7 definition.</p>
+    </div>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+December 11, 2020
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/2021Jan/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/2021Jan/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/2021Jan/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "/images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

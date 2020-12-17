@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+<style type='text/css'>
+@import "/2021Jan/css/bootstrap.css";
+@import "/2021Jan/css/codemirror.css";
+@import "/2021Jan/css/hl7.css";
+@import "/2021Jan/css/fhir.css";
+<!-- @import "css/bootstrap-fhir.css"; -->
+@import "/2021Jan/css/bootstrap-v2.css";
+@import "/2021Jan/css/project.css";
+@import "/2021Jan/css/pygments-manni.css";
+@import "/2021Jan/css/jquery-ui.css";
+@import "/2021Jan/css/modules.css";
+@import "/2021Jan/css/v2.css";
+</style>
+<script src='/2021Jan/js/jquery.js'></script>
+<script src='/2021Jan/js/jquery-ui.min.js'></script>
+<script src='/2021Jan/js/bootstrap.min.js'></script>
+<script src='/2021Jan/js/respond.min.js'></script>
+<script src='/2021Jan/js/codemirror/codemirror.js'></script>
+<script src='/2021Jan/js/codemirror/mode/xml.js'></script>
+<script src='/2021Jan/js/v2.js'></script>
+<script src='/2021Jan/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/2021Jan/js/format_xml.js' type='text/javascript'></script>
+<link href='/2021Jan/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/2021Jan/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/2021Jan/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/2021Jan/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/2021Jan/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/2021Jan/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/2021Jan/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/2021Jan/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/2021Jan/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/2021Jan/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='https://www.hl7.org/fhir/terminologies-valuesets.html#tabs-v2'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/2021Jan/composition/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/2021Jan/composition/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/2021Jan/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/2021Jan/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<h3 class='v2-data-type-title'>
+DTM - date/time
+</h3>
+<div class='v2-data-type-content'>
+<div>
+      <!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='datatype-table'>
+<caption>
+HL7 Component Table - DTM - date/time
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/2021Jan/data-types.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/2021Jan/data-types.html'>
+Description
+</a>
+</th>
+<!-- %th -->
+<!-- %a{:href => datatype_control_page} -->
+<!-- Interpretation -->
+<th>
+<a href='/2021Jan/data-types.html'>
+Implement
+</a>
+</th>
+<th>
+<a href='/2021Jan/data-types.html'>
+Flags
+</a>
+</th>
+<th>
+<a href='/2021Jan/data-types.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/2021Jan/data-types.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/2021Jan/data-types.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/2021Jan/data-types.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/2021Jan/data-types.html'>
+Data Type
+</a>
+</th>
+</tr>
+<tr>
+<td colspan='3'>
+<img src='/2021Jan/images/folder_icon.gif'>
+<b>
+DTM
+</b>
+</td>
+</tr>
+<tr class='datatype_component'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin_end.png'>
+<a href='#DTM-1'>
+1
+</a>
+</td>
+<td>
+Date/Time 
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+#
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+[4..24]
+</td>
+<td class='centered'>
+&nbsp;&nbsp;8
+</td>
+<td>
+<a href=''>
+
+</a>
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+</tr>
+
+</tbody>
+</table>
+
+      <p class="v2 v2-normalindented">Definition: Specifies a point in time using a 24-hour clock notation. </p>
+      <div class="v2-note">
+        <p class="v2"><strong>Minimum Length:</strong> 4</p>
+        <p class="v2"><strong>Maximum Length:</strong> 24</p>
+      </div>
+      <br>
+      <p class="v2 v2-normalindented">The number of characters populated (excluding the time zone specification) specifies the precision. </p>
+      <p class="v2 v2-normalindented">Format: YYYY[MM[DD[HH[MM[SS[.S[S[S[S]]]]]]]]][+/-ZZZZ]. </p>
+      <p class="v2 v2-normalindented">Thus: </p>
+      <ol class="v2 v2-list v2-lower-alpha-list v2-list" style="list-style: lower-alpha">
+        <li class="v2 v2-li">
+          <p class="v2 v2-list">only the first four are used to specify a precision of "year"</p>
+        </li>
+        <li class="v2 v2-li">
+          <p class="v2 v2-list">the first six are used to specify a precision of "month"</p>
+        </li>
+        <li class="v2 v2-li">
+          <p class="v2 v2-list">the first eight are used to specify a precision of "day" </p>
+        </li>
+        <li class="v2 v2-li">
+          <p class="v2 v2-list">the first ten are used to specify a precision of "hour”</p>
+        </li>
+        <li class="v2 v2-li">
+          <p class="v2 v2-list">the first twelve are used to specify a precision of "minute”</p>
+        </li>
+        <li class="v2 v2-li">
+          <p class="v2 v2-list">the first fourteen are used to specify a precision of "second”</p>
+        </li>
+        <li class="v2 v2-li">
+          <p class="v2 v2-list">the first sixteen are used to specify a precision of "one tenth of a second”</p>
+        </li>
+        <li class="v2 v2-li">
+          <p class="v2 v2-list">the first nineteen are used to specify a precision of " one ten thousandths of a second”</p>
+        </li>
+      </ol>
+      <p class="v2 v2-normalindented">Example: |199904| specifies April 1999.</p>
+      <p class="v2 v2-normalindented">The time zone (+/-ZZZZ) is represented as +/-HHMM offset from Coordinated Universal Time (UTC)</p>
+      <ul class="v2 v2-list v2-disc-list v2-disc" style="list-style: disc">
+        <li class="v2 v2-li">
+          <p class="v2 v2-normalindented">For implementations prior to V2.9 +0000 or -0000 both represent UTC (without offset). </p>
+        </li>
+        <li class="v2 v2-li">
+          <p class="v2 v2-normalindented">For implementations starting with V2.9 </p>
+          <ul class="v2 v2-list v2-sublist v2-disc-list v2-disc" style="list-style: disc">
+            <li class="v2 v2-li">
+              <p class="v2 v2-normalindented">use of the plus sign (+0000) represents the civil time zone offset is known to be zero, </p>
+            </li>
+            <li class="v2 v2-li">
+              <p class="v2 v2-normalindented">use of the minus sign (-0000) represents UTC (without offset)</p>
+            </li>
+          </ul>
+        </li>
+        <li class="v2 v2-li">
+          <p class="v2 v2-normalindented">This supports medical devices that are capable of sourcing UTC but do not have reference to local time offset.  Use case is London in the winter.</p>
+        </li>
+      </ul>
+      <div class="v2-note">
+        <p class="v2">
+          <strong>This provides a solution for the use case where the device can source UTC.  It is up to the implementation to determine the storage form. </strong>
+        </p>
+      </div>
+      <br>
+      <p class="v2 v2-normalindented"></p>
+      <p class="v2 v2-normalindented">The specific data representations used in the HL7 encoding rules are compatible with ISO 8824-1987(E).</p>
+      <div class="v2-note">
+        <p class="v2"><strong>Note:</strong> If the time zone is not included, the time zone defaults to that of the local time zone of the sender. Also note that a DTM valued field with the HHMM part set to "0000" represents midnight of the night extending from the previous day to the day given by the YYYYMMDD part (see example below).</p>
+      </div>
+      <br>
+      <p class="v2 v2-normalindented">Examples:</p>
+      <table class="v2" style="width: 87%; border-top: 1px solid black; border-left: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; ">
+        <colgroup>
+          <col span="1" style="width: 24.52%;">
+          <col span="1" style="width: 75.47%;">
+        </colgroup>
+        <tr>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color: #E6E6E6; width:24.52%; ">
+            <p class="v2 v2-othertableheader">Example</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; background-color: #E6E6E6; width:75.47%; ">
+            <p class="v2 v2-othertableheader">Description</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:24.52%; ">
+            <p class="v2 v2-othertablebody">|19760704010159-0500|</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:75.47%; ">
+            <p class="v2 v2-othertablebody">1:01:59 on July 4, 1976 in the Eastern Standard Time zone (USA)</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:24.52%; ">
+            <p class="v2 v2-othertablebody">|19760704010159-0400|</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:75.47%; ">
+            <p class="v2 v2-othertablebody">1:01:59 on July 4, 1976 in the Eastern Daylight Saving Time zone (USA).</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:24.52%; ">
+            <p class="v2 v2-othertablebody">|198807050000|</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:75.47%; ">
+            <p class="v2 v2-othertablebody">Midnight of the night extending from July 4 to July 5, 1988 in the local time zone of the sender.</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:24.52%; ">
+            <p class="v2 v2-othertablebody">|19880705|    </p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:75.47%; ">
+            <p class="v2 v2-othertablebody">Same as prior example, but precision extends only to the day. Could be used for a birth date, if the time of birth is unknown.</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:24.52%; ">
+            <p class="v2 v2-othertablebody">|19981004010159+0100|</p>
+          </td>
+          <td style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black; width:75.47%; ">
+            <p class="v2 v2-othertablebody">1:01:59 on October 4, 1998 in Amsterdam, NL. (Time zone=+0100).</p>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <p class="v2 v2-normalindented">The HL7 Standard strongly recommends that all systems routinely send the time zone offset but does not require it. All HL7 systems are required to accept the time zone offset, but its implementation is application specific. For many applications the time of interest is the local time of the sender. For example, an application in the Eastern Standard Time zone receiving notification of an admission that takes place at 11:00 PM in San Francisco on December 11 would prefer to treat the admission as having occurred on December 11 rather than advancing the date to December 12.</p>
+      <div class="v2-note">
+        <p class="v2"><strong>Note:</strong> The time zone [+/-ZZZZ], when used, is restricted to legally-defined time zones and is represented in HHMM format.</p>
+      </div>
+      <br>
+      <p class="v2 v2-normalindented">One exception to this rule would be a clinical system that processed patient data collected in a clinic and a nearby hospital that happens to be in a different time zone. Such applications may choose to convert the data to a common representation. Similar concerns apply to the transitions to and from daylight saving time. HL7 supports such requirements by requiring that the time zone information be present when the information is sent. It does not, however, specify which of the treatments discussed here will be applied by the receiving system. </p>
+      <p class="v2 v2-normalindented">The DTM data type does not follow the normal truncation pattern, and the truncation character is never valid in the DTM data type. Instead, the truncation behavior is based on the semantics of dates and times. </p>
+      <p class="v2 v2-normalindented">Unless otherwise specified in the context where the DTM type is used, the DTM type may be truncated to a day. When a DTM is truncated, the truncated form SHALL still be a valid DTM type. Systems should always be able to persist full date / time information including the timezone. Refer to Chapter 2, section 2.5.5.2 "Truncation Pattern" for further information.</p>
+    </div>
+</div>
+<div class='v2-data-type-component-definitions'>
+
+</div>
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+December 11, 2020
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/2021Jan/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/2021Jan/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/2021Jan/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "/images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

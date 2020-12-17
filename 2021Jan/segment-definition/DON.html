@@ -1,0 +1,2094 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+<style type='text/css'>
+@import "/2021Jan/css/bootstrap.css";
+@import "/2021Jan/css/codemirror.css";
+@import "/2021Jan/css/hl7.css";
+@import "/2021Jan/css/fhir.css";
+<!-- @import "css/bootstrap-fhir.css"; -->
+@import "/2021Jan/css/bootstrap-v2.css";
+@import "/2021Jan/css/project.css";
+@import "/2021Jan/css/pygments-manni.css";
+@import "/2021Jan/css/jquery-ui.css";
+@import "/2021Jan/css/modules.css";
+@import "/2021Jan/css/v2.css";
+</style>
+<script src='/2021Jan/js/jquery.js'></script>
+<script src='/2021Jan/js/jquery-ui.min.js'></script>
+<script src='/2021Jan/js/bootstrap.min.js'></script>
+<script src='/2021Jan/js/respond.min.js'></script>
+<script src='/2021Jan/js/codemirror/codemirror.js'></script>
+<script src='/2021Jan/js/codemirror/mode/xml.js'></script>
+<script src='/2021Jan/js/v2.js'></script>
+<script src='/2021Jan/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/2021Jan/js/format_xml.js' type='text/javascript'></script>
+<link href='/2021Jan/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/2021Jan/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/2021Jan/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/2021Jan/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/2021Jan/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/2021Jan/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/2021Jan/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/2021Jan/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/2021Jan/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/2021Jan/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='https://www.hl7.org/fhir/terminologies-valuesets.html#tabs-v2'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/2021Jan/composition/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/2021Jan/composition/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/2021Jan/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/2021Jan/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+DON - Donation Segment
+</h3>
+<div>
+      <p class="v2 v2-normalindented">The intent of this segment is to describe the actual donation procedure.</p>
+      <!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - DON - Donation Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+DataElement
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Description
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Must Implement
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Flags
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+DataType
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/2021Jan/images/folder_icon.gif'>
+<b>
+DON
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+1
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+</td>
+<td>
+<a href='#DON-1'>
+03340
+</a>
+</td>
+<td>
+Donation Identification Number - DIN
+</td>
+<td>
+MAY
+<br>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+True:
+<br>
+<img src='/2021Jan/images/tbl_vjoin_end.png'>
+False:
+
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<br/>[1..1]<br/>[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/EI.html'>
+EI
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+2
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+</td>
+<td>
+<a href='#DON-2'>
+03341
+</a>
+</td>
+<td>
+Donation Type
+</td>
+<td>
+MAY
+<br>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+True:
+<br>
+<img src='/2021Jan/images/tbl_vjoin_end.png'>
+False:
+
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<br/>[1..1]<br/>[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CNE.html'>
+CNE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+<a href='#DON-3'>
+03342
+</a>
+</td>
+<td>
+Phlebotomy Start Date/Time
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/DTM.html'>
+DTM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+<a href='#DON-4'>
+03343
+</a>
+</td>
+<td>
+Phlebotomy End Date/Time
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/DTM.html'>
+DTM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+<a href='#DON-5'>
+03344
+</a>
+</td>
+<td>
+Donation Duration
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/NM.html'>
+NM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+<a href='#DON-6'>
+03345
+</a>
+</td>
+<td>
+Donation Duration Units
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0932/index.html'>
+0932
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CNE.html'>
+CNE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+<a href='#DON-7'>
+03346
+</a>
+</td>
+<td>
+Intended Procedure Type
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0933/index.html'>
+0933
+<span class='vocab-link-text'>Intended Procedure Type</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CNE.html'>
+CNE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+<a href='#DON-8'>
+03347
+</a>
+</td>
+<td>
+Actual Procedure Type
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0933/index.html'>
+0933
+<span class='vocab-link-text'>Intended Procedure Type</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CNE.html'>
+CNE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+<a href='#DON-9'>
+03348
+</a>
+</td>
+<td>
+Donor Eligibility Flag
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0136/index.html'>
+0136
+<span class='vocab-link-text'>Yes/no Indicator</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ID.html'>
+ID
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+<a href='#DON-10'>
+03349
+</a>
+</td>
+<td>
+Donor Eligibility Procedure Type
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0933/index.html'>
+0933
+<span class='vocab-link-text'>Intended Procedure Type</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CNE.html'>
+CNE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+<a href='#DON-11'>
+03350
+</a>
+</td>
+<td>
+Donor Eligibility Date
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/DTM.html'>
+DTM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+<a href='#DON-12'>
+03351
+</a>
+</td>
+<td>
+Process Interruption
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0923/index.html'>
+0923
+<span class='vocab-link-text'>Process Interruption</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CNE.html'>
+CNE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+<a href='#DON-13'>
+03352
+</a>
+</td>
+<td>
+Process Interruption Reason
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0935/index.html'>
+0935
+<span class='vocab-link-text'>Process Interruption Reason</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CNE.html'>
+CNE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+<a href='#DON-14'>
+03353
+</a>
+</td>
+<td>
+Phlebotomy Issue
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0925/index.html'>
+0925
+<span class='vocab-link-text'>Phlebotomy Issue</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CNE.html'>
+CNE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+<a href='#DON-15'>
+03354
+</a>
+</td>
+<td>
+Intended Recipient Blood Relative
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0136/index.html'>
+0136
+<span class='vocab-link-text'>Yes/no Indicator</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ID.html'>
+ID
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+<a href='#DON-16'>
+03355
+</a>
+</td>
+<td>
+Intended Recipient Name
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XPN.html'>
+XPN
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+<a href='#DON-17'>
+03356
+</a>
+</td>
+<td>
+Intended Recipient DOB
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/DTM.html'>
+DTM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+<a href='#DON-18'>
+03357
+</a>
+</td>
+<td>
+Intended Recipient Facility
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XON.html'>
+XON
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+<a href='#DON-19'>
+03358
+</a>
+</td>
+<td>
+Intended Recipient Procedure Date
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/DTM.html'>
+DTM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+<a href='#DON-20'>
+03359
+</a>
+</td>
+<td>
+Intended Recipient Ordering Provider
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XPN.html'>
+XPN
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+21
+</td>
+<td>
+<a href='#DON-21'>
+03360
+</a>
+</td>
+<td>
+Phlebotomy Status
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0926/index.html'>
+0926
+<span class='vocab-link-text'>Phlebotomy Status</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CNE.html'>
+CNE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+22
+</td>
+<td>
+<a href='#DON-22'>
+03361
+</a>
+</td>
+<td>
+Arm Stick
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0927/index.html'>
+0927
+<span class='vocab-link-text'>Arm Stick</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CNE.html'>
+CNE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+23
+</td>
+<td>
+<a href='#DON-23'>
+03362
+</a>
+</td>
+<td>
+Bleed Start Phlebotomist
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XPN.html'>
+XPN
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+24
+</td>
+<td>
+<a href='#DON-24'>
+03363
+</a>
+</td>
+<td>
+Bleed End Phlebotomist
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XPN.html'>
+XPN
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+25
+</td>
+<td>
+<a href='#DON-25'>
+03364
+</a>
+</td>
+<td>
+Aphaeresis Type Machine
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+#
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+75
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ST.html'>
+ST
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+26
+</td>
+<td>
+<a href='#DON-26'>
+03365
+</a>
+</td>
+<td>
+Aphaeresis Machine Serial Number
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+#
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+25
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ST.html'>
+ST
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+27
+</td>
+<td>
+<a href='#DON-27'>
+03366
+</a>
+</td>
+<td>
+Donor Reaction
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0136/index.html'>
+0136
+<span class='vocab-link-text'>Yes/no Indicator</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ID.html'>
+ID
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+28
+</td>
+<td>
+<a href='#DON-28'>
+03367
+</a>
+</td>
+<td>
+Final Review Staff ID
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XPN.html'>
+XPN
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+29
+</td>
+<td>
+<a href='#DON-29'>
+03368
+</a>
+</td>
+<td>
+Final Review Date/Time
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/DTM.html'>
+DTM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+30
+</td>
+<td>
+<a href='#DON-30'>
+03369
+</a>
+</td>
+<td>
+Number of Tubes Collected
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/NM.html'>
+NM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+31
+</td>
+<td>
+<a href='#DON-31'>
+03370
+</a>
+</td>
+<td>
+Donation Sample Identifier
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/EI.html'>
+EI
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+32
+</td>
+<td>
+<a href='#DON-32'>
+03371
+</a>
+</td>
+<td>
+Donation Accept Staff
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XCN.html'>
+XCN
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+33
+</td>
+<td>
+<a href='#DON-33'>
+03372
+</a>
+</td>
+<td>
+Donation Material Review Staff
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XCN.html'>
+XCN
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin_end.png'>
+34
+</td>
+<td>
+<a href='#DON-34'>
+00816
+</a>
+</td>
+<td>
+Action Code
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+[2..2]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0206/index.html'>
+0206
+<span class='vocab-link-text'>Segment Action Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ID.html'>
+ID
+</a>
+</td>
+</tr>
+
+</tbody>
+</table>
+
+      <p class="v2"></p>
+    </div>
+<h4 class='v2' id='DON-1'>
+DON-1: Donation Identification Number - DIN (<a href='/2021Jan/data-type/EI.html'>EI</a>) 03340
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains a unique identifier, Donation Identification Number (DIN), for the specific donation and is therefore mandatory except when using an eligibility message type in which only <a href="/2021Jan/segment-definition/DON.html#DON-9">DON-9</a>, <a href="/2021Jan/segment-definition/DON.html#DON-10">DON-10</a>, and <a href="/2021Jan/segment-definition/DON.html#DON-11">DON-11</a> are populated. DON-2 Donation Type   (CNE)   03341</p>
+    </div>
+
+<h4 class='v2' id='DON-2'>
+DON-2: Donation Type (<a href='/2021Jan/data-type/CNE.html'>CNE</a>) 03341
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  The type of donation.  This element is mandatory except when using an eligibility message type in which only <a href="/2021Jan/segment-definition/DON.html#DON-9">DON-9</a>, <a href="/2021Jan/segment-definition/DON.html#DON-10">DON-10</a>, and <a href="/2021Jan/segment-definition/DON.html#DON-11">DON-11</a> are populated.  The values for this field are defined in Table RT008 - Type of Donation or Collection in 6th Position of Product Code in the ISBT 128 Standard Technical Specification, which is maintained by ICCBBA.  Link: <a href="http://iccbba.org/technicalspecification.pdf.">http://iccbba.org/technicalspecification.pdf.</a>  Table 5 Data Structure 002.</p>
+    </div>
+
+<h4 class='v2' id='DON-3'>
+DON-3: Phlebotomy Start Date/Time (<a href='/2021Jan/data-type/DTM.html'>DTM</a>) 03342
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  The start date and time of the phlebotomy.</p>
+    </div>
+
+<h4 class='v2' id='DON-4'>
+DON-4: Phlebotomy End Date/Time (<a href='/2021Jan/data-type/DTM.html'>DTM</a>) 03343
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  The end date and time of the phlebotomy.</p>
+    </div>
+
+<h4 class='v2' id='DON-5'>
+DON-5: Donation Duration (<a href='/2021Jan/data-type/NM.html'>NM</a>) 03344
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  The duration of the phlebotomy or the length of time that elapsed between the phlebotomy start date and time and the phlebotomy end date and time.</p>
+    </div>
+
+<h4 class='v2' id='DON-6'>
+DON-6: Donation Duration Units (<a href='/2021Jan/data-type/CNE.html'>CNE</a>) 03345
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  The duration units.  The duration units and duration are restricted to minutes and seconds.  Concepts are pulled from the UCUM code system (<a href="http://www.unitsofmeasure.org">www.unitsofmeasure.org</a><a href="/2021Jan/composition/Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion.html#Order-Entry-General-Laboratory-Dietary-Supply-Blood-Transfusion-2-1">).  Refer to </a><a href="https://www.hl7.org/fhir/v2/0932/index.html">HL7-Defined Table 0932 – Donation Duration Units</a><a href="in%20Chapter%202C"> in Chapter 2C, Code Tables, for valid entries.</a></p>
+    </div>
+
+<h4 class='v2' id='DON-7'>
+DON-7: Intended Procedure Type (<a href='/2021Jan/data-type/CNE.html'>CNE</a>) 03346
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: The procedure(s) intended to be performed on the donor. Refer to <a href="https://www.hl7.org/fhir/v2/0933/index.html">HL7-Defined Table 0933 – Intended Procedure Type</a><a href="in%20Chapter%202C"> in Chapter 2C, Code Tables, for valid entries.</a></p>
+    </div>
+
+<h4 class='v2' id='DON-8'>
+DON-8: Actual Procedure Type (<a href='/2021Jan/data-type/CNE.html'>CNE</a>) 03347
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: The actual procedure(s) performed on the donor.  Refer to <a href="https://www.hl7.org/fhir/v2/0933/index.html">HL7-Defined Table 0933 – Intended Procedure Type</a><a href="in%20Chapter%202C"> in Chapter 2C, Code Tables, for valid entries</a>.</p>
+    </div>
+
+<h4 class='v2' id='DON-9'>
+DON-9: Donor Eligibility Flag (<a href='/2021Jan/data-type/ID.html'>ID</a>) 03348
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  Is the Donor eligible for donation?  Yes or No.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 -Yes/No Indicator</a> as defined in Chapter 2C, Code Tables.</p>
+    </div>
+
+<h4 class='v2' id='DON-10'>
+DON-10: Donor Eligibility Procedure Type (<a href='/2021Jan/data-type/CNE.html'>CNE</a>) 03349
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  The procedure(s) for which the donor is eligible. Refer to <a href="https://www.hl7.org/fhir/v2/0933/index.html">HL7-Defined Table 0933 – Intended Procedure Type</a><a href="in%20Chapter%202C"> in Chapter 2C, Code Tables, for valid entries</a>.</p>
+    </div>
+
+<h4 class='v2' id='DON-11'>
+DON-11: Donor Eligibility Date (<a href='/2021Jan/data-type/DTM.html'>DTM</a>) 03350
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  The date and time on which the donor is eligible to donate.</p>
+    </div>
+
+<h4 class='v2' id='DON-12'>
+DON-12: Process Interruption (<a href='/2021Jan/data-type/CNE.html'>CNE</a>) 03351
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  Was the donation process interrupted after it began?  Refer to <a href="https://www.hl7.org/fhir/v2/0923/index.html">HL7-Defined Table 0923 – Process Interruption</a><a href="in%20Chapter%202C"> in Chapter 2C, Code Tables, for valid entries</a>.</p>
+    </div>
+
+<h4 class='v2' id='DON-13'>
+DON-13: Process Interruption Reason (<a href='/2021Jan/data-type/CNE.html'>CNE</a>) 03352
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  Reason that the donation process was interrupted.  Refer to <a href="https://www.hl7.org/fhir/v2/0935/index.html">HL7-Defined Table 0935 – Process Interruption Reason</a><a href="in%20Chapter%202C"> in Chapter 2C, Code Tables, for valid entries</a>.</p>
+    </div>
+
+<h4 class='v2' id='DON-14'>
+DON-14: Phlebotomy Issue (<a href='/2021Jan/data-type/CNE.html'>CNE</a>) 03353
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  Indicates whether there is a problem or issue with the phlebotomy itself.  This may be due to an incorrect needle procedure, needle defect, tube blockage, problem with the apheresis machine, or improper action by the phlebotomist. Refer to <a href="https://www.hl7.org/fhir/v2/0925/index.html">HL7-Defined Table 0925 – Phlebotomy Issue</a><a href="in%20Chapter%202C"> in Chapter 2C, Code Tables, for valid entries</a>.</p>
+    </div>
+
+<h4 class='v2' id='DON-15'>
+DON-15: Intended Recipient Blood Relative (<a href='/2021Jan/data-type/ID.html'>ID</a>) 03354
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  If this donation has an intended recipient (directed, dedicated, designated), is the intended recipient a blood relative of the donor? Yes or No.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 -Yes/No Indicator</a> as defined in Chapter 2C, Code Tables.</p>
+    </div>
+
+<h4 class='v2' id='DON-16'>
+DON-16: Intended Recipient Name (<a href='/2021Jan/data-type/XPN.html'>XPN</a>) 03355
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  If this is donation has an intended recipient (autologous, directed, dedicated, designated), the intended recipient’s name.</p>
+    </div>
+
+<h4 class='v2' id='DON-17'>
+DON-17: Intended Recipient DOB (<a href='/2021Jan/data-type/DTM.html'>DTM</a>) 03356
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  If this donation has an intended recipient (autologous, directed, dedicated, designated), the intended recipient’s date of birth.</p>
+    </div>
+
+<h4 class='v2' id='DON-18'>
+DON-18: Intended Recipient Facility (<a href='/2021Jan/data-type/XON.html'>XON</a>) 03357
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  If this donation has an intended recipient (autologous, directed, dedicated, designated), the facility where the intended recipient is expected to receive the transfusion. </p>
+    </div>
+
+<h4 class='v2' id='DON-19'>
+DON-19: Intended Recipient Procedure Date (<a href='/2021Jan/data-type/DTM.html'>DTM</a>) 03358
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: If this donation has an intended recipient (autologous, directed, dedicated, designated), the date the intended recipient is expected to receive the transfusion. </p>
+    </div>
+
+<h4 class='v2' id='DON-20'>
+DON-20: Intended Recipient Ordering Provider (<a href='/2021Jan/data-type/XPN.html'>XPN</a>) 03359
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: If this is donation has an intended recipient (autologous, directed, dedicated, designated), the provider who ordered the directed donation for the intended recipient. </p>
+    </div>
+
+<h4 class='v2' id='DON-21'>
+DON-21: Phlebotomy Status (<a href='/2021Jan/data-type/CNE.html'>CNE</a>) 03360
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  Whether the phlebotomy was successful, not drawn, or unsuccessful, and if unsuccessful, the extent to which it was unsuccessful. Refer to <a href="https://www.hl7.org/fhir/v2/0926/index.html">HL7-Defined Table 0926 – Phlebotomy Status</a><a href="in%20Chapter%202C"> in Chapter 2C, Code Tables, for valid entries</a>. </p>
+    </div>
+
+<h4 class='v2' id='DON-22'>
+DON-22: Arm Stick (<a href='/2021Jan/data-type/CNE.html'>CNE</a>) 03361
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  The arm(s) stuck for the donation. Refer to <a href="https://www.hl7.org/fhir/v2/0927/index.html">HL7-Defined Table 0927 – Arm Stick</a><a href="in%20Chapter%202C"> in Chapter 2C, Code Tables, for valid entries</a>.</p>
+    </div>
+
+<h4 class='v2' id='DON-23'>
+DON-23: Bleed Start Phlebotomist (<a href='/2021Jan/data-type/XPN.html'>XPN</a>) 03362
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  The Phlebotomist who starts the blood flow into the container. </p>
+    </div>
+
+<h4 class='v2' id='DON-24'>
+DON-24: Bleed End Phlebotomist (<a href='/2021Jan/data-type/XPN.html'>XPN</a>) 03363
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  The Phlebotomist who ends the blood flow into the container. </p>
+    </div>
+
+<h4 class='v2' id='DON-25'>
+DON-25: Aphaeresis Type Machine (<a href='/2021Jan/data-type/ST.html'>ST</a>) 03364
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  The type of aphaeresis machine, if used, for the donation. It will be the specific product name of the machine (e.g. Trima, Amicus, Alyx, Symal, etc.).</p>
+    </div>
+
+<h4 class='v2' id='DON-26'>
+DON-26: Aphaeresis Machine Serial Number (<a href='/2021Jan/data-type/ST.html'>ST</a>) 03365
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  The serial number of the aphaeresis machine, if used, for the donation.</p>
+    </div>
+
+<h4 class='v2' id='DON-27'>
+DON-27: Donor Reaction (<a href='/2021Jan/data-type/ID.html'>ID</a>) 03366
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  Did the donor have any adverse reaction during the donation procedure?  Yes or No.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 -Yes/No Indicator</a> as defined in Chapter 2C, Code Tables.  If this element is valued "Y"es, there should be OBX segments following the Donation segment which details the adverse reactions.  </p>
+    </div>
+
+<h4 class='v2' id='DON-28'>
+DON-28: Final Review Staff ID (<a href='/2021Jan/data-type/XPN.html'>XPN</a>) 03367
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  The Staff member conducting the final review and reconciliation of all documentation created during the collection process.</p>
+    </div>
+
+<h4 class='v2' id='DON-29'>
+DON-29: Final Review Date/Time (<a href='/2021Jan/data-type/DTM.html'>DTM</a>) 03368
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  The date and time a final review of all documentation and labeling of the blood material is completed.</p>
+    </div>
+
+<h4 class='v2' id='DON-30'>
+DON-30: Number of Tubes Collected (<a href='/2021Jan/data-type/NM.html'>NM</a>) 03369
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  The number of samples collected during the donation which will be used for subsequent testing. </p>
+    </div>
+
+<h4 class='v2' id='DON-31'>
+DON-31: Donation Sample Identifier (<a href='/2021Jan/data-type/EI.html'>EI</a>) 03370
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  The sample identifier for the sample collected during a donation for the purpose of testing. This is a field for sample or specimen identifiers.</p>
+    </div>
+
+<h4 class='v2' id='DON-32'>
+DON-32: Donation Accept Staff (<a href='/2021Jan/data-type/XCN.html'>XCN</a>) 03371
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  The staff member who reviewed all the intake materials, assessments and determined the donor can undergo a donation procedure at this time.</p>
+    </div>
+
+<h4 class='v2' id='DON-33'>
+DON-33: Donation Material Review Staff (<a href='/2021Jan/data-type/XCN.html'>XCN</a>) 03372
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  The staff member who performs review on all documentation subsequent to donation procedure.</p>
+    </div>
+
+<h4 class='v2' id='DON-34'>
+DON-34: Action Code (<a href='/2021Jan/data-type/ID.html'>ID</a>) 00816
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/OH1.html#OH1-2">OH1.2</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition: This field contains a code defining the action to be taken for this segment. It allows this segment to be sent to delete or update, for example, previously sent information. Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html"><strong>HL7 Table 0206 – Segment Action Code</strong></a> in Chapter 2C, Code Tables, for valid values. </p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/OH2.html#OH2-2">OH2.2</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition: This field contains a code defining the action to be taken for this  segment. It allows this segment to be sent to delete or update, for example, previously sent information. Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html"><strong>HL7 Table 0206 – Segment Action Code</strong></a> in Chapter 2C, Code Tables, for valid values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/OH3.html#OH3-2">OH3.2</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-indent720">Definition: This field contains a code defining the action to be taken for this  segment. It allows this segment to be sent to delete or update, for example, previously sent information. Refer to <a href="/2021Jan/composition/Control.html#Control-9">HL7 Table 0206 – Segment Action Code</a> in Chapter 2C, Code Tables, for valid values.  </p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/OH4.html#OH4-2">OH4.2</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition: This field contains a code defining the action to be taken for this  segment. It allows this segment to be sent to delete or update, for example, previously sent information. Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html"><strong>HL7 Table 0206 – Segment Action Code</strong></a> in Chapter 2C, Code Tables, for valid values.  </p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/ORC.html#ORC-35">ORC.35</a> in Ch. 4)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when either ORC-2 and/or ORC 3 is valued with a unique identifier in accordance with Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/OBR.html#OBR-55">OBR.55</a> in Ch. 4)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when either an OBR-2 and/or OBR-3 is valued with unique identifier in accordance with Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/IPC.html#IPC-10">IPC.10</a> in Ch. 4)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when the combination of IPC-1, IPC-2, IPC-3, and IPC-4 represents a unique identifier according to Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/BPX.html#BPX-22">BPX.22</a> in Ch. 4)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when an BPX is uniquely identified sufficiently within the specific implementation using BPX-17 or BPX-6 as agreed to by the trading partners and in accordance with Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/BTX.html#BTX-21">BTX.21</a> in Ch. 4)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when an BTX is uniquely identified sufficiently within the specific implementation using BTX-20 or BTX-3 as agreed to by the trading partners in accordance with Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/DON.html#DON-34">DON.34</a> in Ch. 4)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when an DON is uniquely identified sufficiently within the specific implementation using DON-1 in accordance with Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/BUI.html#BUI-13">BUI.13</a> in Ch. 4)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when an BUI is uniquely identified sufficiently within the specific implementation using BUI-2 in accordance with Chapter 2, Section 2.10.4.2</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/RXV.html#RXV-22">RXV.22</a> in Ch. 4A)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:   The intended handling by the receiver of the infusion order is represented by this segment.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 – Segment Action Code</a> in Chapter 2C, Code Tables, for valid values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/CDO.html#CDO-2">CDO.2</a> in Ch. 4A)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  The Action Code indicates whether the cumulative dosage segment is intended to be added, deleted, updated, or did not change.  If the field is not valued in any CDO segments for the order, the segments are considered to have been sent in snapshot mode.  If some but not all CDO segments for the order do not have the action code valued, the default value is Add.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> in Chapter 2C, Code Tables, for valid values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/OBR.html#OBR-55">OBR.55</a> in Ch. 7)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when an either OBR-2 and/or OBR-3 is valued with unique identifier in accordance with Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/OBX.html#OBX-31">OBX.31</a> in Ch. 7)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when an OBX-21 is valued in accordance with guidance in Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/SPM.html#SPM-35">SPM.35</a> in Ch. 7)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when an SPM-2 or SPM-31 is valued in accordance with the guidance in Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PRT.html#PRT-2">PRT.2</a> in Ch. 7)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0287/index.html">HL7 Table 0287 – Problem/goal action code</a> for valid values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/CSR.html#CSR-17">CSR.17</a> in Ch. 7)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when CSR-1 and CSR-4, or CSR-2 and CSR-5 are valued as agreed to by the trading partners in accordance with the guidance in Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/CTI.html#CTI-4">CTI.4</a> in Ch. 7)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when CTI-1 is valued in accordance with the guidance in Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/SHP.html#SHP-12">SHP.12</a> in Ch. 7)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when SHP-1 is valued in accordance with the guidance in Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PAC.html#PAC-9">PAC.9</a> in Ch. 7)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> for valid values.</p>
+      <p class="v2 v2-normalindented">The action code can only be used when PAC-2 is valued in accordance with the guidance in Chapter 2, Section 2.10.4.2.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/GOL.html#GOL-1">GOL.1</a> in Ch. 12)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  The action code field gives the intent of the problem or goal.  Refer to <a href="https://www.hl7.org/fhir/v2/0287/index.html">HL7 Table 0287 – Problem/Goal Action Code</a> in Chapter 2C, Code Tables, for valid values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PRB.html#PRB-1">PRB.1</a> in Ch. 12)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0287/index.html">HL7 Table 0287 – Problem/Goal Action Code</a> in Chapter 2C, Code Tables, for valid values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PTH.html#PTH-1">PTH.1</a> in Ch. 12)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0287/index.html">HL7 Table 0287 – Problem/Goal Action Code</a> in Chapter 2C, Code Tables, for valid values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/DEV.html#DEV-1">DEV.1</a> in Ch. 17)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field reveals the intent of the message.  Refer to <a href="https://www.hl7.org/fhir/v2/0287/index.html">HL7 Table 0287 – Problem/goal action code</a> for valid values.</p>
+    </div>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+December 11, 2020
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/2021Jan/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/2021Jan/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/2021Jan/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "/images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

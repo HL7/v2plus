@@ -1,0 +1,4273 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+<style type='text/css'>
+@import "/2021Jan/css/bootstrap.css";
+@import "/2021Jan/css/codemirror.css";
+@import "/2021Jan/css/hl7.css";
+@import "/2021Jan/css/fhir.css";
+<!-- @import "css/bootstrap-fhir.css"; -->
+@import "/2021Jan/css/bootstrap-v2.css";
+@import "/2021Jan/css/project.css";
+@import "/2021Jan/css/pygments-manni.css";
+@import "/2021Jan/css/jquery-ui.css";
+@import "/2021Jan/css/modules.css";
+@import "/2021Jan/css/v2.css";
+</style>
+<script src='/2021Jan/js/jquery.js'></script>
+<script src='/2021Jan/js/jquery-ui.min.js'></script>
+<script src='/2021Jan/js/bootstrap.min.js'></script>
+<script src='/2021Jan/js/respond.min.js'></script>
+<script src='/2021Jan/js/codemirror/codemirror.js'></script>
+<script src='/2021Jan/js/codemirror/mode/xml.js'></script>
+<script src='/2021Jan/js/v2.js'></script>
+<script src='/2021Jan/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/2021Jan/js/format_xml.js' type='text/javascript'></script>
+<link href='/2021Jan/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/2021Jan/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/2021Jan/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/2021Jan/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/2021Jan/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/2021Jan/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/2021Jan/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/2021Jan/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/2021Jan/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/2021Jan/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='https://www.hl7.org/fhir/terminologies-valuesets.html#tabs-v2'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/2021Jan/composition/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/2021Jan/composition/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/2021Jan/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/2021Jan/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+IN2 - Insurance Additional Information Segment
+</h3>
+<div>
+      <p class="v2 v2-normalindented">The IN2 segment contains additional insurance policy coverage and benefit information necessary for proper billing and reimbursement.  Fields used by this segment are defined by <span class="v2-normal-indented-char">CMS</span> or other regulatory agencies.</p>
+      <!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - IN2 - Insurance Additional Information Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+DataElement
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Description
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Must Implement
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Flags
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+DataType
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/2021Jan/images/folder_icon.gif'>
+<b>
+IN2
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+<a href='#IN2-1'>
+00472
+</a>
+</td>
+<td>
+Insured's Employee ID
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CX.html'>
+CX
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+<a href='#IN2-2'>
+00473
+</a>
+</td>
+<td>
+Insured's Social Security Number
+</td>
+<td>
+
+</td>
+<td class='centered'>
+=
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+11
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ST.html'>
+ST
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+<a href='#IN2-3'>
+00474
+</a>
+</td>
+<td>
+Insured's Employer's Name and ID
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XCN.html'>
+XCN
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+<a href='#IN2-4'>
+00475
+</a>
+</td>
+<td>
+Employer Information Data
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0139/index.html'>
+0139
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+<a href='#IN2-5'>
+00476
+</a>
+</td>
+<td>
+Mail Claim Party
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0137/index.html'>
+0137
+<span class='vocab-link-text'>Mail Claim Party</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+<a href='#IN2-6'>
+00477
+</a>
+</td>
+<td>
+Medicare Health Ins Card Number
+</td>
+<td>
+
+</td>
+<td class='centered'>
+=
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+15
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ST.html'>
+ST
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+<a href='#IN2-7'>
+00478
+</a>
+</td>
+<td>
+Medicaid Case Name
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XPN.html'>
+XPN
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+<a href='#IN2-8'>
+00479
+</a>
+</td>
+<td>
+Medicaid Case Number
+</td>
+<td>
+
+</td>
+<td class='centered'>
+=
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+15
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ST.html'>
+ST
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+<a href='#IN2-9'>
+00480
+</a>
+</td>
+<td>
+Military Sponsor Name
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XPN.html'>
+XPN
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+<a href='#IN2-10'>
+00481
+</a>
+</td>
+<td>
+Military ID Number
+</td>
+<td>
+
+</td>
+<td class='centered'>
+=
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+20
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ST.html'>
+ST
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+<a href='#IN2-11'>
+00482
+</a>
+</td>
+<td>
+Dependent Of Military Recipient
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0342/index.html'>
+0342
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+<a href='#IN2-12'>
+00483
+</a>
+</td>
+<td>
+Military Organization
+</td>
+<td>
+
+</td>
+<td class='centered'>
+=
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+25
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ST.html'>
+ST
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+<a href='#IN2-13'>
+00484
+</a>
+</td>
+<td>
+Military Station
+</td>
+<td>
+
+</td>
+<td class='centered'>
+=
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+25
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ST.html'>
+ST
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+<a href='#IN2-14'>
+00485
+</a>
+</td>
+<td>
+Military Service
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0140/index.html'>
+0140
+<span class='vocab-link-text'>Military Service</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+<a href='#IN2-15'>
+00486
+</a>
+</td>
+<td>
+Military Rank/Grade
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0141/index.html'>
+0141
+<span class='vocab-link-text'>Military Rank/Grade</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+<a href='#IN2-16'>
+00487
+</a>
+</td>
+<td>
+Military Status
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0142/index.html'>
+0142
+<span class='vocab-link-text'>Military Status</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+<a href='#IN2-17'>
+00488
+</a>
+</td>
+<td>
+Military Retire Date
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/DT.html'>
+DT
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+<a href='#IN2-18'>
+00489
+</a>
+</td>
+<td>
+Military Non-Avail Cert On File
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0136/index.html'>
+0136
+<span class='vocab-link-text'>Yes/no Indicator</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ID.html'>
+ID
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+<a href='#IN2-19'>
+00490
+</a>
+</td>
+<td>
+Baby Coverage
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0136/index.html'>
+0136
+<span class='vocab-link-text'>Yes/no Indicator</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ID.html'>
+ID
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+20
+</td>
+<td>
+<a href='#IN2-20'>
+00491
+</a>
+</td>
+<td>
+Combine Baby Bill
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0136/index.html'>
+0136
+<span class='vocab-link-text'>Yes/no Indicator</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ID.html'>
+ID
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+21
+</td>
+<td>
+<a href='#IN2-21'>
+00492
+</a>
+</td>
+<td>
+Blood Deductible
+</td>
+<td>
+
+</td>
+<td class='centered'>
+=
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+1
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ST.html'>
+ST
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+22
+</td>
+<td>
+<a href='#IN2-22'>
+00493
+</a>
+</td>
+<td>
+Special Coverage Approval Name
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XPN.html'>
+XPN
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+23
+</td>
+<td>
+<a href='#IN2-23'>
+00494
+</a>
+</td>
+<td>
+Special Coverage Approval Title
+</td>
+<td>
+
+</td>
+<td class='centered'>
+#
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+30
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ST.html'>
+ST
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+24
+</td>
+<td>
+<a href='#IN2-24'>
+00495
+</a>
+</td>
+<td>
+Non-Covered Insurance Code
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0143/index.html'>
+0143
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+25
+</td>
+<td>
+<a href='#IN2-25'>
+00496
+</a>
+</td>
+<td>
+Payor ID
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CX.html'>
+CX
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+26
+</td>
+<td>
+<a href='#IN2-26'>
+00497
+</a>
+</td>
+<td>
+Payor Subscriber ID
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CX.html'>
+CX
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+27
+</td>
+<td>
+<a href='#IN2-27'>
+00498
+</a>
+</td>
+<td>
+Eligibility Source
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0144/index.html'>
+0144
+<span class='vocab-link-text'>Eligibility Source</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+28
+</td>
+<td>
+<a href='#IN2-28'>
+00499
+</a>
+</td>
+<td>
+Room Coverage Type/Amount
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/RMC.html'>
+RMC
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+29
+</td>
+<td>
+<a href='#IN2-29'>
+00500
+</a>
+</td>
+<td>
+Policy Type/Amount
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/PTA.html'>
+PTA
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+30
+</td>
+<td>
+<a href='#IN2-30'>
+00501
+</a>
+</td>
+<td>
+Daily Deductible
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/DDI.html'>
+DDI
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+31
+</td>
+<td>
+<a href='#IN2-31'>
+00755
+</a>
+</td>
+<td>
+Living Dependency
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0223/index.html'>
+0223
+<span class='vocab-link-text'>Living Dependency</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+32
+</td>
+<td>
+<a href='#IN2-32'>
+00145
+</a>
+</td>
+<td>
+Ambulatory Status
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0009/index.html'>
+0009
+<span class='vocab-link-text'>Ambulatory Status</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+33
+</td>
+<td>
+<a href='#IN2-33'>
+00129
+</a>
+</td>
+<td>
+Citizenship
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0171/index.html'>
+0171
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+34
+</td>
+<td>
+<a href='#IN2-34'>
+00118
+</a>
+</td>
+<td>
+Primary Language
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0296/index.html'>
+0296
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+35
+</td>
+<td>
+<a href='#IN2-35'>
+00742
+</a>
+</td>
+<td>
+Living Arrangement
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0220/index.html'>
+0220
+<span class='vocab-link-text'>Living Arrangement</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+36
+</td>
+<td>
+<a href='#IN2-36'>
+00743
+</a>
+</td>
+<td>
+Publicity Code
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0215/index.html'>
+0215
+<span class='vocab-link-text'>Publicity Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+37
+</td>
+<td>
+<a href='#IN2-37'>
+00744
+</a>
+</td>
+<td>
+Protection Indicator
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0136/index.html'>
+0136
+<span class='vocab-link-text'>Yes/no Indicator</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ID.html'>
+ID
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+38
+</td>
+<td>
+<a href='#IN2-38'>
+00745
+</a>
+</td>
+<td>
+Student Indicator
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0231/index.html'>
+0231
+<span class='vocab-link-text'>Student Status</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+39
+</td>
+<td>
+<a href='#IN2-39'>
+00120
+</a>
+</td>
+<td>
+Religion
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0006/index.html'>
+0006
+<span class='vocab-link-text'>ReligionVersion Dependent</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+40
+</td>
+<td>
+<a href='#IN2-40'>
+00109
+</a>
+</td>
+<td>
+Mother's Maiden Name
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XPN.html'>
+XPN
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+41
+</td>
+<td>
+<a href='#IN2-41'>
+00739
+</a>
+</td>
+<td>
+Nationality
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0212/index.html'>
+0212
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+42
+</td>
+<td>
+<a href='#IN2-42'>
+00125
+</a>
+</td>
+<td>
+Ethnic Group
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0189/index.html'>
+0189
+<span class='vocab-link-text'>Ethnic Group</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+43
+</td>
+<td>
+<a href='#IN2-43'>
+00119
+</a>
+</td>
+<td>
+Marital Status
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0002/index.html'>
+0002
+<span class='vocab-link-text'>Marital Status</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+44
+</td>
+<td>
+<a href='#IN2-44'>
+00787
+</a>
+</td>
+<td>
+Insured's Employment Start Date
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/DT.html'>
+DT
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+45
+</td>
+<td>
+<a href='#IN2-45'>
+00783
+</a>
+</td>
+<td>
+Employment Stop Date
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/DT.html'>
+DT
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+46
+</td>
+<td>
+<a href='#IN2-46'>
+00785
+</a>
+</td>
+<td>
+Job Title
+</td>
+<td>
+
+</td>
+<td class='centered'>
+#
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+20
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ST.html'>
+ST
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+47
+</td>
+<td>
+<a href='#IN2-47'>
+00786
+</a>
+</td>
+<td>
+Job Code/Class
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0327/index.html'>
+0327
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/JCC.html'>
+JCC
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+48
+</td>
+<td>
+<a href='#IN2-48'>
+00752
+</a>
+</td>
+<td>
+Job Status
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0311/index.html'>
+0311
+<span class='vocab-link-text'>Job Status</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+49
+</td>
+<td>
+<a href='#IN2-49'>
+00789
+</a>
+</td>
+<td>
+Employer Contact Person Name
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XPN.html'>
+XPN
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+50
+</td>
+<td>
+<a href='#IN2-50'>
+00790
+</a>
+</td>
+<td>
+Employer Contact Person Phone Number
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XTN.html'>
+XTN
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+51
+</td>
+<td>
+<a href='#IN2-51'>
+00791
+</a>
+</td>
+<td>
+Employer Contact Reason
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0222/index.html'>
+0222
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+52
+</td>
+<td>
+<a href='#IN2-52'>
+00792
+</a>
+</td>
+<td>
+Insured's Contact Person's Name
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XPN.html'>
+XPN
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+53
+</td>
+<td>
+<a href='#IN2-53'>
+00793
+</a>
+</td>
+<td>
+Insured's Contact Person Phone Number
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XTN.html'>
+XTN
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+54
+</td>
+<td>
+<a href='#IN2-54'>
+00794
+</a>
+</td>
+<td>
+Insured's Contact Person Reason
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0222/index.html'>
+0222
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+55
+</td>
+<td>
+<a href='#IN2-55'>
+00795
+</a>
+</td>
+<td>
+Relationship to the Patient Start Date
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/DT.html'>
+DT
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+56
+</td>
+<td>
+<a href='#IN2-56'>
+00796
+</a>
+</td>
+<td>
+Relationship to the Patient Stop Date
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/DT.html'>
+DT
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+57
+</td>
+<td>
+<a href='#IN2-57'>
+00797
+</a>
+</td>
+<td>
+Insurance Co Contact Reason
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0232/index.html'>
+0232
+<span class='vocab-link-text'>- Insurance Company Contact Reason</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+58
+</td>
+<td>
+<a href='#IN2-58'>
+00798
+</a>
+</td>
+<td>
+Insurance Co Contact Phone Number
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XTN.html'>
+XTN
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+59
+</td>
+<td>
+<a href='#IN2-59'>
+00799
+</a>
+</td>
+<td>
+Policy Scope
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0312/index.html'>
+0312
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+60
+</td>
+<td>
+<a href='#IN2-60'>
+00800
+</a>
+</td>
+<td>
+Policy Source
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0313/index.html'>
+0313
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+61
+</td>
+<td>
+<a href='#IN2-61'>
+00801
+</a>
+</td>
+<td>
+Patient Member Number
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CX.html'>
+CX
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+62
+</td>
+<td>
+<a href='#IN2-62'>
+00802
+</a>
+</td>
+<td>
+Guarantor's Relationship to Insured
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0063/index.html'>
+0063
+<span class='vocab-link-text'>Relationship</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+63
+</td>
+<td>
+<a href='#IN2-63'>
+00803
+</a>
+</td>
+<td>
+Insured's Phone Number - Home
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XTN.html'>
+XTN
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+64
+</td>
+<td>
+<a href='#IN2-64'>
+00804
+</a>
+</td>
+<td>
+Insured's Employer Phone Number
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XTN.html'>
+XTN
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+65
+</td>
+<td>
+<a href='#IN2-65'>
+00805
+</a>
+</td>
+<td>
+Military Handicapped Program
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0343/index.html'>
+0343
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+66
+</td>
+<td>
+<a href='#IN2-66'>
+00806
+</a>
+</td>
+<td>
+Suspend Flag
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0136/index.html'>
+0136
+<span class='vocab-link-text'>Yes/no Indicator</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ID.html'>
+ID
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+67
+</td>
+<td>
+<a href='#IN2-67'>
+00807
+</a>
+</td>
+<td>
+Copay Limit Flag
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0136/index.html'>
+0136
+<span class='vocab-link-text'>Yes/no Indicator</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ID.html'>
+ID
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+68
+</td>
+<td>
+<a href='#IN2-68'>
+00808
+</a>
+</td>
+<td>
+Stoploss Limit Flag
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0136/index.html'>
+0136
+<span class='vocab-link-text'>Yes/no Indicator</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ID.html'>
+ID
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+69
+</td>
+<td>
+<a href='#IN2-69'>
+00809
+</a>
+</td>
+<td>
+Insured Organization Name and ID
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XON.html'>
+XON
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+70
+</td>
+<td>
+<a href='#IN2-70'>
+00810
+</a>
+</td>
+<td>
+Insured Employer Organization Name and ID
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XON.html'>
+XON
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+71
+</td>
+<td>
+<a href='#IN2-71'>
+00113
+</a>
+</td>
+<td>
+Race
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0005/index.html'>
+0005
+<span class='vocab-link-text'>Race</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+72
+</td>
+<td>
+<a href='#IN2-72'>
+00811
+</a>
+</td>
+<td>
+Patient's Relationship to Insured
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0344/index.html'>
+0344
+<span class='vocab-link-text'>Patient's Relationship to Insured</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin_end.png'>
+73
+</td>
+<td>
+<a href='#IN2-73'>
+01620
+</a>
+</td>
+<td>
+Co-Pay Amount
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CP.html'>
+CP
+</a>
+</td>
+</tr>
+
+</tbody>
+</table>
+
+    </div>
+<h4 class='v2' id='IN2-1'>
+IN2-1: Insured's Employee ID (<a href='/2021Jan/data-type/CX.html'>CX</a>) 00472
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the employee ID of the insured.  The assigning authority and identifier type code are strongly recommended for all CX data types.</p>
+    </div>
+
+<h4 class='v2' id='IN2-2'>
+IN2-2: Insured's Social Security Number (<a href='/2021Jan/data-type/ST.html'>ST</a>) 00473
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the social security number of the insured.</p>
+    </div>
+
+<h4 class='v2' id='IN2-3'>
+IN2-3: Insured's Employer's Name and ID (<a href='/2021Jan/data-type/XCN.html'>XCN</a>) 00474
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the name and ID of the insured's employer or the person who purchased the insurance for the insured, if the employer is a person.  Multiple names and identifiers for the same person may be sent in this field, not multiple persons Specification of meaning based on sequence is deprecated.  When the employer is an organization use <a href="/2021Jan/segment-definition/IN2.html#IN2-70">IN2-70 - Insured Employer Organization Name and ID</a>.</p>
+    </div>
+
+<h4 class='v2' id='IN2-4'>
+IN2-4: Employer Information Data (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00475
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the required employer information data for UB82 form locator 71.  Refer to <a href="https://www.hl7.org/fhir/v2/0139/index.html">User-defined Table 0139 - Employer Information Data</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='IN2-5'>
+IN2-5: Mail Claim Party (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00476
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the party to which the claim should be mailed.  Refer to <a href="https://www.hl7.org/fhir/v2/0137/index.html">User-defined Table 0137 - Mail Claim Party</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='IN2-6'>
+IN2-6: Medicare Health Ins Card Number (<a href='/2021Jan/data-type/ST.html'>ST</a>) 00477
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the Medicare Health Insurance Number (HIN), defined by <span class="v2-normal-indented-char">CMS</span> or other regulatory agencies.</p>
+    </div>
+
+<h4 class='v2' id='IN2-7'>
+IN2-7: Medicaid Case Name (<a href='/2021Jan/data-type/XPN.html'>XPN</a>) 00478
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the Medicaid case name, defined by <span class="v2-normal-indented-char">CMS</span> or other regulatory agencies. Multiple names for the same person may be sent in this field.  As of v 2.7, no assumptions can be made based on position or sequence.  Specification of meaning based on sequence is deprecated. </p>
+    </div>
+
+<h4 class='v2' id='IN2-8'>
+IN2-8: Medicaid Case Number (<a href='/2021Jan/data-type/ST.html'>ST</a>) 00479
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the Medicaid case number, defined by <span class="v2-normal-indented-char">CMS</span> or other regulatory agencies, which uniquely identifies a patient's Medicaid policy.</p>
+    </div>
+
+<h4 class='v2' id='IN2-9'>
+IN2-9: Military Sponsor Name (<a href='/2021Jan/data-type/XPN.html'>XPN</a>) 00480
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field is defined by CMS or other regulatory agencies.  Multiple names for the same person may be sent in this field.   Specification of meaning based on sequence is deprecated.</p>
+    </div>
+
+<h4 class='v2' id='IN2-10'>
+IN2-10: Military ID Number (<a href='/2021Jan/data-type/ST.html'>ST</a>) 00481
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the military ID number, defined by CMS or other regulatory agencies, which uniquely identifies a patient's military policy.</p>
+    </div>
+
+<h4 class='v2' id='IN2-11'>
+IN2-11: Dependent Of Military Recipient (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00482
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field is defined by CMS or other regulatory agencies.  Refer to<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0342/index.html">User-defined Table 0342 - Military Recipient</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='IN2-12'>
+IN2-12: Military Organization (<a href='/2021Jan/data-type/ST.html'>ST</a>) 00483
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field is defined by CMS or other regulatory agencies.</p>
+    </div>
+
+<h4 class='v2' id='IN2-13'>
+IN2-13: Military Station (<a href='/2021Jan/data-type/ST.html'>ST</a>) 00484
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field is defined by CMS or other regulatory agencies.</p>
+    </div>
+
+<h4 class='v2' id='IN2-14'>
+IN2-14: Military Service (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00485
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field is defined by CMS or other regulatory agencies and refers to the military branch of service.  Refer to <a href="https://www.hl7.org/fhir/v2/0140/index.html">User-defined Table 0140 - Military Service</a> in Chapter 2C, Code Tables, for suggested values.  The UB codes listed may not represent a complete list; refer to a UB specification for additional information.</p>
+    </div>
+
+<h4 class='v2' id='IN2-15'>
+IN2-15: Military Rank/Grade (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00486
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PD1.html#PD1-20">PD1.20</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This user-defined field identifies the military rank/grade of the patient.  Refer to <a href="https://www.hl7.org/fhir/v2/0141/index.html">User-defined Table 0141 - Military Rank/Grade</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/IN2.html#IN2-15">IN2.15</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This user-defined field identifies the military rank/grade of the insured.  Refer to <a href="https://www.hl7.org/fhir/v2/0141/index.html">User-defined Table 0141 - Military Rank/Grade</a> in Chapter 2C, Code Tables, for suggested values.  </p>
+    </div>
+
+<h4 class='v2' id='IN2-16'>
+IN2-16: Military Status (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00487
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field is defined by CMS or other regulatory agencies.  Refer to <a href="https://www.hl7.org/fhir/v2/0142/index.html">User-defined Table 0142 - Military Status</a> in Chapter 2C, Code Tables, for suggested values.  The UB codes listed may not represent a complete list; refer to a UB specification for additional information</p>
+    </div>
+
+<h4 class='v2' id='IN2-17'>
+IN2-17: Military Retire Date (<a href='/2021Jan/data-type/DT.html'>DT</a>) 00488
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field is defined by CMS or other regulatory agencies.</p>
+    </div>
+
+<h4 class='v2' id='IN2-18'>
+IN2-18: Military Non-Avail Cert On File (<a href='/2021Jan/data-type/ID.html'>ID</a>) 00489
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/no Indicator</a> in Chapter 2C, Code Tables, for valid values.</p>
+      <ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none">
+        <li class="v2 v2-li">
+          <p class="v2 v2-normallist">Y    Certification on file</p>
+        </li>
+        <li class="v2 v2-li">
+          <p class="v2 v2-normallist">N    Certification not on file</p>
+        </li>
+      </ul>
+    </div>
+
+<h4 class='v2' id='IN2-19'>
+IN2-19: Baby Coverage (<a href='/2021Jan/data-type/ID.html'>ID</a>) 00490
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/no Indicator</a> in Chapter 2C, Code Tables, for valid values.</p>
+      <ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none">
+        <li class="v2 v2-li">
+          <p class="v2 v2-normallist">Y    Baby coverage</p>
+        </li>
+        <li class="v2 v2-li">
+          <p class="v2 v2-normallist">N    No baby coverage</p>
+        </li>
+      </ul>
+    </div>
+
+<h4 class='v2' id='IN2-20'>
+IN2-20: Combine Baby Bill (<a href='/2021Jan/data-type/ID.html'>ID</a>) 00491
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/no Indicator</a> in Chapter 2C, Code Tables, for valid values.</p>
+      <ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none">
+        <li class="v2 v2-li">
+          <p class="v2 v2-normallist">Y    Combine bill</p>
+        </li>
+        <li class="v2 v2-li">
+          <p class="v2 v2-normallist">N    Normal billing</p>
+        </li>
+      </ul>
+    </div>
+
+<h4 class='v2' id='IN2-21'>
+IN2-21: Blood Deductible (<a href='/2021Jan/data-type/ST.html'>ST</a>) 00492
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  Use this field instead of <a href="/2021Jan/segment-definition/UB1.html#UB1-2">UB1-2 - Blood Deductible</a>, as the blood deductible can be associated with the specific insurance plan via this field.</p>
+    </div>
+
+<h4 class='v2' id='IN2-22'>
+IN2-22: Special Coverage Approval Name (<a href='/2021Jan/data-type/XPN.html'>XPN</a>) 00493
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the name of the individual who approves any special coverage.  Multiple names for the same person may be sent in this field.  As of v 2.7, no assumptions can be made based on position or sequence.  Specification of meaning based on sequence is deprecated.  </p>
+    </div>
+
+<h4 class='v2' id='IN2-23'>
+IN2-23: Special Coverage Approval Title (<a href='/2021Jan/data-type/ST.html'>ST</a>) 00494
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the title of the person who approves special coverage.</p>
+    </div>
+
+<h4 class='v2' id='IN2-24'>
+IN2-24: Non-Covered Insurance Code (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00495
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the code that describes why a service is not covered.  Refer to <a href="https://www.hl7.org/fhir/v2/0143/index.html">User-defined Table 0143 - Non-covered Insurance Code</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='IN2-25'>
+IN2-25: Payor ID (<a href='/2021Jan/data-type/CX.html'>CX</a>) 00496
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  In the US this field is required for ENVOY Corporation (a US claims clearing house) processing, and it identifies the organization from which reimbursement is expected.  This field can also be used to report the National Health Plan ID.  The assigning authority and identifier type code are strongly recommended for all CX data types.</p>
+    </div>
+
+<h4 class='v2' id='IN2-26'>
+IN2-26: Payor Subscriber ID (<a href='/2021Jan/data-type/CX.html'>CX</a>) 00497
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  In the US this field is required for ENVOY Corporation processing, and it identifies the specific office within the insurance carrier that is designated as responsible for the claim.  The assigning authority and identifier type code are strongly recommended for all CX data types.</p>
+    </div>
+
+<h4 class='v2' id='IN2-27'>
+IN2-27: Eligibility Source (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00498
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  In the US this field is required for ENVOY Corporation processing, and it identifies the source of information about the insured's eligibility for benefits.  Refer to <a href="https://www.hl7.org/fhir/v2/0144/index.html">User-defined Table 0144 - Eligibility Source</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='IN2-28'>
+IN2-28: Room Coverage Type/Amount (<a href='/2021Jan/data-type/RMC.html'>RMC</a>) 00499
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  Use this field instead of <a href="/2021Jan/segment-definition/IN1.html#IN1-40">IN1-40 - Room Rate - Semi-Private</a> and <a href="/2021Jan/segment-definition/IN1.html#IN1-41">IN1-41 - Room Rate - Private</a>.   This field contains room type (e.g., private, semi-private), amount type (e.g., limit, percentage) and amount covered by the insurance.  </p>
+    </div>
+
+<h4 class='v2' id='IN2-29'>
+IN2-29: Policy Type/Amount (<a href='/2021Jan/data-type/PTA.html'>PTA</a>) 00500
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the policy type (e.g., ancillary, major medical) and amount (e.g., amount, percentage, limit) covered by the insurance.  Use this field instead of <a href="/2021Jan/segment-definition/IN1.html#IN1-38">IN1-38 - Policy Limit - Amount</a>.  </p>
+    </div>
+
+<h4 class='v2' id='IN2-30'>
+IN2-30: Daily Deductible (<a href='/2021Jan/data-type/DDI.html'>DDI</a>) 00501
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the number of days after which the daily deductible begins, the amount of the deductible, and the number of days to apply the deductible.</p>
+      <p class="v2 v2-normalindented">If "number of days" is not valued, the deductible is ongoing.</p>
+    </div>
+
+<h4 class='v2' id='IN2-31'>
+IN2-31: Living Dependency (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00755
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/NK1.html#NK1-17">NK1.17</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field identifies specific living conditions (e.g., spouse dependent on patient, walk-up) that are relevant to an evaluation of the patient's healthcare needs.  This information can be used for discharge planning.  Examples might include Spouse Dependent, Medical Supervision Required, Small Children Dependent.  This field repeats because, for example, "spouse dependent" and "medical supervision required" can apply at the same time.  Refer to <a href="https://www.hl7.org/fhir/v2/0223/index.html">User-defined Table 0223 - Living Dependency</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PD1.html#PD1-1">PD1.1</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field identifies specific living conditions (e.g., spouse dependent on patient, walk-up) that are relevant to an evaluation of the patient's healthcare needs.  This information can be used for discharge planning. This field repeats because, for example, "spouse dependent" and "medical supervision required" can apply at the same time.  Refer to <a href="https://www.hl7.org/fhir/v2/0223/index.html">User-defined Table 0223 - Living Dependency</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/GT1.html#GT1-33">GT1.33</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  Identifies the specific living conditions of the guarantor.  Refer to <a href="https://www.hl7.org/fhir/v2/0223/index.html">User-defined Table 0223 - Living Dependency</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/IN2.html#IN2-31">IN2.31</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field identifies the specific living conditions for the insured.  Refer to <a href="https://www.hl7.org/fhir/v2/0223/index.html">User-defined Table 0223 - Living Dependency</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='IN2-32'>
+IN2-32: Ambulatory Status (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00145
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PV1.html#PV1-15">PV1.15</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field indicates any permanent or transient handicapped conditions.  Refer to <a href="https://www.hl7.org/fhir/v2/0009/index.html">User-defined Table 0009 - Ambulatory Status</a> in Chapter 2C, Code Tables, for suggested entries.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/NK1.html#NK1-18">NK1.18</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field identifies the transient rate of mobility for the next of kin/associated party.  Refer to <a href="https://www.hl7.org/fhir/v2/0009/index.html">User-defined Table 0009 - Ambulatory Status</a> in Chapter 2C, Code Tables  for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/GT1.html#GT1-34">GT1.34</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  Identifies the transient state of mobility for the guarantor.  Refer to<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0009/index.html">User-defined Table 0009 - Ambulatory Status</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/IN2.html#IN2-32">IN2.32</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field identifies the insured's state of mobility.  Refer to <a href="https://www.hl7.org/fhir/v2/0009/index.html">User-defined Table 0009 - Ambulatory Status</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='IN2-33'>
+IN2-33: Citizenship (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00129
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PID.html#PID-26">PID.26</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">This field contains the information related to a person's country citizenship. For country citizenship HL7 recommends using ISO table 3166.  For a local definition, <a href="https://www.hl7.org/fhir/v2/0171/index.html">User-defined Table 0171 - Citizenship</a> in Chapter 2C, Code Tables, should be used.</p>
+      <p class="v2 v2-normalindented">This field repeats since persons can be citizens of more than one country.  The Name of Coding System component(s) of the CWE datatype should be used to identify the table from which citizenship membership is drawn.</p>
+      <p class="v2 v2-normalindented">In the Netherlands, this field is used for "Nationaliteit".</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/NK1.html#NK1-19">NK1.19</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the code to identify the next of kin/associated party's citizenship.  HL7 recommends using ISO 3166 as the suggested values in <a href="https://www.hl7.org/fhir/v2/0171/index.html">User-defined Table 0171 - Citizenship</a> in Chapter 2C, Code Tables.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/GT1.html#GT1-35">GT1.35</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the code to identify the guarantor's citizenship.  HL7 recommends using ISO table 3166 as the suggested values in <a href="https://www.hl7.org/fhir/v2/0171/index.html">User-defined Table 0171 - Citizenship</a> in Chapter 2C, Code Tables.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/IN2.html#IN2-33">IN2.33</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the code that identifies the insured's citizenship.  HL7 recommends using ISO table 3166 as the suggested values in <a href="https://www.hl7.org/fhir/v2/0171/index.html">User-defined Table 0171 - Citizenship</a><a href=""> </a>defined in Chapter 2C, Code Tables.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/STF.html#STF-30">STF.30</a> in Ch. 15)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the staff person's current country of citizenship.  HL7 recommends using ISO table 3166 as the suggested values in <a href="https://www.hl7.org/fhir/v2/0171/index.html">User-defined Table 0171 - Citizenship</a> (in Chapter 2C, Code Tables).</p>
+    </div>
+
+<h4 class='v2' id='IN2-34'>
+IN2-34: Primary Language (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00118
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PID.html#PID-15">PID.15</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the patient's primary language.  HL7 recommends using ISO table 639 as the suggested values in <a href="https://www.hl7.org/fhir/v2/0296/index.html">User-defined Table 0296 - Primary Language</a> within Chapter 2C, Code Tables.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/NK1.html#NK1-20">NK1.20</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field identifies the next of kin/associated party's primary speaking language.  HL7 recommends using ISO 639 as the suggested values in <a href="https://www.hl7.org/fhir/v2/0296/index.html">User-defined Table 0296 - Language</a> in Chapter 2C, Code Tables.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/GT1.html#GT1-36">GT1.36</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field identifies the guarantor's primary speaking language.  HL7 recommends using ISO table 639 as the suggested values in <a href="https://www.hl7.org/fhir/v2/0296/index.html">User-defined Table 0296 - Primary Language</a><a href=""> </a>defined in Chapter 2C, Code Tables.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/IN2.html#IN2-34">IN2.34</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field identifies the insured's primary speaking language.  HL7 recommends using ISO table 639 as the suggested values in <a href="https://www.hl7.org/fhir/v2/0296/index.html">User-defined Table 0296 - Primary Language</a><a href=""> </a>defined in Chapter 2C, Code Tables.</p>
+    </div>
+
+<h4 class='v2' id='IN2-35'>
+IN2-35: Living Arrangement (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00742
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/NK1.html#NK1-21">NK1.21</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field identifies the situation that the associated party lives in at his/her residential address.  Refer to <a href="https://www.hl7.org/fhir/v2/0220/index.html">User-defined Table 0220 - Living Arrangement</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PD1.html#PD1-2">PD1.2</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field identifies the situation in which the patient lives at his residential address.  Examples might include Alone, Family, Relatives, Institution, etc.  Refer to <a href="https://www.hl7.org/fhir/v2/0220/index.html">User-defined Table 0220 - Living Arrangement</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/GT1.html#GT1-37">GT1.37</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field identifies the situation in which the person lives at his residential address.  Refer to <a href="https://www.hl7.org/fhir/v2/0220/index.html">User-defined Table 0220 - Living Arrangement</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/IN2.html#IN2-35">IN2.35</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field indicates the situation in which the insured person lives at his primary residence.  Refer to <a href="https://www.hl7.org/fhir/v2/0220/index.html">User-defined Table 0220 - Living Arrangement</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='IN2-36'>
+IN2-36: Publicity Code (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00743
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/NK1.html#NK1-22">NK1.22</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field indicates what level of publicity is allowed (e.g., No Publicity, Family Only) for the next of kin/associated party.  Refer to <a href="https://www.hl7.org/fhir/v2/0215/index.html">User-defined Table 0215 - Publicity Code</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PD1.html#PD1-11">PD1.11</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains a user-defined code indicating what level of publicity is allowed (e.g., No Publicity, Family Only) for the patient.    Refer to <a href="https://www.hl7.org/fhir/v2/0215/index.html">User-defined Table 0215 - Publicity Code</a> in Chapter 2C, Code Tables, for suggested values.  Refer to <a href="/2021Jan/segment-definition/PV2.html#PV2-21">PV2-21 - Visit Publicity Code</a> for visit level code.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/GT1.html#GT1-38">GT1.38</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains a user-defined code indicating what level of publicity is allowed (e.g., No Publicity, Family Only) for a guarantor.  Refer to <a href="https://www.hl7.org/fhir/v2/0215/index.html">User-defined Table 0215 - Publicity Code</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/IN2.html#IN2-36">IN2.36</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains a user-defined code indicating what level of publicity is allowed (e.g., No Publicity, Family Only) for the insured. Refer to <a href="https://www.hl7.org/fhir/v2/0215/index.html">User-defined Table 0215 - Publicity Code</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='IN2-37'>
+IN2-37: Protection Indicator (<a href='/2021Jan/data-type/ID.html'>ID</a>) 00744
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/NK1.html#NK1-23">NK1.23</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field identifies that next of kin/associated party's protection that determines, in turn, whether access to information about this person should be kept from users who do not have adequate authority.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/No Indicator</a> in Chapter 2C, Code Tables, for valid values.</p>
+      <ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none">
+        <li class="v2 v2-li">
+          <p class="v2 v2-normallist">Y    protect access to next-of-kin information</p>
+        </li>
+        <li class="v2 v2-li">
+          <p class="v2 v2-normallist">N    normal access</p>
+        </li>
+      </ul>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PD1.html#PD1-12">PD1.12</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  <strong>From V2.6 onward, this field has been retained for backward compatibility only.</strong>  Use the ARV segment instead.  This field identifies the patient's protection that determines, in turn, whether access to information about this person should be kept from users who do not have adequate authority for the patient.    Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/No Indicator</a> in Chapter 2C, Code Tables, for valid values.</p>
+      <ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none">
+        <li class="v2 v2-li">
+          <p class="v2 v2-normallist">Y    protect access to information</p>
+        </li>
+        <li class="v2 v2-li">
+          <p class="v2 v2-normallist">N    normal access</p>
+        </li>
+      </ul>
+      <p class="v2 v2-normalindented">Refer to <a href="/2021Jan/segment-definition/PV2.html#PV2-22">PV2-22 - Visit Protection Indicator</a> for visit level code.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/GT1.html#GT1-39">GT1.39</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field identifies the guarantor's protection, which determines whether or not access to information about this enrollee should be restricted from users who do not have adequate authority.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/no Indicator</a> for valid values.</p>
+      <ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none">
+        <li class="v2 v2-li">
+          <p class="v2 v2-normallist">Y    restrict access</p>
+        </li>
+        <li class="v2 v2-li">
+          <p class="v2 v2-normallist">N    do not restrict access</p>
+        </li>
+      </ul>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/IN2.html#IN2-37">IN2.37</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field identifies the insured's protection, which determines whether or not access to information about this enrollee should be restricted from users who do not have adequate authority.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/no Indicator</a> in Chapter 2C, Code Tables, for valid values.</p>
+      <ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none">
+        <li class="v2 v2-li">
+          <p class="v2 v2-normallist">Y    Restrict access</p>
+        </li>
+        <li class="v2 v2-li">
+          <p class="v2 v2-normallist">N    Do not restrict access</p>
+        </li>
+      </ul>
+    </div>
+
+<h4 class='v2' id='IN2-38'>
+IN2-38: Student Indicator (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00745
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/NK1.html#NK1-24">NK1.24</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field identifies whether the next of kin/associated party is currently a student or not, and whether the next of kin/associated party is a full- or a part-time student.  This field does not indicate the degree (high school, college) of the student or the field of study.  Refer to <a href="https://www.hl7.org/fhir/v2/0231/index.html">User-defined Table 0231 - Student Status</a> in chapter 2C, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PD1.html#PD1-5">PD1.5</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field indicates if the patient is currently a student or not, and whether the patient is a full-time or a part-time student.  This field does not indicate the student's degree level (high school, college, elementary) or the student's field of study (accounting, engineering, etc.).  Refer to <a href="https://www.hl7.org/fhir/v2/0231/index.html">User-defined Table 0231 - Student Status</a> in chapter 2C, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/GT1.html#GT1-40">GT1.40</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field indicates whether the guarantor is currently a student, and whether the guarantor is a full-time or part-time student.  This field does not indicate the degree level (high school, college) of the student, or his/her field of study (accounting, engineering, etc.).  Refer to<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0231/index.html">User-defined Table 0231- Student Status</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/IN2.html#IN2-38">IN2.38</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field identifies whether the insured is currently a student or not, and whether the insured is a full-time or a part-time student.  This field does not indicate the degree level (high school, college) of student, or his/her field of study (accounting, engineering, etc.).  Refer to<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0231/index.html">User-defined Table 0231 - Student Status</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='IN2-39'>
+IN2-39: Religion (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00120
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PID.html#PID-17">PID.17</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the patient's religion.  Refer to <a href="https://www.hl7.org/fhir/v2/0006/index.html">User-defined Table 0006 - Religion</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/NK1.html#NK1-25">NK1.25</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field indicates the type of religion practiced by the next of kin/associated party.  Refer to <a href="https://www.hl7.org/fhir/v2/0006/index.html">User-defined Table 0006 - Religion</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/GT1.html#GT1-41">GT1.41</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field indicates the type of religion practiced by the guarantor. Refer to <a href="https://www.hl7.org/fhir/v2/0006/index.html">User-defined Table 0006 - Religion</a><a href=""> </a>in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/IN2.html#IN2-39">IN2.39</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field indicates the type of religion practiced by the insured.  Refer to <a href="https://www.hl7.org/fhir/v2/0006/index.html">User-defined Table 0006 - Religion</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/STF.html#STF-40">STF.40</a> in Ch. 15)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the staff member's religion.  Refer to <a href="https://www.hl7.org/fhir/v2/0006/index.html">User-defined Table 0006 - Religion</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='IN2-40'>
+IN2-40: Mother's Maiden Name (<a href='/2021Jan/data-type/XPN.html'>XPN</a>) 00109
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PID.html#PID-6">PID.6</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the family name under which the mother was born (i.e., before marriage). It is used to distinguish between patients with the same last name.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/NK1.html#NK1-26">NK1.26</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field indicates the maiden name of the next of kin/associated party's mother.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/GT1.html#GT1-42">GT1.42</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field indicates the guarantor's mother's maiden name.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/IN2.html#IN2-40">IN2.40</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field indicates the insured's mother's maiden name.</p>
+    </div>
+
+<h4 class='v2' id='IN2-41'>
+IN2-41: Nationality (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00739
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PID.html#PID-28">PID.28</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented"><strong>Attention: The PID-28 field was retained for backward compatibility only as of v 2.4</strong> and was withdrawn and removed from this message structure as of v 2.7. It is recommended to refer to <a href="/2021Jan/segment-definition/PID.html#PID-10">PID-10 - Race</a>, <a href="/2021Jan/segment-definition/PID.html#PID-22">PID-22 - Ethnic group</a> and <a href="/2021Jan/segment-definition/PID.html#PID-26">PID-26 - Citizenship</a>. </p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/NK1.html#NK1-27">NK1.27</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field identifies the nation or national group to which the next of kin/associated party belongs.  This information may be different than the person's citizenship in countries in which multiple nationalities are recognized (e.g., Spain: Basque, Catalan, etc.). Refer to <a href="https://www.hl7.org/fhir/v2/0212/index.html">User-defined Table 0212 - Nationality</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/GT1.html#GT1-43">GT1.43</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains a code that identifies the nation or national grouping to which the person belongs.  This may be different from a person's citizenship in countries in which multiple nationalities are recognized (for example, Spain: Basque, Catalan, etc.).  HL7 recommends using ISO table 3166 as suggested values in <a href="https://www.hl7.org/fhir/v2/0212/index.html">User-defined Table 0212 - Nationality</a><a href=""> </a>in Chapter 2C, Code Tables.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/IN2.html#IN2-41">IN2.41</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains a code that identifies the nation or national grouping to which the insured person belongs.  This information may be different from a person's citizenship in countries in which multiple nationalities are recognized (for example, Spain: Basque, Catalan, etc.).  HL7 recommends using ISO table 3166 as the suggested values in <a href="https://www.hl7.org/fhir/v2/0212/index.html">User-defined Table 0212 - Nationality</a> in Chapter 2C, Code Tables.</p>
+    </div>
+
+<h4 class='v2' id='IN2-42'>
+IN2-42: Ethnic Group (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00125
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PID.html#PID-22">PID.22</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field further defines the patient's ancestry.  Refer to <a href="https://www.hl7.org/fhir/v2/0189/index.html">User-defined Table 0189 - Ethnic Group</a> in Chapter 2C, Code Tables, for suggested values. The second triplet of the CWE data type for ethnic group (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes. In the US, a current use is to report ethnicity in line with US federal standards for Hispanic origin.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/NK1.html#NK1-28">NK1.28</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the next of kin/associated party's ethnic group.  Refer to <a href="https://www.hl7.org/fhir/v2/0189/index.html">User-defined Table 0189 - Ethnic Group</a> in Chapter 2C, Code Tables, for suggested values.  The second triplet of the CWE data type for ethnic group (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes. In the US, a current use is to report ethnicity in line with US federal standards for Hispanic origin.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/GT1.html#GT1-44">GT1.44</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the guarantor's ethnic group. Refer to <a href="https://www.hl7.org/fhir/v2/0189/index.html">User-defined Table 0189 - Ethnic Group</a> in Chapter 2C, Code Tables, for suggested values.  The second triplet of the CE data type for ethnic group (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes. In the US, a current use is to report ethnicity in line with US federal standards for Hispanic origin.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/IN2.html#IN2-42">IN2.42</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field indicates the insured's ethnic group. Refer to <a href="https://www.hl7.org/fhir/v2/0189/index.html">User-defined Table 0189 - Ethnic Group</a> in Chapter 2C, Code Tables, for suggested values.  The second triplet of the CE data type for ethnic group (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes. In the US, a current use is to report ethnicity in line with US federal standards for Hispanic origin.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/STF.html#STF-28">STF.28</a> in Ch. 15)</strong>
+      </p>
+      <ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none">
+        <li class="v2 v2-li">
+          <p class="v2 v2-normallist">Definition:  This field further defines the person's ancestry.  Refer to <a href="https://www.hl7.org/fhir/v2/0189/index.html">User-defined Table 0189 - Ethnic Group</a> in Chapter 2C, Code Tables, for suggested values. The second couplet of the CWE data type for ethnic group (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes. In the United States, a current use is to report ethnicity in line with US federal standards for Hispanic origin.</p>
+        </li>
+      </ul>
+    </div>
+
+<h4 class='v2' id='IN2-43'>
+IN2-43: Marital Status (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00119
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PID.html#PID-16">PID.16</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the patient's marital (civil) status.  Refer to <a href="https://www.hl7.org/fhir/v2/0002/index.html">User-defined Table 0002 - Marital Status</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/NK1.html#NK1-14">NK1.14</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the next of kin/associated party's marital status.  Refer to <a href="https://www.hl7.org/fhir/v2/0002/index.html">User-defined Table 0002 - Marital Status </a>in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/IN2.html#IN2-43">IN2.43</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the insured's marital status.  Refer to <a href="https://www.hl7.org/fhir/v2/0002/index.html">User-defined Table 0002 - Marital Status</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/STF.html#STF-17">STF.17</a> in Ch. 15)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the staff member's marital status.  Refer to <a href="https://www.hl7.org/fhir/v2/0002/index.html">User-defined Table 0002 - Marital Status</a> in Chapter 2C, Code Tables, for suggested values.  Same values as those for <a href="/2021Jan/segment-definition/PID.html#PID-16">PID-16 Marital Status</a>.</p>
+    </div>
+
+<h4 class='v2' id='IN2-44'>
+IN2-44: Insured's Employment Start Date (<a href='/2021Jan/data-type/DT.html'>DT</a>) 00787
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field indicates the date on which the insured's employment with a particular employer began.</p>
+    </div>
+
+<h4 class='v2' id='IN2-45'>
+IN2-45: Employment Stop Date (<a href='/2021Jan/data-type/DT.html'>DT</a>) 00783
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/GT1.html#GT1-32">GT1.32</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field indicates the date on which the guarantor's employment with a particular employer ended.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/IN2.html#IN2-45">IN2.45</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field indicates the date on which the person's employment with a particular employer ended.</p>
+    </div>
+
+<h4 class='v2' id='IN2-46'>
+IN2-46: Job Title (<a href='/2021Jan/data-type/ST.html'>ST</a>) 00785
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/GT1.html#GT1-49">GT1.49</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains a descriptive name of the guarantor's occupation (e.g., Sr. Systems Analyst, Sr. Accountant).</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/IN2.html#IN2-46">IN2.46</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains a descriptive name for the insured's occupation (for example, Sr. Systems Analyst, Sr. Accountant).</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/STF.html#STF-18">STF.18</a> in Ch. 15)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains a descriptive name of the staff member's occupation (e.g., Sr. Systems Analyst, Sr. Accountant).</p>
+    </div>
+
+<h4 class='v2' id='IN2-47'>
+IN2-47: Job Code/Class (<a href='/2021Jan/data-type/JCC.html'>JCC</a>) 00786
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/GT1.html#GT1-50">GT1.50</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the guarantor's job code and employee classification.  </p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/IN2.html#IN2-47">IN2.47</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field indicates a code that identifies the insured's job code (for example, programmer, analyst, doctor, etc.). </p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/STF.html#STF-19">STF.19</a> in Ch. 15)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition: This field contains the staff member's job code and employee classification.  Refer to <a href="https://www.hl7.org/fhir/v2/0327/index.html">User-defined Table 0327 - Job Code</a> and <a href="https://www.hl7.org/fhir/v2/0328/index.html">User-defined Table 0328 - Employee Classification</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='IN2-48'>
+IN2-48: Job Status (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00752
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/NK1.html#NK1-34">NK1.34</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field identifies the next of kin/associated party's job status.  Refer to <a href="https://www.hl7.org/fhir/v2/0311/index.html">User-defined Table 0311 - Job Status</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/GT1.html#GT1-53">GT1.53</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains a code that identifies the guarantor's current job status. Refer to <a href="https://www.hl7.org/fhir/v2/0311/index.html">User-defined Table 0311 - Job Status</a> in Chapter 2C, Code Tables, for suggested values.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/IN2.html#IN2-48">IN2.48</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field indicates a code that identifies the insured's current job status.  Refer to<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0311/index.html">User-defined Table 0311 - Job Status</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='IN2-49'>
+IN2-49: Employer Contact Person Name (<a href='/2021Jan/data-type/XPN.html'>XPN</a>) 00789
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the name of the contact person that should be contacted at the insured's place of employment.  (Joe Smith is the insured.  He works at GTE.  Contact Sue Jones at GTE regarding Joe Smith's policy).  Multiple names for the same person may be sent in this sequence.  As of v 2.7, no assumptions can be made based on position or sequence.  Specification of meaning based on sequence is deprecated.  </p>
+    </div>
+
+<h4 class='v2' id='IN2-50'>
+IN2-50: Employer Contact Person Phone Number (<a href='/2021Jan/data-type/XTN.html'>XTN</a>) 00790
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: This field contains the telecommunications contact for the employer contact person. Multiple phone numbers for the same contact person may be sent in this sequence, not multiple contacts.  As of v 2.7, no assumptions can be made based on position or sequence.  Specification of meaning based on sequence is deprecated.  </p>
+    </div>
+
+<h4 class='v2' id='IN2-51'>
+IN2-51: Employer Contact Reason (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00791
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  Definition:  This field contains the reason(s) that employer contact person should be contacted on behalf of the employee.  Refer to <a href="https://www.hl7.org/fhir/v2/0222/index.html">User-defined Table 0222 - Contact Reason</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='IN2-52'>
+IN2-52: Insured's Contact Person's Name (<a href='/2021Jan/data-type/XPN.html'>XPN</a>) 00792
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the contact person for the insured.</p>
+    </div>
+
+<h4 class='v2' id='IN2-53'>
+IN2-53: Insured's Contact Person Phone Number (<a href='/2021Jan/data-type/XTN.html'>XTN</a>) 00793
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the telephone number for the contact person for the insured.  Multiple phone numbers for the same person may be sent in this contact, not multiple contacts.  As of v 2.7, no assumptions can be made based on position or sequence.  Specification of meaning based on sequence is deprecated.  </p>
+    </div>
+
+<h4 class='v2' id='IN2-54'>
+IN2-54: Insured's Contact Person Reason (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00794
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the reason(s) the person should be contacted regarding the insured.  Refer to <a href="https://www.hl7.org/fhir/v2/0222/index.html">User-defined Table 0222 - Contact Reason</a> in Chapter 2C, Code Tables, for suggested values</p>
+    </div>
+
+<h4 class='v2' id='IN2-55'>
+IN2-55: Relationship to the Patient Start Date (<a href='/2021Jan/data-type/DT.html'>DT</a>) 00795
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field indicates the date on which the insured's patient relationship (defined in <a href="/2021Jan/segment-definition/IN1.html#IN1-17">IN1-17 - Insured's Relationship to Patient</a>) became effective (began).</p>
+    </div>
+
+<h4 class='v2' id='IN2-56'>
+IN2-56: Relationship to the Patient Stop Date (<a href='/2021Jan/data-type/DT.html'>DT</a>) 00796
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field indicates the date after which the relationship (defined in <a href="/2021Jan/segment-definition/IN1.html#IN1-17">IN1-17 - Insured's Relationship to Patient</a>) is no longer effective.</p>
+    </div>
+
+<h4 class='v2' id='IN2-57'>
+IN2-57: Insurance Co Contact Reason (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00797
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains a user-defined code that specifies how the contact should be used.  Refer to <a href="https://www.hl7.org/fhir/v2/0232/index.html">User-defined Table 0232 - Insurance Company Contact Reason</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='IN2-58'>
+IN2-58: Insurance Co Contact Phone Number (<a href='/2021Jan/data-type/XTN.html'>XTN</a>) 00798
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the telephone number of the person who should be contacted at the insurance company for questions regarding an insurance policy/claim, etc.  Multiple phone numbers for the insurance company may be sent in this sequence.  As of v 2.7, no assumptions can be made based on position or sequence.  Specification of meaning based on sequence is deprecated.  </p>
+    </div>
+
+<h4 class='v2' id='IN2-59'>
+IN2-59: Policy Scope (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00799
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains a user-defined code designating the extent of the coverage for a participating member (e.g., "single," "family," etc).  Refer to <a href="https://www.hl7.org/fhir/v2/0312/index.html">User-defined Table 0312 - Policy Scope</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='IN2-60'>
+IN2-60: Policy Source (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00800
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This user-defined field identifies how the policy information got established.  Refer to <a href="https://www.hl7.org/fhir/v2/0313/index.html">User-defined Table 0313 - Policy Source</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='IN2-61'>
+IN2-61: Patient Member Number (<a href='/2021Jan/data-type/CX.html'>CX</a>) 00801
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains an identifying number assigned by the payor for each individual covered by the insurance policy issued to the insured.  For example, each individual family member may have a different member number from the insurance policy number issued to the head of household.  The assigning authority and identifier type code are strongly recommended for all CX data types.</p>
+    </div>
+
+<h4 class='v2' id='IN2-62'>
+IN2-62: Guarantor's Relationship to Insured (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00802
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field specifies the relationship of the guarantor to the insurance subscriber.  Refer to <a href="https://www.hl7.org/fhir/v2/0063/index.html">User-defined Table 0063 - Relationship</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='IN2-63'>
+IN2-63: Insured's Phone Number - Home (<a href='/2021Jan/data-type/XTN.html'>XTN</a>) 00803
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  The value of this field represents the insured's telephone number.  Multiple phone numbers may be sent in this sequence.  As of v 2.7, no assumptions can be made based on position or sequence.  Specification of meaning based on sequence is deprecated.  </p>
+    </div>
+
+<h4 class='v2' id='IN2-64'>
+IN2-64: Insured's Employer Phone Number (<a href='/2021Jan/data-type/XTN.html'>XTN</a>) 00804
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  The value of this field represents the insured's employer's telephone number.  Multiple phone numbers may be sent in this sequence.  As of v 2.7, no assumptions can be made based on position or sequence.  Specification of meaning based on sequence is deprecated.  </p>
+    </div>
+
+<h4 class='v2' id='IN2-65'>
+IN2-65: Military Handicapped Program (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00805
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field indicates the military program for the handicapped in which the patient is enrolled.  Refer to<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0343/index.html">User-defined Table 0343 - Military Handicapped Program Code</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='IN2-66'>
+IN2-66: Suspend Flag (<a href='/2021Jan/data-type/ID.html'>ID</a>) 00806
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field indicates whether charges should be suspended for a patient.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/no Indicator</a> in Chapter 2C, Code Tables, for valid values.</p>
+      <ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none">
+        <li class="v2 v2-li">
+          <p class="v2 v2-normallist">Y    charges should be suspended</p>
+        </li>
+        <li class="v2 v2-li">
+          <p class="v2 v2-normallist">N    charges should NOT be suspended</p>
+        </li>
+      </ul>
+    </div>
+
+<h4 class='v2' id='IN2-67'>
+IN2-67: Copay Limit Flag (<a href='/2021Jan/data-type/ID.html'>ID</a>) 00807
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field indicates if the patient has reached the co-pay limit so that no more co-pay charges should be calculated for the patient.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/no Indicator</a> in Chapter 2C, Code Tables, for valid values.</p>
+      <ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none">
+        <li class="v2 v2-li">
+          <p class="v2 v2-normallist">Y    the patient is at or exceeds the co-pay limit</p>
+        </li>
+        <li class="v2 v2-li">
+          <p class="v2 v2-normallist">N    the patient is under the co-pay limit</p>
+        </li>
+      </ul>
+    </div>
+
+<h4 class='v2' id='IN2-68'>
+IN2-68: Stoploss Limit Flag (<a href='/2021Jan/data-type/ID.html'>ID</a>) 00808
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field indicates if the patient has reached the stoploss limit established in the Contract Master.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/no Indicator</a> in Chapter 2C, Code Tables, for valid values.</p>
+      <ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none">
+        <li class="v2 v2-li">
+          <p class="v2 v2-normallist">Y    the patient has reached the stoploss limit</p>
+        </li>
+        <li class="v2 v2-li">
+          <p class="v2 v2-normallist">N    the patient has not reached the stoploss limit</p>
+        </li>
+      </ul>
+    </div>
+
+<h4 class='v2' id='IN2-69'>
+IN2-69: Insured Organization Name and ID (<a href='/2021Jan/data-type/XON.html'>XON</a>) 00809
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field indicates the name of the insured if the insured/subscriber is an organization.  Multiple names for the insured may be sent in this sequence, not multiple insured people Specification of meaning based on sequence is deprecated.</p>
+    </div>
+
+<h4 class='v2' id='IN2-70'>
+IN2-70: Insured Employer Organization Name and ID (<a href='/2021Jan/data-type/XON.html'>XON</a>) 00810
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field indicates the name of the insured's employer, or the organization that purchased the insurance for the insured, if the employer is an organization.  Multiple names and identifiers for the same organization may be sent in this field, not multiple organizations.   Specification of meaning based on sequence is deprecated.</p>
+    </div>
+
+<h4 class='v2' id='IN2-71'>
+IN2-71: Race (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00113
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/PID.html#PID-10">PID.10</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field refers to the patient's race.  Refer to <a href="https://www.hl7.org/fhir/v2/0005/index.html">User-defined Table 0005 - Race</a> in Chapter 2C, Code Tables, for suggested values.  The second triplet of the CWE data type for race (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/NK1.html#NK1-35">NK1.35</a> in Ch. 3)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field identifies the race of the next of kin/associated party. Refer to <a href="https://www.hl7.org/fhir/v2/0005/index.html">User-defined Table 0005 - Race</a> in Chapter 2C, Code Tables, for suggested values.  The second triplet of the CWE data type for race (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/IN2.html#IN2-71">IN2.71</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  Refer to <a href="https://www.hl7.org/fhir/v2/0005/index.html">User-defined Table 0005 - Race</a> in Chapter 2C, Code Tables, for suggested values.  The second triplet of the CE data type for race (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/STF.html#STF-27">STF.27</a> in Ch. 15)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field refers to the person's race.  Refer to <a href="https://www.hl7.org/fhir/v2/0005/index.html">User-defined Table 0005 - Race</a> in Chapter 2C, Code Tables, for suggested values.  The second triplet of the CWE data type for race (alternate identifier, alternate text, and name of alternate coding system) is reserved for governmentally assigned codes.</p>
+    </div>
+
+<h4 class='v2' id='IN2-72'>
+IN2-72: Patient's Relationship to Insured (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00811
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field indicates the relationship of the patient to the insured, as defined by CMS or other regulatory agencies.  Refer to<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0344/index.html">User-defined Table 0344 - Patient's Relationship to Insured</a> in Chapter 2C, Code Tables, for suggested values. The UB codes listed may not represent a complete list; refer to a UB specification for additional information.</p>
+    </div>
+
+<h4 class='v2' id='IN2-73'>
+IN2-73: Co-Pay Amount (<a href='/2021Jan/data-type/CP.html'>CP</a>) 01620
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/IN2.html#IN2-73">IN2.73</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the patient's Co-pay amount for visit.</p>
+      <p class="v2 v2-normalindented"></p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/GP2.html#GP2-13">GP2.13</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the patient's Co-pay amount for the line item.</p>
+    </div>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+December 11, 2020
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/2021Jan/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/2021Jan/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/2021Jan/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "/images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

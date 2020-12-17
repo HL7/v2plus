@@ -1,0 +1,1703 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>
+HL7 - REFACTORED
+</title>
+<meta content='(C) Health Level Seven, Int. 2020' name='COPYRIGHT'>
+<meta content='HL7, v2.x, v2+, v2plus' name='Keywords'>
+<style type='text/css'>
+@import "/2021Jan/css/bootstrap.css";
+@import "/2021Jan/css/codemirror.css";
+@import "/2021Jan/css/hl7.css";
+@import "/2021Jan/css/fhir.css";
+<!-- @import "css/bootstrap-fhir.css"; -->
+@import "/2021Jan/css/bootstrap-v2.css";
+@import "/2021Jan/css/project.css";
+@import "/2021Jan/css/pygments-manni.css";
+@import "/2021Jan/css/jquery-ui.css";
+@import "/2021Jan/css/modules.css";
+@import "/2021Jan/css/v2.css";
+</style>
+<script src='/2021Jan/js/jquery.js'></script>
+<script src='/2021Jan/js/jquery-ui.min.js'></script>
+<script src='/2021Jan/js/bootstrap.min.js'></script>
+<script src='/2021Jan/js/respond.min.js'></script>
+<script src='/2021Jan/js/codemirror/codemirror.js'></script>
+<script src='/2021Jan/js/codemirror/mode/xml.js'></script>
+<script src='/2021Jan/js/v2.js'></script>
+<script src='/2021Jan/js/fhir-table-scripts.js' type='text/javascript'></script>
+<script src='/2021Jan/js/format_xml.js' type='text/javascript'></script>
+<link href='/2021Jan/images/hl7.ico' rel='shortcut icon'>
+</head>
+<body>
+<div class='segment' id='segment-header'>
+<div class='container'>
+<a href='http://www.hl7.org/hl7v2+' id='logo' no-external='true'></a>
+<div id='hl7-status'>
+<img alt='visit the hl7 website' height='50' id='v2-logo' src='/2021Jan/images/hl7-v2-logo.png'>
+<img alt='visit the hl7 website' height='50' id='v2plus-logo' src='/2021Jan/images/hl7-v2plus.gif'>
+<b>
+The Demo site for our new HL7 Version 2+ (plus) Standard
+</b>
+</div>
+<div id='hl7-nav'>
+<a href='http://www.hl7.org' id='hl7-logo' no-external='true'></a>
+<img alt='visit the hl7 website' src='/2021Jan/images/hl7-logo.png'>
+</div>
+</div>
+</div>
+<div class='segment' id='segment-navbar'>
+<div id='stripe'></div>
+<div class='container'>
+<nav class='navbar navbar-inverse'>
+<div class='container'>
+<button class='navbar-toggle' data-target='.navbar-inverse-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<a class='navbar-brand hidden' href='/2021Jan/index.html'>
+FHIR
+</a>
+<div class='nav-collapse collapse navbar-inverse-collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href='/2021Jan/index.html'>
+Home
+</a>
+</li>
+<li>
+<a href='/2021Jan/domains.html'>
+Domains
+</a>
+</li>
+<li>
+<a href='/2021Jan/message-structures.html'>
+Message Structures
+</a>
+</li>
+<li>
+<a href='/2021Jan/segment-definitions.html'>
+Segments
+</a>
+</li>
+<li>
+<a href='/2021Jan/data-types.html'>
+Data Types
+</a>
+</li>
+<li>
+<a href=''>
+Data Type Flavors
+</a>
+</li>
+<li>
+<a href='https://www.hl7.org/fhir/terminologies-valuesets.html#tabs-v2'>
+Vocabulary
+</a>
+</li>
+<li>
+<a href='/2021Jan/composition/Control.html'>
+Control
+</a>
+</li>
+<li>
+<a href='http://v2.hl7.org/conformance/'>
+Conformance
+</a>
+</li>
+<li>
+<a href='/2021Jan/composition/Control.html#Control-12'>
+Encoding
+</a>
+</li>
+<li>
+<a href='#transport'>
+Transport
+</a>
+</li>
+<li>
+<a href='/2021Jan/history.html'>
+v2.x
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class='container'>
+<div id='v2draft'>
+<h1>
+Draft Website - For Review Purposes Only
+</h1>
+</div>
+</div>
+<div class='segment' id='segment-breadcrumb'>
+<div class='container'>
+<ul class='breadcrumb'>
+<li>
+<a href='/2021Jan/index.html'>
+Home
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='container'>
+<h3>
+DG1 - Diagnosis Segment
+</h3>
+<div>
+      <p class="v2 v2-normalindented">The DG1 segment contains patient diagnosis information of various types, for example, admitting, primary, etc.  The DG1 segment is used to send multiple diagnoses (for example, for medical records encoding).  It is also used when the <a href="/2021Jan/segment-definition/FT1.html#FT1-19">FT1-19 - Diagnosis Code - FT1</a> does not provide sufficient information for a billing system.  This diagnosis coding should be distinguished from the clinical problem segment used by caregivers to manage the patient (see Chapter 12, Patient Care).  Coding methodologies are also defined.</p>
+      <!-- Every td has class="hierarchy" ... this should be removed and replaced with css that automatically does this -->
+<!-- Striping even/odd should not be done by applying .even and .odd classes but by css that covers the entire table -->
+<!-- css for table header row...style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" -->
+<!-- %h3 -->
+<!-- =title -->
+<table class='segment-definition-table'>
+<caption>
+HL7 Attribute Table - DG1 - Diagnosis Segment
+</caption>
+<tbody>
+<tr>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Seq#
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+DataElement
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Description
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Must Implement
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Flags
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Cardinality
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Length
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+C.LEN
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+Vocabulary
+</a>
+</th>
+<th>
+<a href='/2021Jan/segment-definitions.html'>
+DataType
+</a>
+</th>
+</tr>
+<tr>
+<td class='hierarchy' colspan='3'>
+<img src='/2021Jan/images/folder_icon.gif'>
+<b>
+DG1
+</b>
+</td>
+</tr>
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+1
+</td>
+<td>
+<a href='#DG1-1'>
+00375
+</a>
+</td>
+<td>
+Set ID - DG1
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+[1..4]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/SI.html'>
+SI
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+2
+</td>
+<td>
+<a href='#DG1-2'>
+00376
+</a>
+</td>
+<td>
+Diagnosis Coding Method
+</td>
+<td>
+SHALL NOT
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+[0..0]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+3
+</td>
+<td>
+<a href='#DG1-3'>
+00377
+</a>
+</td>
+<td>
+Diagnosis Code - DG1
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0051/index.html'>
+0051
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+4
+</td>
+<td>
+<a href='#DG1-4'>
+00378
+</a>
+</td>
+<td>
+Diagnosis Description
+</td>
+<td>
+SHALL NOT
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+[0..0]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+5
+</td>
+<td>
+<a href='#DG1-5'>
+00379
+</a>
+</td>
+<td>
+Diagnosis Date/Time
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/DTM.html'>
+DTM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+6
+</td>
+<td>
+<a href='#DG1-6'>
+00380
+</a>
+</td>
+<td>
+Diagnosis Type
+</td>
+<td>
+SHALL
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0052/index.html'>
+0052
+<span class='vocab-link-text'>Diagnosis Type</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+7
+</td>
+<td>
+<a href='#DG1-7'>
+00381
+</a>
+</td>
+<td>
+Major Diagnostic Category
+</td>
+<td>
+SHALL NOT
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+[0..0]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0118/index.html'>
+0118
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CNE.html'>
+CNE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+8
+</td>
+<td>
+<a href='#DG1-8'>
+00382
+</a>
+</td>
+<td>
+Diagnostic Related Group
+</td>
+<td>
+SHALL NOT
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+[0..0]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0055/index.html'>
+0055
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CNE.html'>
+CNE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+9
+</td>
+<td>
+<a href='#DG1-9'>
+00383
+</a>
+</td>
+<td>
+DRG Approval Indicator
+</td>
+<td>
+SHALL NOT
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+[0..0]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0136/index.html'>
+0136
+<span class='vocab-link-text'>Yes/no Indicator</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ID.html'>
+ID
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+10
+</td>
+<td>
+<a href='#DG1-10'>
+00384
+</a>
+</td>
+<td>
+DRG Grouper Review Code
+</td>
+<td>
+SHALL NOT
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+[0..0]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0056/index.html'>
+0056
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+11
+</td>
+<td>
+<a href='#DG1-11'>
+00385
+</a>
+</td>
+<td>
+Outlier Type
+</td>
+<td>
+SHALL NOT
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+[0..0]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0083/index.html'>
+0083
+<span class='vocab-link-text'>Outlier Type</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+12
+</td>
+<td>
+<a href='#DG1-12'>
+00386
+</a>
+</td>
+<td>
+Outlier Days
+</td>
+<td>
+SHALL NOT
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+[0..0]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/NM.html'>
+NM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+13
+</td>
+<td>
+<a href='#DG1-13'>
+00387
+</a>
+</td>
+<td>
+Outlier Cost
+</td>
+<td>
+SHALL NOT
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+[0..0]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CP.html'>
+CP
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+14
+</td>
+<td>
+<a href='#DG1-14'>
+00388
+</a>
+</td>
+<td>
+Grouper Version And Type
+</td>
+<td>
+SHALL NOT
+</td>
+<td class='centered'>
+W
+</td>
+<td class='centered'>
+[0..0]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href=''>
+
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+15
+</td>
+<td>
+<a href='#DG1-15'>
+00389
+</a>
+</td>
+<td>
+Diagnosis Priority
+</td>
+<td>
+
+</td>
+<td class='centered'>
+=
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+2
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0359/index.html'>
+0359
+<span class='vocab-link-text'>Diagnosis Priority</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/NM.html'>
+NM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+16
+</td>
+<td>
+<a href='#DG1-16'>
+00390
+</a>
+</td>
+<td>
+Diagnosing Clinician
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..*]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/XCN.html'>
+XCN
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+17
+</td>
+<td>
+<a href='#DG1-17'>
+00766
+</a>
+</td>
+<td>
+Diagnosis Classification
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0228/index.html'>
+0228
+<span class='vocab-link-text'>Diagnosis Classification</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+18
+</td>
+<td>
+<a href='#DG1-18'>
+00767
+</a>
+</td>
+<td>
+Confidential Indicator
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0136/index.html'>
+0136
+<span class='vocab-link-text'>Yes/no Indicator</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ID.html'>
+ID
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+19
+</td>
+<td>
+<a href='#DG1-19'>
+00768
+</a>
+</td>
+<td>
+Attestation Date/Time
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/DTM.html'>
+DTM
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+20
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+</td>
+<td>
+<a href='#DG1-20'>
+01850
+</a>
+</td>
+<td>
+Diagnosis Identifier
+</td>
+<td>
+MAY
+<br>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+True:
+<br>
+<img src='/2021Jan/images/tbl_vjoin_end.png'>
+False:
+
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<br/>[1..1]<br/>[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/EI.html'>
+EI
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+21
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+</td>
+<td>
+<a href='#DG1-21'>
+01894
+</a>
+</td>
+<td>
+Diagnosis Action Code
+</td>
+<td>
+MAY
+<br>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+True:
+<br>
+<img src='/2021Jan/images/tbl_vjoin_end.png'>
+False:
+
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<br/>[1..1]<br/>[0..1]
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0206/index.html'>
+0206
+<span class='vocab-link-text'>Segment Action Code</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ID.html'>
+ID
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+22
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+<br>
+<img src='/2021Jan/images/tbl_vline.png'>
+</td>
+<td>
+<a href='#DG1-22'>
+02152
+</a>
+</td>
+<td>
+Parent Diagnosis
+</td>
+<td>
+MAY
+<br>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+True:
+<br>
+<img src='/2021Jan/images/tbl_vjoin_end.png'>
+False:
+
+</td>
+<td class='centered'>
+C
+</td>
+<td class='centered'>
+<br/>[1..1]<br/>[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a>
+
+<span class='vocab-link-text'></span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/EI.html'>
+EI
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+23
+</td>
+<td>
+<a href='#DG1-23'>
+02153
+</a>
+</td>
+<td>
+DRG CCL Value Code
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0728/index.html'>
+0728
+<span class='vocab-link-text'>CCL Value</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+24
+</td>
+<td>
+<a href='#DG1-24'>
+02154
+</a>
+</td>
+<td>
+DRG Grouping Usage
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+[1..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0136/index.html'>
+0136
+<span class='vocab-link-text'>Yes/no Indicator</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/ID.html'>
+ID
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin.png'>
+25
+</td>
+<td>
+<a href='#DG1-25'>
+02155
+</a>
+</td>
+<td>
+DRG Diagnosis Determination Status
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0731/index.html'>
+0731
+<span class='vocab-link-text'>DRG Diagnosis Determination Status</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+<tr class='segment_definition_field'>
+<td>
+<img src='/2021Jan/images/tbl_vjoin_end.png'>
+26
+</td>
+<td>
+<a href='#DG1-26'>
+02288
+</a>
+</td>
+<td>
+Present On Admission
+</td>
+<td>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+[0..1]
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+
+</td>
+<td class='centered'>
+<div class='vocab-link'>
+<a href='https://www.hl7.org/fhir/v2/0895/index.html'>
+0895
+<span class='vocab-link-text'>Present On Admission (POA) Indicator</span>
+</a>
+</div>
+</td>
+<td class='centered'>
+<a href='/2021Jan/data-type/CWE.html'>
+CWE
+</a>
+</td>
+</tr>
+
+</tbody>
+</table>
+
+    </div>
+<h4 class='v2' id='DG1-1'>
+DG1-1: Set ID - DG1 (<a href='/2021Jan/data-type/SI.html'>SI</a>) 00375
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:   This field contains the number that identifies this transaction.  For the first occurrence of the segment the sequence number shall be 1, for the second occurrence it shall be 2, etc.</p>
+    </div>
+
+<h4 class='v2' id='DG1-2'>
+DG1-2: Diagnosis Coding Method
+</h4>
+<div>
+      <p class="v2 v2-normalindented">
+        <strong>Attention: DG1-2 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6 .</strong>
+      </p>
+    </div>
+
+<h4 class='v2' id='DG1-3'>
+DG1-3: Diagnosis Code - DG1 (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00377
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  <a href="/2021Jan/segment-definition/DG1.html#DG1-3">DG1-3 - Diagnosis Code - DG1 </a>contains the diagnosis code assigned to this diagnosis.  Refer to <a href="https://www.hl7.org/fhir/v2/0051/index.html">User-defined Table 0051 - Diagnosis Code</a> in Chapter 2C, Code Tables, for suggested values. This field is a CWE data type for compatibility with clinical and ancillary systems.  Either <a href="/2021Jan/segment-definition/DG1.html#DG1-3">DG1-3.1-Identifier</a> or <a href="/2021Jan/segment-definition/DG1.html#DG1-3">DG1-3.2-Text</a> is required.  When a code is used in <a href="/2021Jan/segment-definition/DG1.html#DG1-3">DG1-3.1-Identifier</a>, a coding system is required in <a href="/2021Jan/segment-definition/DG1.html#DG1-3">DG1-3.3-Name of Coding System</a>. </p>
+      <p class="v2 v2-normalindented">Names of various diagnosis coding systems are listed in Chapter 2, Section 2.16.4, "Coding system table."</p>
+    </div>
+
+<h4 class='v2' id='DG1-4'>
+DG1-4: Diagnosis Description
+</h4>
+<div>
+      <p class="v2 v2-normalindented">
+        <strong>Attention: DG1-4 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6.</strong>
+      </p>
+    </div>
+
+<h4 class='v2' id='DG1-5'>
+DG1-5: Diagnosis Date/Time (<a href='/2021Jan/data-type/DTM.html'>DTM</a>) 00379
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the date/time that the diagnosis was determined.</p>
+    </div>
+
+<h4 class='v2' id='DG1-6'>
+DG1-6: Diagnosis Type (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00380
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains a code that identifies the type of diagnosis being sent.  Refer to <a href="https://www.hl7.org/fhir/v2/0052/index.html">User-defined Table 0052 - Diagnosis Type</a> in Chapter 2C, Code Tables, for suggested values.  This field should no longer be used to indicate "DRG" because the DRG fields have moved to the new DRG segment.</p>
+    </div>
+
+<h4 class='v2' id='DG1-7'>
+DG1-7: Major Diagnostic Category
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/DG1.html#DG1-7">DG1.7</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">
+        <strong>Attention: DG1-7 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6 .</strong>
+      </p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/DMI.html#DMI-2">DMI.2</a> in Ch. 8)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field indicates the determined Major Diagnostic Category (MDC) value. Refer to <a href="https://www.hl7.org/fhir/v2//index.html">External Table 0118 – Major Diagnostic Category</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='DG1-8'>
+DG1-8: Diagnostic Related Group
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/DG1.html#DG1-8">DG1.8</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">
+        <strong>Attention: DG1-8 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6. </strong>
+      </p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/DRG.html#DRG-1">DRG.1</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the DRG for the transaction.  Interim DRG's could be determined for an encounter.  Refer to<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0055/index.html">Externally-defined Table 0055 – Diagnosis Related G</a><a href="/2021Jan/composition/Financial-Management.html#Financial-Management-4-7">roup</a> in Chapter 2C, Code Tables, for suggested values.  </p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/DMI.html#DMI-1">DMI.1</a> in Ch. 8)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the DRG for the transaction.  Interim DRG's could be determined for an encounter.  Refer to <a href="https://www.hl7.org/fhir/v2//index.html">External Table 0055 – Diagnosis Related Group</a> in Chapter 2C, Code Tables, for suggested values.  </p>
+    </div>
+
+<h4 class='v2' id='DG1-9'>
+DG1-9: DRG Approval Indicator
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/DG1.html#DG1-9">DG1.9</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">
+        <strong>Attention: DG1-9 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6</strong>
+      </p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/DRG.html#DRG-3">DRG.3</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field indicates if the DRG has been approved by a reviewing entity.  Refer to<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/no Indicator</a> for valid values.</p>
+      <ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none">
+        <li class="v2 v2-li">
+          <p class="v2 v2-normallist">Y    the DRG has been approved by a reviewing entity </p>
+        </li>
+        <li class="v2 v2-li">
+          <p class="v2 v2-normallist">N    the DRG has not been approved</p>
+        </li>
+      </ul>
+    </div>
+
+<h4 class='v2' id='DG1-10'>
+DG1-10: DRG Grouper Review Code
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/DG1.html#DG1-10">DG1.10</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">
+        <strong>Attention: DG1-10 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6</strong>
+      </p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/DRG.html#DRG-4">DRG.4</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This code indicates that the grouper results have been reviewed and approved.  Refer to <a href="https://www.hl7.org/fhir/v2/0056/index.html">User-defined Table 0056 - DRG Grouper Review Code</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='DG1-11'>
+DG1-11: Outlier Type
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/DG1.html#DG1-11">DG1.11</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">
+        <strong>Attention: DG1-11 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6</strong>
+      </p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/DRG.html#DRG-5">DRG.5</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  Refers to the type of outlier (i.e., period of care beyond DRG-standard stay in facility) that has been paid. Refer to <a href="https://www.hl7.org/fhir/v2/0083/index.html">User-defined Table 0083 - Outlier Type</a> in Chapter 2C, code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='DG1-12'>
+DG1-12: Outlier Days
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/DG1.html#DG1-12">DG1.12</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">
+        <strong>Attention: DG1-12 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6</strong>
+      </p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/DRG.html#DRG-6">DRG.6</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the number of days that have been approved as an outlier payment.</p>
+    </div>
+
+<h4 class='v2' id='DG1-13'>
+DG1-13: Outlier Cost
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/DG1.html#DG1-13">DG1.13</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">
+        <strong>Attention: DG1-13 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6</strong>
+      </p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/DRG.html#DRG-7">DRG.7</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the amount of money that has been approved for an outlier payment.</p>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/GP1.html#GP1-5">GP1.5</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field contains the amount that exceeds the outlier limitation as defined by APC regulations. This field is analogous to <a href="/2021Jan/segment-definition/DRG.html#DRG-7">DRG-7 - Outlier Cost</a>; however, the definition in this field note supersedes the DRG-7 definition.</p>
+    </div>
+
+<h4 class='v2' id='DG1-14'>
+DG1-14: Grouper Version And Type
+</h4>
+<div>
+      <p class="v2 v2-normalindented">
+        <strong>Attention: DG1-14 was deprecated as of v 2.3 and the detail was withdrawn and removed from the standard as of v 2.6</strong>
+      </p>
+    </div>
+
+<h4 class='v2' id='DG1-15'>
+DG1-15: Diagnosis Priority (<a href='/2021Jan/data-type/NM.html'>NM</a>) 00389
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the number that identifies the significance or priority of the diagnosis code.  Refer to <a href="https://www.hl7.org/fhir/v2/0359/index.html"> HL7 Table 0359 - Diagnosis Priority</a> in Chapter 2C, Code Tables, for suggested values. </p>
+      <p class="v2 v2-notechar"><strong>Note</strong>:  As of v 2.7, the data type has been changed to numeric.  The meaning of the values remains the same as those in <a href="https://www.hl7.org/fhir/v2/0418/index.html">HL7 Table 0418 – Procedure Priority</a>, The value 0 conveys that this procedure is not included in the ranking.  The value 1 means that this is the primary procedure.  Values 2-99 convey ranked secondary procedures.</p>
+    </div>
+
+<h4 class='v2' id='DG1-16'>
+DG1-16: Diagnosing Clinician (<a href='/2021Jan/data-type/XCN.html'>XCN</a>) 00390
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the individual responsible for generating the diagnosis information. As of v 2.7, if <a href="/2021Jan/data-type/XCN-1.html#XCN-1">XCN.1 - ID Number</a> is populated, then the <a href="/2021Jan/data-type/XCN-13.html#XCN-13">XCN.13 - Identifier Type Code</a> and the <a href="/2021Jan/data-type/XCN-9.html#XCN-9">XCN.9 - Assigning Authority</a> or <a href="/2021Jan/data-type/XCN-22.html#XCN-22">XCN.22 - Assigning Jurisdiction</a> or <a href="/2021Jan/data-type/XCN-23.html#XCN-23">XCN.23 - Assigning Agency or Department</a> are required. If <a href="/2021Jan/data-type/XCN-2.html#XCN-2">XCN.2 - Family Name</a> is populated, then the <a href="/2021Jan/data-type/XCN-10.html#XCN-10">XCN.10 - Name Type Code</a> is required. No assumptions can be safely made based on position or sequence.  Specification of meaning based on sequence is deprecated.  </p>
+    </div>
+
+<h4 class='v2' id='DG1-17'>
+DG1-17: Diagnosis Classification (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 00766
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field indicates if the patient information is for a diagnosis or a non-diagnosis code.  Refer to <a href="https://www.hl7.org/fhir/v2/0228/index.html">User-defined Table 0228 - Diagnosis Classification</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='DG1-18'>
+DG1-18: Confidential Indicator (<a href='/2021Jan/data-type/ID.html'>ID</a>) 00767
+</h4>
+<div>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/DG1.html#DG1-18">DG1.18</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field indicates whether the diagnosis is confidential.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/no Indicator</a> in Chapter 2C, "Code Tables", for valid values.</p>
+      <ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none">
+        <li class="v2 v2-li">
+          <p class="v2 v2-normallist">Y    the diagnosis is a confidential diagnosis</p>
+        </li>
+        <li class="v2 v2-li">
+          <p class="v2 v2-normallist">N    the diagnosis does not contain a confidential diagnosis</p>
+        </li>
+      </ul>
+      <p class="data-element-definition-marker">
+        <strong>(Definition from <a href="/2021Jan/segment-definition/DRG.html#DRG-10">DRG.10</a> in Ch. 6)</strong>
+      </p>
+      <p class="v2 v2-normalindented">Definition:  This field indicates if the DRG contains a confidential diagnosis.  Refer to <a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 - Yes/no Indicator</a> in Chapter 2C, Code Tables, for valid values.</p>
+      <ul class="v2 v2-list v2-none-list v2-normallist" style="list-style: none">
+        <li class="v2 v2-li">
+          <p class="v2 v2-normallist">Y    the DRG contains a confidential diagnosis</p>
+        </li>
+        <li class="v2 v2-li">
+          <p class="v2 v2-normallist">N    the DRG does not contain a confidential diagnosis</p>
+        </li>
+      </ul>
+    </div>
+
+<h4 class='v2' id='DG1-19'>
+DG1-19: Attestation Date/Time (<a href='/2021Jan/data-type/DTM.html'>DTM</a>) 00768
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the time stamp that indicates the date and time that the attestation was signed.</p>
+    </div>
+
+<h4 class='v2' id='DG1-20'>
+DG1-20: Diagnosis Identifier (<a href='/2021Jan/data-type/EI.html'>EI</a>) 01850
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains a value that uniquely identifies a single diagnosis for an encounter. It is unique across all segments and messages for an encounter.  This field is required in all implementations employing Update Diagnosis/Procedures (P12) messages.</p>
+    </div>
+
+<h4 class='v2' id='DG1-21'>
+DG1-21: Diagnosis Action Code (<a href='/2021Jan/data-type/ID.html'>ID</a>) 01894
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: This field defines the action to be taken for this diagnosis. Refer to <a href="https://www.hl7.org/fhir/v2/0206/index.html">HL7 Table 0206 - Segment Action Code</a> in Chapter 2C, "Code Tables", for valid values.  This field is required for the update diagnosis/procedures (P12) message.  In all other events it is optional.</p>
+    </div>
+
+<h4 class='v2' id='DG1-22'>
+DG1-22: Parent Diagnosis (<a href='/2021Jan/data-type/EI.html'>EI</a>) 02152
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition: This field contains the entity identifier for the parent diagnosis.  This field links the "current" manifestation diagnosis ("*") to the entity identifier of the "parent" etiological diagnosis ("+").</p>
+    </div>
+
+<h4 class='v2' id='DG1-23'>
+DG1-23: DRG CCL Value Code (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 02153
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field indicates the CCL value for the determined DRG for this diagnosis. Refer to <a href="https://www.hl7.org/fhir/v2/0728/index.html">Externally-defined Table 0728 - CCL Value</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='DG1-24'>
+DG1-24: DRG Grouping Usage (<a href='/2021Jan/data-type/ID.html'>ID</a>) 02154
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field identifies whether this particular diagnosis has been used for the DRG determination.  Refer to<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0136/index.html">HL7 Table 0136 – Yes/No Indicator</a> in Chapter 2C, Code Tables, for suggested values.  The values have the following meaning for this field:</p>
+      <p class="v2 v2-normalindented v2-indent1758">Y    Yes - Indicates that the diagnosis has been used for the DRG determination </p>
+      <p class="v2 v2-normalindented v2-indent1758">N    No – Indicates that the diagnosis has not  been used for the DRG determination</p>
+    </div>
+
+<h4 class='v2' id='DG1-25'>
+DG1-25: DRG Diagnosis Determination Status (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 02155
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the status of this particular diagnosis for the DRG determination.  Refer to<a href=""> </a><a href="https://www.hl7.org/fhir/v2/0731/index.html">User-defined Table 0731 – DRG Diagnosis Determination Status</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+<h4 class='v2' id='DG1-26'>
+DG1-26: Present On Admission (<a href='/2021Jan/data-type/CWE.html'>CWE</a>) 02288
+</h4>
+<div>
+      <p class="v2 v2-normalindented">Definition:  This field contains the present on admission indicator for this particular diagnosis. US reimbursement formulas for some states and Medicare have mandated that each diagnosis code be flagged as to whether it was present on admission or not.  Refer to <a href="https://www.hl7.org/fhir/v2/0895/index.html">User-defined Table 0895 – Present On Admission (POA) Indicator</a> in Chapter 2C, Code Tables, for suggested values.</p>
+    </div>
+
+
+</div>
+<div class='segment' id='segment-footer'>
+<div class='container'>
+<div class='inner-wrapper'>
+<p>
+®© HL7.org 2019+. HL7 v2+ generated on
+December 11, 2020
+</p>
+<p>
+<span style='color: #FFFF77'>Links:</span>
+<a href='/2021Jan/history.html' style='color: #b8dcf9'>
+Version History
+</a>
+|
+<a href='https://jira.hl7.org/projects/V2/issues' style='color: #b8dcf9' target='_blank'>
+Propose a change
+<img src='/2021Jan/images/external.png' style='text-align: baseline'>
+</a>
+|
+<a href='/2021Jan/license.html' rel='license' style='color: #b8dcf9'>
+License
+<!-- %img{:alt => "CC0", :src => "/images/cc0.png", :style => "border-style: none;"} -->
+</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>
